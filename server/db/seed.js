@@ -1,11 +1,12 @@
 const client = require('./client');
 const { exercises, users, selfCare, recipes, calendars, favoriteRecipes, favoriteExercises } = require('./seedData')
 
+
 // drop tables for clients, membership, exercises
 async function dropTables() {
-    try {
-        console.log('Dropping All Tables...');
-        await client.query(`
+  try {
+    console.log("Dropping All Tables...");
+    await client.query(`
       DROP TABLE IF EXISTS exercises CASCADE;
       DROP TABLE IF EXISTS users CASCADE;
       DROP TABLE IF EXISTS recipes CASCADE;
@@ -14,44 +15,10 @@ async function dropTables() {
       DROP TABLE IF EXISTS calendars CASCADE;
       DROP TABLE IF EXISTS selfCare CASCADE;
     `);
-    } catch (error) {
-        throw error;
-    }
+  } catch (error) {
+    throw error;
+  }
 }
-
-
-// Create exercises
-const createInitialExercises = async () => {
-    try {
-        for (const exercise of exercises) {
-            const {
-                rows: [exercise]
-            } = await client.query(`
-                INSERT INTO exercises(name, description, difficulty, imgUrl)
-                VALUES($1, $2, $3, $4);
-            `, [exercise.name, exercise.description, exercise.difficulty, exercise.imgUrl]
-            )
-        }
-        console.log("created exercises")
-    } catch (error) {
-        throw error
-    }
-}
-
-// Create exercises
-const createInitialUsers = async () => {
-    try {
-        for (const user of users) {
-            const {
-                rows: [user]
-            } = await client.query(`
-                INSERT INTO users(firstname, lastname, username, password, email)
-                VALUES($1, $2, $3, $4, $5);
-            `, [user.firstname, user.lastname, user.username, user.password, user.email]
-            )
-        }
-        console.log("created users")
-
 
 async function createTables() {
     try {
@@ -94,12 +61,12 @@ async function createTables() {
             activity_date DATE,
             activity_time TIME
         );
-        CREATE TABLE favorite_recipes (
+        CREATE TABLE favoriteRecipes (
             favorite_id SERIAL PRIMARY KEY,
             recipe_id INTEGER REFERENCES recipes(recipe_id),
             user_id INTEGER REFERENCES users(user_id)
         );
-        CREATE TABLE favorite_exercises (
+        CREATE TABLE favoriteExercises (
             favorite_id SERIAL PRIMARY KEY,
             exercise_id INTEGER REFERENCES exercises(exercise_id),
             user_id INTEGER REFERENCES users(user_id)
@@ -109,6 +76,100 @@ async function createTables() {
         console.log('error createing tables')
         throw error;
     }
+
+const createInitialCalendars = async () => {
+  try {
+    for (const date of calendars) {
+      await client.query(
+        `
+                INSERT INTO calendar(user_id, activity_date, activity_name, activity_time, activity_description, activity_link)
+                VALUES($1, $2, $3, $4, $5, $6);
+            `,
+        [
+          date.user_id,
+          date.activity_date,
+          date.activity_name,
+          date.activity_time,
+          date.activity_description,
+          date.activity_link,
+        ]
+      );
+    }
+    console.log("created calendar!");
+  } catch (error) {
+    throw error;
+  }
+};
+
+const createInitialFavoriteRecipes = async () => {
+  try {
+    for (const favRecipe of favoriteRecipes) {
+      await client.query(
+        `
+                INSERT INTO user_favorite_places(user_id, recipe_id)
+                VALUES($1, $2);
+            `,
+        [favRecipe.user_id, favRecipe.recipe_id]
+      );
+    }
+    console.log("created favorite places!");
+  } catch (error) {
+    throw error;
+  }
+};
+
+const createInitialFavoriteExercises = async () => {
+  try {
+    for (const favExercise of favoriteExercises) {
+      await client.query(
+        `
+                INSERT INTO favoriteExercises(user_id, exercise_id)
+                VALUES($1, $2);
+            `,
+        [favExercise.user_id, favExercise.exercise_id]
+      );
+    }
+
+    console.log("created favorite places!");
+  } catch (error) {
+    throw error;
+  }
+};
+}
+
+
+// Create exercises
+const createInitialExercises = async () => {
+    try {
+        for (const exercise of exercises) {
+            const {
+                rows: [exercise]
+            } = await client.query(`
+                INSERT INTO exercises(name, description, difficulty, imgUrl)
+                VALUES($1, $2, $3, $4);
+            `, [exercise.name, exercise.description, exercise.difficulty, exercise.imgUrl]
+            )
+        }
+        console.log("created exercises")
+    } catch (error) {
+        throw error
+    }
+}
+
+
+const createInitialUsers = async () => {
+    try {
+        for (const user of users) {
+            const {
+                rows: [user]
+            } = await client.query(`
+                INSERT INTO users(firstname, lastname, username, password, email)
+                VALUES($1, $2, $3, $4, $5);
+            `, [user.firstname, user.lastname, user.username, user.password, user.email]
+            )
+        }
+        console.log("created users")
+
 
 const createInitialSelfCare = async () => {
     try {
@@ -127,6 +188,24 @@ const createInitialSelfCare = async () => {
     }
 }
 
+const createInitialRecipes = async () => {
+    try {
+        for (const recipe of recipes) {
+            await client.query(
+                `
+                INSERT INTO recipes(name, difficulty, recipe_yield, imgUrl)
+                VALUES($1, $2, $3, $4)
+                `,
+                [recipe.name, recipe.difficulty, recipe.recipe_yield, recipe.imgUrl, recipe.description]
+            )
+        }
+        console.log("created recipes!")
+    } catch (error) {
+        throw error
+    }
+}
+
+
 
 // Call all functions to build the db
 const buildDb = async () => {
@@ -137,7 +216,6 @@ const buildDb = async () => {
         // run the functions
         await dropTables()
         await createTables()
-
         await createInitialExercises()
         await createInitialUsers()
         await createInitialSelfCare()
@@ -155,19 +233,4 @@ const buildDb = async () => {
 }
 buildDb()
 
-const createInitialRecipes = async () => {
-    try {
-        for (const recipe of recipes) {
-            await client.query(
-                `
-                INSERT INTO recipes(name, difficulty, recipe_yield, imgUrl)
-                VALUES($1, $2, $3, $4)
-                `,
-                [recipe.name, recipe.difficulty, recipe.recipe_yield, recipe.imgUrl, recipe.description]
-            )
-        }
-        console.log("created recipes!")
-    } catch (error) {
-        throw error
-    }
-}
+
