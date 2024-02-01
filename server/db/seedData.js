@@ -101,14 +101,13 @@ const recipes = [
         recipe_yield: 2,
         imgUrl: "no-image.jpeg",
         description: "Two pieces of bread, peanut butter, and jelly."
-
     },
     {
         name: "Salad",
         difficulty: "Medium",
         recipe_yield: 4,
         imgUrl: "no-image.jpeg",
-        description: "Chopped lettuce, tomatoes, and cucumbers with dressing."
+        description: "Chopped lettuce, tomatoes, and cucumbers with dressing."  
     },
     {
         name: "Grilled Cheese",
@@ -122,14 +121,14 @@ const recipes = [
         difficulty: "Easy",
         recipe_yield: 4,
         imgUrl: "no-image.jpeg",
-        description: "Cooked noodles with butter."
+        description: "Cooked noodles with butter."  
     },
     {
         name: "Pizza",
         difficulty: "Hard",
         recipe_yield: 1,
         imgUrl: "no-image.jpeg",
-        description: "Pizza crust with tomato sauce and cheese."
+        description: "Pizza crust with tomato sauce and cheese."  
     }
 ]
 
@@ -142,8 +141,6 @@ const calendars = [
         activity_description: "making a spanish omelet",
         activity_link: "https://www.youtube.com/watch?v=epIdjMaHa_w"
     }
-
-
 ]
 
 const favoriteRecipes = [
@@ -185,3 +182,5 @@ const favoriteExercises = [
     }
 
 ]
+
+module.exports= { exercises, users, selfcare, recipes, calendar, favoriteRecipes, favoriteExercises }
