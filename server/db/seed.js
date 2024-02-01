@@ -19,23 +19,6 @@ async function dropTables() {
     }
 }
 
-// self care and recipes and create
-
-
-const createIntiialSelfCare = async () => {
-    try {
-        for (const activity of selfCare) {
-            await client.query(
-                `
-                `,
-                [activity.name, activity.description, activity.article_url]
-            )
-        }
-        console.log("created self care!")
-    } catch (error) {
-        throw error
-    }
-}
 
 const createInitialSelfCare = async () => {
     try {
