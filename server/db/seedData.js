@@ -95,7 +95,7 @@ const recipes = [
         name: "Peanut Butter & Jelly Sandwich",
         difficulty: "Easy",
         recipe_yield: 2,
-        image_url: "no-image.jpeg",
+        imgUrl: "no-image.jpeg",
         description: "Two pieces of bread, peanut butter, and jelly."
 
     },
@@ -103,28 +103,28 @@ const recipes = [
         name: "Salad",
         difficulty: "Medium",
         recipe_yield: 4,
-        image_url: "no-image.jpeg",
+        imgUrl: "no-image.jpeg",
         description: "Chopped lettuce, tomatoes, and cucumbers with dressing."  
     },
     {
         name: "Grilled Cheese",
         difficulty: "Medium",
         recipe_yield: 1,
-        image_url: "no-image.jpeg",
+        imgUrl: "no-image.jpeg",
         description: "Two pieces of cheese in between two pieces of bread, heated on stove until bread is browned and cheese is melted."  
     },
     {
         name: "Buttered Noodles",
         difficulty: "Easy",
         recipe_yield: 4,
-        image_url: "no-image.jpeg",
+        imgUrl: "no-image.jpeg",
         description: "Cooked noodles with butter."  
     },
     {
         name: "Pizza",
         difficulty: "Hard",
         recipe_yield: 1,
-        image_url: "no-image.jpeg",
+        imgUrl: "no-image.jpeg",
         description: "Pizza crust with tomato sauce and cheese."  
     }
 ]
@@ -181,3 +181,5 @@ const favoriteExercises = [
     }
 
 ]
+
+module.exports= { exercises, users, selfcare, recipes, calendar, favoriteRecipes, favoriteExercises }
