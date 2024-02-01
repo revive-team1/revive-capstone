@@ -1,4 +1,5 @@
 const client = require('./client');
+const { exercises, users, selfcare, recipes, calendar, favoriteRecipes, favoriteExercises } = require('./seedData')
 
 // drop tables for clients, membership, exercises
 async function dropTables() {
