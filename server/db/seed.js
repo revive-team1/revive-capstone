@@ -18,3 +18,49 @@ async function dropTables() {
         throw error;
     }
 }
+
+
+const createInitialSelfCare = async () => {
+    try {
+        for (const activity of selfCare) {
+            await client.query(
+                `
+                INSERT INTO selfCare(name, description, article_url)
+                VALUES($1, $2, $3)
+                `,
+                [activity.name, activity.description, activity.article_url]
+            )
+        }
+        console.log("created self care!")
+    } catch (error) {
+        throw error
+    }
+}
+
+const createInitialRecipes = async () => {
+    try {
+        for (const recipe of recipes) {
+            await client.query(
+                `
+                INSERT INTO recipes(name, difficulty, recipe_yield, imgUrl)
+                VALUES($1, $2, $3, $4)
+                `,
+                [recipe.name, recipe.difficulty, recipe.recipe_yield, recipe.imgUrl, recipe.description]
+            )
+        }
+        console.log("created recipes!")
+    } catch (error) {
+        throw error
+    }
+}
+
+
+
+
+
+
+
+
+
+
+}
