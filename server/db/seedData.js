@@ -135,7 +135,7 @@ const recipes = [
 const calendars = [
     {
         user_id: 1,
-        activity_date: "02/30/2024",
+        activity_date: "02/28/2024",
         activity_name: "Cook breakfast",
         activity_time: "10:00am",
         activity_description: "making a spanish omelet",
@@ -183,4 +183,4 @@ const favoriteExercises = [
 
 ]
 
-module.exports= { exercises, users, selfcare, recipes, calendar, favoriteRecipes, favoriteExercises }
+module.exports= { exercises, users, selfCare, recipes, calendars, favoriteRecipes, favoriteExercises }

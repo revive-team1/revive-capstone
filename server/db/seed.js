@@ -28,13 +28,13 @@ async function createTables() {
             exercise_id SERIAL PRIMARY KEY,
             name TEXT,
             description TEXT,
-            "imgUrl" TEXT,
+            imgUrl TEXT,
             difficulty TEXT
         );
         CREATE TABLE users (
-            users_id SERIAL PRIMARY KEY,
-            firstname TEXT,
-            lastname TEXT,
+            user_id SERIAL PRIMARY KEY,
+            firstname TEXT NOT NULL,
+            lastname TEXT NOT NULL,
             username TEXT UNIQUE NOT NULL,
             password TEXT NOT NULL, 
             email TEXT UNIQUE NOT NULL
@@ -44,7 +44,7 @@ async function createTables() {
             name TEXT, 
             difficulty TEXT, 
             recipe_yield TEXT, 
-            "imgUrl" TEXT,
+            imgUrl TEXT,
             description TEXT
         );
         CREATE TABLE selfCare (
@@ -55,11 +55,12 @@ async function createTables() {
         );
         CREATE TABLE calendars (
             calendar_id SERIAL PRIMARY KEY,
-            user_id,
+            user_id INTEGER REFERENCES users(user_id),
             activity_name TEXT,
             activity_description TEXT,
             activity_date DATE,
-            activity_time TIME
+            activity_time TIME,
+            activity_link TEXT
         );
         CREATE TABLE favoriteRecipes (
             favorite_id SERIAL PRIMARY KEY,
@@ -73,78 +74,90 @@ async function createTables() {
         );
         `);
     } catch (error) {
-        console.log('error createing tables')
+        console.log('error creating tables')
         throw error;
-    }
-
-    const createInitialCalendars = async () => {
-        try {
-            for (const date of calendars) {
-                await client.query(
-                    `
-                INSERT INTO calendar(user_id, activity_date, activity_name, activity_time, activity_description, activity_link)
-                VALUES($1, $2, $3, $4, $5, $6);
-            `,
-                    [
-                        date.user_id,
-                        date.activity_date,
-                        date.activity_name,
-                        date.activity_time,
-                        date.activity_description,
-                        date.activity_link,
-                    ]
-                );
-            }
-            console.log("created calendar!");
-        } catch (error) {
-            throw error;
-        }
-    };
-
-    const createInitialFavoriteRecipes = async () => {
-        try {
-            for (const favRecipe of favoriteRecipes) {
-                await client.query(
-                    `
-                INSERT INTO user_favorite_places(user_id, recipe_id)
-                VALUES($1, $2);
-            `,
-                    [favRecipe.user_id, favRecipe.recipe_id]
-                );
-            }
-            console.log("created favorite places!");
-        } catch (error) {
-            throw error;
-        }
-    };
-
-    const createInitialFavoriteExercises = async () => {
-        try {
-            for (const favExercise of favoriteExercises) {
-                await client.query(
-                    `
-                INSERT INTO favoriteExercises(user_id, exercise_id)
-                VALUES($1, $2);
-            `,
-                    [favExercise.user_id, favExercise.exercise_id]
-                );
-            }
-
-            console.log("created favorite places!");
-        } catch (error) {
-            throw error;
-        }
-    };
+    }  
 }
 
+const createInitialCalendars = async () => {
+    try {
+        for (const date of calendars) {
+            await client.query(
+                `
+            INSERT INTO calendars(user_id, activity_date, activity_name, activity_time, activity_description, activity_link)
+            VALUES($1, $2, $3, $4, $5, $6);
+        `,
+                [
+                    date.user_id,
+                    date.activity_date,
+                    date.activity_name,
+                    date.activity_time,
+                    date.activity_description,
+                    date.activity_link,
+                ]
+            );
+        }
+        console.log("created calendars!");
+    } catch (error) {
+        throw error;
+    }
+};
 
-// Create exercises
+const createInitialFavoriteRecipes = async () => {
+    try {
+        for (const favRecipe of favoriteRecipes) {
+            await client.query(
+                `
+            INSERT INTO favoriteRecipes(user_id, recipe_id)
+            VALUES($1, $2);
+        `,
+                [favRecipe.user_id, favRecipe.recipe_id]
+            );
+        }
+        console.log("created favorite recipes!");
+    } catch (error) {
+        throw error;
+    }
+};
+
+const createInitialFavoriteExercises = async () => {
+    try {
+        for (const favExercise of favoriteExercises) {
+            await client.query(
+                `
+            INSERT INTO favoriteExercises(user_id, exercise_id)
+            VALUES($1, $2);
+        `,
+                [favExercise.user_id, favExercise.exercise_id]
+            );
+        }
+
+        console.log("created favorite exercises!");
+    } catch (error) {
+        throw error;
+    }
+};
+
+const createInitialUsers = async () => {
+   
+    try {
+        for (const user of users) {
+           await client.query(`
+                INSERT INTO users(firstname, lastname, username, password, email)
+                VALUES($1, $2, $3, $4, $5);
+            `, [user.firstname, user.lastname, user.username, user.password, user.email]
+            )
+        }
+        console.log("created users")
+    } catch (error) {
+        throw error
+    }
+};
+
 const createInitialExercises = async () => {
     try {
         for (const exercise of exercises) {
-            const {
-                rows: [exercise]
-            } = await client.query(`
+            await client.query(`
                 INSERT INTO exercises(name, description, difficulty, imgUrl)
                 VALUES($1, $2, $3, $4);
             `, [exercise.name, exercise.description, exercise.difficulty, exercise.imgUrl]
@@ -155,25 +168,6 @@ const createInitialExercises = async () => {
         throw error
     }
 }
-
-
-const createInitialUsers = async () => {
-    try {
-        for (const user of users) {
-            const {
-                rows: [user]
-            } = await client.query(`
-                INSERT INTO users(firstname, lastname, username, password, email)
-                VALUES($1, $2, $3, $4, $5);
-            `, [user.firstname, user.lastname, user.username, user.password, user.email]
-            )
-        }
-        console.log("created users")
-    } catch (error) {
-        throw error
-    }
-}
-
 
 const createInitialSelfCare = async () => {
     try {
@@ -197,8 +191,8 @@ const createInitialRecipes = async () => {
         for (const recipe of recipes) {
             await client.query(
                 `
-                INSERT INTO recipes(name, difficulty, recipe_yield, imgUrl)
-                VALUES($1, $2, $3, $4)
+                INSERT INTO recipes(name, difficulty, recipe_yield, imgUrl, description)
+                VALUES($1, $2, $3, $4, $5)
                 `,
                 [recipe.name, recipe.difficulty, recipe.recipe_yield, recipe.imgUrl, recipe.description]
             )
@@ -209,8 +203,6 @@ const createInitialRecipes = async () => {
     }
 }
 
-
-
 // Call all functions to build the db
 const buildDb = async () => {
     try {
@@ -220,8 +212,8 @@ const buildDb = async () => {
         // run the functions
         await dropTables()
         await createTables()
-        await createInitialExercises()
         await createInitialUsers()
+        await createInitialExercises()
         await createInitialSelfCare()
         await createInitialRecipes()
         await createInitialCalendars()
