@@ -8,13 +8,13 @@ const exercises = [
 
     {
         name: 'Reverse Lunge',
-        description: 'facing forward, step backward with one foot and lower your hips until the front thigh is parallel to the ground, then push back to the starting position.', 
+        description: 'facing forward, step backward with one foot and lower your hips until the front thigh is parallel to the ground, then push back to the starting position.',
         difficulty: 'beginner',
         imgUrl: 'no-image.jpeg'
     },
 
     {
-        name: 'Burpee', 
+        name: 'Burpee',
         description: 'dropping to a squat, kicking the feet back to a plank position, doing a push-up, returning to the squat, and jumping up with arms overhead.',
         difficulty: 'intermediate',
         imgUrl: 'no-image.jpeg'
@@ -36,25 +36,29 @@ const exercises = [
 ]
 
 const users = [
-    {firstname: 'Cheyenne',
+    {
+        firstname: 'Cheyenne',
         lastname: 'P',
         username: 'Cheyenne',
         password: 'password1',
         email: 'user1@gmail.com'
     },
-    {firstname: 'Sophie',
+    {
+        firstname: 'Sophie',
         lastname: 'S',
         username: 'Sophie',
         password: 'password2',
         email: 'user2@gmail.com'
     },
-    {firstname: 'Caroline',
+    {
+        firstname: 'Caroline',
         lastname: 'T',
         username: 'Caroline',
         password: 'password3',
         email: 'user3@gmail.com'
     },
-    {firstname: 'Melissa',
+    {
+        firstname: 'Melissa',
         lastname: 'C',
         username: 'Melissa',
         password: 'password4',
@@ -62,7 +66,7 @@ const users = [
     },
 ]
 
-const selfcare = [
+const selfCare = [
     {
         name: 'Drink water',
         description: 'Drink 72oz of water',
@@ -97,7 +101,6 @@ const recipes = [
         recipe_yield: 2,
         imgUrl: "no-image.jpeg",
         description: "Two pieces of bread, peanut butter, and jelly."
-
     },
     {
         name: "Salad",
@@ -111,7 +114,7 @@ const recipes = [
         difficulty: "Medium",
         recipe_yield: 1,
         imgUrl: "no-image.jpeg",
-        description: "Two pieces of cheese in between two pieces of bread, heated on stove until bread is browned and cheese is melted."  
+        description: "Two pieces of cheese in between two pieces of bread, heated on stove until bread is browned and cheese is melted."
     },
     {
         name: "Buttered Noodles",
@@ -129,7 +132,7 @@ const recipes = [
     }
 ]
 
-const calendar = [ 
+const calendars = [
     {
         user_id: 1,
         activity_date: "02/30/2024",
@@ -138,8 +141,6 @@ const calendar = [
         activity_description: "making a spanish omelet",
         activity_link: "https://www.youtube.com/watch?v=epIdjMaHa_w"
     }
-       
-    
 ]
 
 const favoriteRecipes = [
@@ -148,7 +149,7 @@ const favoriteRecipes = [
         recipe_id: 2,
     },
     {
-        user_id: 2, 
+        user_id: 2,
         recipe_id: 3,
     },
     {
@@ -168,7 +169,7 @@ const favoriteExercises = [
         exercise_id: 2,
     },
     {
-        user_id: 2, 
+        user_id: 2,
         exercise_id: 3,
     },
     {
