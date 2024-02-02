@@ -30,13 +30,13 @@ async function getExercisesById(id) {
 
 //POST - /api/exercises - create new exercise
 async function createExercises(body) {
-    const { name, description, imgURL } = body;
+    const { name, description, imgUrl, difficulty } = body;
     try {
         const { rows: [exercises] } = await client.query(`
         INSERT INTO exercises(name, description, imgUrl, difficulty)
-        VALUES($1, $2, $3)
+        VALUES($1, $2, $3, $4)
         RETURNING *;
-        `, [name, description, imgURL]);
+        `, [name, description, imgUrl, difficulty]);
         return exercises;
     } catch (error) {
         throw new Error(`POST request did not work ${error.message} :(`)
