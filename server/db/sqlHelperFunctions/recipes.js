@@ -76,7 +76,7 @@ const deleteRecipeByID = async (recipeID) => {
 
 
 
-module.exports = { createRecipe, getRecipeByID, getAllRecipes }
+module.exports = { createRecipe, getRecipeByID, getAllRecipes, deleteRecipeByID, updateRecipeByID}
 
 
 
