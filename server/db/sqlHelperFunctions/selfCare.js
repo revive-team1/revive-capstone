@@ -6,7 +6,7 @@ async function getAllSelfCare() {
         const { rows: selfCare } = await client.query(`SELECT * FROM selfCare`);
         return selfCare;
     } catch (error) {
-        throw new Error("error")
+        throw new error(`Get all request did not work ${error.message} :(`)
     }
 }
 
@@ -19,7 +19,7 @@ async function getSelfCareById(id) {
         `, [id]);
         return selfCare;
     } catch (error) {
-        throw error;
+        throw new error(`Get all by request did not work ${error.message} :(`)
     }
 }
 
@@ -33,7 +33,7 @@ async function createSelfCare(body) {
         `, [body.name, body.description, body.article_url]);
         return selfCare;
     } catch (error) {
-        throw error;
+        throw new error(`Create new request did not work ${error.message} :(`)
     }
 }
 // PUT - /api/selfCare/:selfCare_id - update a single selfCare by id
@@ -55,7 +55,7 @@ async function updateSelfCare(id, fields = {}) {
 
         return selfCare;
     } catch (error) {
-        throw error;
+        throw new error(`Update by id did not work ${error.message} :(`)
     }
 }
 
@@ -69,7 +69,7 @@ async function deleteSelfCareById(id) {
     `, [id]);
         return selfCare;
     } catch (error) {
-        throw error;
+        throw new error(`Delete request did not work ${error.message} :(`)
     }
 }
 
