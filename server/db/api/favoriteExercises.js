@@ -18,9 +18,11 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/:id", async (req, res, next) => {
+router.get("/:favorite_id", async (req, res, next) => {
   try {
-    const favoriteExcercise = await getFavoriteExerciseById(req.params.id);
+    const favoriteExcercise = await getFavoriteExerciseById(
+      req.params.favorite_id
+    );
     res.send(favoriteExcercise);
   } catch (error) {
     next(error);
@@ -36,9 +38,11 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-router.delete("/:id", async (req, res, next) => {
+router.delete("/:favorite_id", async (req, res, next) => {
   try {
-    const favoriteExercise = await deleteFavoriteExercise(req.params.id);
+    const favoriteExercise = await deleteFavoriteExercise(
+      req.params.favorite_id
+    );
     res.send(favoriteExercise);
   } catch (error) {
     next(error);
@@ -47,7 +51,9 @@ router.delete("/:id", async (req, res, next) => {
 
 router.get("/:user_id", async (req, res, next) => {
   try {
-    const favoriteExercise = await getFavoriteExercisesByUserId(req.params.id);
+    const favoriteExercise = await getFavoriteExercisesByUserId(
+      req.params.user_id
+    );
     res.send(favoriteExercise);
   } catch (error) {
     next(error);

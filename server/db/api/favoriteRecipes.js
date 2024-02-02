@@ -18,9 +18,9 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/:id", async (req, res, next) => {
+router.get("/:favorite_id", async (req, res, next) => {
   try {
-    const favoriteRecipe = await getFavoriteRecipeById(req.params.id);
+    const favoriteRecipe = await getFavoriteRecipeById(req.params.favorite_id);
     res.send(favoriteRecipe);
   } catch (error) {
     next(error);
@@ -36,9 +36,9 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-router.delete("/:id", async (req, res, next) => {
+router.delete("/:favorite_id", async (req, res, next) => {
   try {
-    const favoriteRecipe = await deleteFavoriteRecipe(req.params.id);
+    const favoriteRecipe = await deleteFavoriteRecipe(req.params.favorite_id);
     res.send(favoriteRecipe);
   } catch (error) {
     next(error);
@@ -47,7 +47,9 @@ router.delete("/:id", async (req, res, next) => {
 
 router.get("/:user_id", async (req, res, next) => {
   try {
-    const favoriteRecipes = await getFavoriteRecipesByUserId(req.params.id);
+    const favoriteRecipes = await getFavoriteRecipesByUserId(
+      req.params.user_id
+    );
     res.send(favoriteRecipes);
   } catch (error) {
     next(error);
