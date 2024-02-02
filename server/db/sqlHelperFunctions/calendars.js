@@ -1,5 +1,4 @@
 const client = require("../client");
-// const util = require("../util");
 
 async function getAllCalendarAppointments() {
   try {
@@ -21,9 +20,9 @@ async function getCalendarAppointmentById(id) {
           SELECT * FROM calendars
           WHERE calendars.calendar_id = $1;
       `,
-      [appointment]
+      [id]
     );
-    return;
+    return appointment;
   } catch (error) {
     throw error;
   }
