@@ -24,7 +24,7 @@ const getRecipeByID = async (recipeID) => {
         const results = await client.query(query)
         return results
     } catch (error) {
-        console.error("getRecipeByID error", error)
+        throw new Error(`get by ID request did not work ${error.message}`)
     }
 }
 
@@ -37,7 +37,7 @@ const getAllRecipes = async (recipeID) => {
         const results = await client.query(query)
         return results
     } catch (error) {
-        console.error("getRecipeByID error", error)
+        throw new Error(`get all request did not work ${error.message}`)
     }
 }
 
@@ -54,7 +54,7 @@ const updateRecipeByID = async (recipeID, updatedRecipe) => {
         const result = await client.query(query, values);
         return result;
     } catch (error) {
-        console.error("updateRecipeByID error", error);
+        throw new Error(`put request did not work ${error.message}`)
     }
 }
 
@@ -70,7 +70,7 @@ const deleteRecipeByID = async (recipeID) => {
         const result = await client.query(query, values);
         return result;
     } catch (error) {
-        console.error("deleteRecipeByID error", error);
+        throw new Error(`delete by ID request did not work ${error.message}`)
     }
 }
 
