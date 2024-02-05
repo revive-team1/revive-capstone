@@ -20,7 +20,7 @@ async function getExercisesById(id) {
     try {
         const { rows: [exercises] } = await client.query(`
         SELECT * FROM exercises
-        WHERE id = $1;
+        WHERE exercise_id = $1;
         `, [id]);
         return exercises;
     } catch (error) {
@@ -53,7 +53,7 @@ async function updateExercises(id, fields = {}) {
         const { rows: [exercises] } = await client.query(`
         UPDATE exercises
         SET ${setString}
-        WHERE id=${id}
+        WHERE exercise_id=${id}
         RETURNING *;
         `, Object.values(fields));
         return exercises;
@@ -67,7 +67,7 @@ async function deleteExercises(id) {
     try {
         const { rows: [exercises] } = await client.query(`
         DELETE FROM exercises
-        WHERE id=$1
+        WHERE exercise_id=$1
         RETURNING *;
         `, [id]);
         return exercises;

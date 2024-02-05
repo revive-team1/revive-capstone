@@ -9,7 +9,7 @@ const {
     createUser, 
     getAllUsers,
     getUserByEmail
-} = require('../db/sqlHelperFunctions/favoriteRecipes.js');
+} = require('../db/sqlHelperFunctions/users.js');
 
 // GET - /api/users - get all users
 router.get('/', async(req, res, next) => {
@@ -27,7 +27,7 @@ router.post('/register', async (req, res, next) => {
     try {
         const { firstname, lastname, username, password, email } = req.body;
         const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
-        const user = await createUser({ firstname, lastname, username, password, email: hashedPassword });
+        const user = await createUser({ firstname, lastname, username, email, password: hashedPassword });
         delete user.password;
         
         const token = jwt.sign(user, JWT_SECRET);

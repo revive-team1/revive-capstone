@@ -29,7 +29,7 @@ router.get('/:exercise_id', async (req, res, next) => {
 });
 
 //POST - /api/exercises - create a new exercise
-router.post('/', authRequired, async (req, res, next) => {
+router.post('/', async (req, res, next) => {
     try {
         const exercise = await createExercises(req.body);
         res.send(exercise);
@@ -39,7 +39,7 @@ router.post('/', authRequired, async (req, res, next) => {
 });
 
 //PUT - /api/exercises/:id - update a single exercise by id
-router.put('/:exercise_id', authRequired, async (req, res, next) => {
+router.put('/:exercise_id', async (req, res, next) => {
     try {
         const exercise = await updateExercises(req.params.exercise_id, req.body);
         res.send(exercise);
@@ -49,7 +49,7 @@ router.put('/:exercise_id', authRequired, async (req, res, next) => {
 });
 
 //DELETE - /api/exercises/:id - delete a single exercise by id
-router.delete('/:exercise_id', authRequired, async (req, res, next) => {
+router.delete('/:exercise_id', async (req, res, next) => {
     try {
         const exercise = await deleteExercises(req.params.exercise_id);
         res.send(exercise);
