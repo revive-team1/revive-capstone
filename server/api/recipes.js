@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const { createRecipe, getRecipeByID, getAllRecipes, deleteRecipeByID, updateRecipeByID } = require("../sqlHelperFunctions/recipes")
+const { createRecipe, getRecipeByID, getAllRecipes, deleteRecipeByID, updateRecipeByID } = require("../db/sqlHelperFunctions/recipes")
 
 
 //GET - /api/recipes - get all recipes

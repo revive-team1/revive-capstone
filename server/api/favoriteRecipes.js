@@ -7,7 +7,7 @@ const {
   addFavoriteRecipe,
   deleteFavoriteRecipe,
   getFavoriteRecipesByUserId,
-} = require("../sqlHelperFunctions/favoriteRecipes.js");
+} = require("../db/sqlHelperFunctions/favoriteRecipes.js");
 
 router.get("/", async (req, res, next) => {
   try {

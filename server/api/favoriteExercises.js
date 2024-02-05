@@ -7,7 +7,7 @@ const {
   addFavoriteExercise,
   deleteFavoriteExercise,
   getFavoriteExercisesByUserId,
-} = require("../sqlHelperFunctions/favoriteExercises.js");
+} = require("../db/sqlHelperFunctions/favoriteExercises.js");
 
 router.get("/", async (req, res, next) => {
   try {

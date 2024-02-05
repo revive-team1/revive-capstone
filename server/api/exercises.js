@@ -5,7 +5,7 @@ const { getAllExercises,
     getExercisesById,
     createExercises,
     updateExercises, 
-    deleteExercises } = require('../sqlHelperFunctions/exercises');
+    deleteExercises } = require('../db/sqlHelperFunctions/exercises');
 const { authRequired } = require('./utils');
 
 //GET - /api/exercises - get all exercises

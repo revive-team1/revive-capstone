@@ -9,7 +9,7 @@ const {
     createUser, 
     getAllUsers,
     getUserByEmail
-} = require('../sqlHelperFunctions/users');
+} = require('../db/sqlHelperFunctions/favoriteRecipes.js');
 
 // GET - /api/users - get all users
 router.get('/', async(req, res, next) => {

@@ -7,7 +7,7 @@ const {
   createCalendarAppointment,
   deleteCalendarAppointment,
   updateCalendarAppointment,
-} = require("../sqlHelperFunctions/calendars.js");
+} = require("../db/sqlHelperFunctions/calendars.js");
 
 router.get("/", async (req, res, next) => {
   try {
