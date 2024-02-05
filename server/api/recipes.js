@@ -15,9 +15,9 @@ router.get('/', async (req, res, next) => {
 });
 
 //GET - /api/recipes/:id - get a single recipe by id
-router.get('/:id', async (req, res, next) => {
+router.get('/:recipe_id', async (req, res, next) => {
     try {
-        const recipe = await getRecipeByID(req.params.id);
+        const recipe = await getRecipeByID(req.params.recipe_id);
         res.send(recipe);
     } catch (error) {
         next(error);
@@ -35,9 +35,9 @@ router.post('/', authRequired, async (req, res, next) => {
 });
 
 //PUT - /api/recipes/:id - update a single recipe by id
-router.put('/:id', authRequired, async (req, res, next) => {
+router.put('/:recipe_id', authRequired, async (req, res, next) => {
     try {
-        const recipe = await updateRecipeByID(req.params.id, req.body);
+        const recipe = await updateRecipeByID(req.params.recipe_id, req.body);
         res.send(recipe);
     } catch (error) {
         next(error);
@@ -45,9 +45,9 @@ router.put('/:id', authRequired, async (req, res, next) => {
 });
 
 //DELETE - /api/recipes/:id - delete a single recipe by id
-router.delete('/:id', authRequired, async (req, res, next) => {
+router.delete('/:recipe_id', authRequired, async (req, res, next) => {
     try {
-        const recipe = await deleteRecipeByID(req.params.id);
+        const recipe = await deleteRecipeByID(req.params.recipe_id);
         res.send(recipe);
     } catch (error) {
         next(error);
