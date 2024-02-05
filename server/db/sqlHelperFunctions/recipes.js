@@ -63,7 +63,7 @@ async function updateRecipeByID(id, fields = {}) {
 }
 
 // DELETE - /api/recipes/:id - delete a single recipe by id
-async function deleteRecipe(id) {
+async function deleteRecipeByID(id) {
     try {
         const { rows: [recipes] } = await client.query(`
         DELETE FROM recipes
@@ -77,5 +77,5 @@ async function deleteRecipe(id) {
 }
 
 module.exports = {
-    getAllRecipes, getRecipeByID, createRecipe, updateRecipeByID, deleteRecipe
+    getAllRecipes, getRecipeByID, createRecipe, updateRecipeByID, deleteRecipeByID
 }
