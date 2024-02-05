@@ -9,7 +9,7 @@ const {
   updateCalendarAppointment,
 } = require("../db/sqlHelperFunctions/calendars.js");
 
-const { authRequired } = require('./utils');
+const { authRequired } = require("./utils");
 
 router.get("/", async (req, res, next) => {
   try {
