@@ -19,9 +19,9 @@ router.get('/', async (req, res, next) => {
 });
 
 //GET - /api/exercises/:id - get a single exercise by id
-router.get('/:id', async (req, res, next) => {
+router.get('/:exercise_id', async (req, res, next) => {
     try {
-        const exercise = await getExercisesById(req.params.id);
+        const exercise = await getExercisesById(req.params.exercise_id);
         res.send(exercise);
     } catch (error) {
         next(error);
@@ -39,9 +39,9 @@ router.post('/', authRequired, async (req, res, next) => {
 });
 
 //PUT - /api/exercises/:id - update a single exercise by id
-router.put('/:id', authRequired, async (req, res, next) => {
+router.put('/:exercise_id', authRequired, async (req, res, next) => {
     try {
-        const exercise = await updateExercises(req.params.id, req.body);
+        const exercise = await updateExercises(req.params.exercise_id, req.body);
         res.send(exercise);
     } catch (error) {
         next(error);
@@ -49,9 +49,9 @@ router.put('/:id', authRequired, async (req, res, next) => {
 });
 
 //DELETE - /api/exercises/:id - delete a single exercise by id
-router.delete('/:id', authRequired, async (req, res, next) => {
+router.delete('/:exercise_id', authRequired, async (req, res, next) => {
     try {
-        const exercise = await deleteExercises(req.params.id);
+        const exercise = await deleteExercises(req.params.exercise_id);
         res.send(exercise);
     } catch (error) {
         next(error);
