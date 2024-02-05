@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { JWT_SECRET } = require("../..secrets");
+const { JWT_SECRET } = require("../secrets");
 const SALT_ROUNDS = 10;
 
 const { 

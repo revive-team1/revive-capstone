@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const { createRecipe, getRecipeByID, getAllRecipes, deleteRecipeByID, updateRecipeByID } = require("../db/sqlHelperFunctions/recipes")
+const { authRequired } = require('./utils');
 
 
 //GET - /api/recipes - get all recipes
