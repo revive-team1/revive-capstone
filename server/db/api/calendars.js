@@ -18,9 +18,11 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/:id", async (req, res, next) => {
+router.get("/calendar_id", async (req, res, next) => {
   try {
-    const appointment = await getCalendarAppointmentById(req.params.id);
+    const appointment = await getCalendarAppointmentById(
+      req.params.calendar_id
+    );
     res.send(appointment);
   } catch (error) {
     next(error);
@@ -36,19 +38,19 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-router.delete("/:id", async (req, res, next) => {
+router.delete("/calendar_id", async (req, res, next) => {
   try {
-    const appointment = await deleteCalendarAppointment(req.params.id);
+    const appointment = await deleteCalendarAppointment(req.params.calendar_id);
     res.send(appointment);
   } catch (error) {
     next(error);
   }
 });
 
-router.put("/:id", authRequired, async (req, res, next) => {
+router.put("/:calendar_id", authRequired, async (req, res, next) => {
   try {
     const appointment = await updateCalendarAppointment(
-      req.params.id,
+      req.params.calendar_id,
       req.body
     );
     res.send(appointment);
