@@ -18,7 +18,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/calendar_id", async (req, res, next) => {
+router.get("/:calendar_id", async (req, res, next) => {
   try {
     const appointment = await getCalendarAppointmentById(
       req.params.calendar_id
@@ -38,7 +38,7 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-router.delete("/calendar_id", async (req, res, next) => {
+router.delete("/:calendar_id", async (req, res, next) => {
   try {
     const appointment = await deleteCalendarAppointment(req.params.calendar_id);
     res.send(appointment);
