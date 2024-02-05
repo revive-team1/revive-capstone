@@ -93,14 +93,14 @@ async function updateCalendarAppointment(id, fields = {}) {
       `
       UPDATE calendars
       SET ${setString}
-      WHERE id=${id}
+      WHERE calendar_id=${id}
       RETURNING *;
       `,
       Object.values(fields)
     );
-    return calendars;
+    return appointments;
   } catch (error) {
-    throw new Error("PUT request did not work, try again :(");
+    throw new Error(`PUT request did not work: ${error.message} :(`);
   }
 }
 
