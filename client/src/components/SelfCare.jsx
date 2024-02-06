@@ -30,7 +30,7 @@ export default function SelfCare() {
       </div>
       
       <div className="selfCare">
-        {data.selfCare.filter((selfCareIdea) => {
+        {data.filter((selfCareIdea) => {
           return search.toLowerCase() === '' ? selfCareIdea : selfCareIdea.name.toLowerCase().includes(search)
         }).map((selfCareIdea) => (
           <div key={selfCareIdea.selfCare_id} className="selfCareCard">
