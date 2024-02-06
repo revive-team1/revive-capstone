@@ -37,7 +37,7 @@ export default function SelfCare() {
             <h3>{selfCareIdea.name}</h3>
             <br />
             <button onClick={() => {
-              navigate(`/selfCare/${selfCareIdea.selfCare_id}`)
+              navigate(`/selfCare/${selfCareIdea.selfcare_id}`)
             }}>See Details</button>
           </div>
         ))}
