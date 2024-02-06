@@ -1,4 +1,5 @@
 
+
 import React from "react";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { configureStore } from '@reduxjs/toolkit';
@@ -73,3 +74,4 @@ export default function SelfCare() {
     </>
   );
 };
+

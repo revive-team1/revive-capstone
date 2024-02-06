@@ -160,6 +160,10 @@ const favoriteRecipes = [
     recipe_id: 2,
   },
   {
+    user_id: 1,
+    recipe_id: 4,
+  },
+  {
     user_id: 2,
     recipe_id: 3,
   },
@@ -177,6 +181,10 @@ const favoriteExercises = [
   {
     user_id: 1,
     exercise_id: 2,
+  },
+  {
+    user_id: 1,
+    exercise_id: 4,
   },
   {
     user_id: 2,
