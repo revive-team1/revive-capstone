@@ -32,7 +32,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/recipes" element={<Recipes />} />
-        <Route path="/selfcare/:id" element={<SingleSelfCare />} />
+        <Route path="/selfcare/:selfCare_id" element={<SingleSelfCare />} />
         <Route path="/excerises/:id" element={<SingleExercise />} />
         <Route path="/favorite-exercises" element={<FavoriteExercises />} />
         <Route path="/favorite-recipes" element={<FavoriteRecipes />} />
