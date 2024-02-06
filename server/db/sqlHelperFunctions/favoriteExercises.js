@@ -71,7 +71,7 @@ async function getFavoriteExercisesByUserId(id) {
       `
           SELECT * FROM exercises
           INNER JOIN favoriteExercises
-          ON favoriteExercises.exercise_id = exercise.exercise_id
+          ON favoriteExercises.exercise_id = exercises.exercise_id
           WHERE favoriteExercises.user_id = $1;
       `,
       [id]

@@ -45,7 +45,7 @@ router.delete("/:favorite_id", async (req, res, next) => {
   }
 });
 
-router.get("/:user_id", async (req, res, next) => {
+router.get("/user/:user_id", async (req, res, next) => {
   try {
     const favoriteRecipes = await getFavoriteRecipesByUserId(
       req.params.user_id
