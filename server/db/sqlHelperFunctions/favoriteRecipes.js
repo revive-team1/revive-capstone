@@ -71,7 +71,7 @@ async function getFavoriteRecipesByUserId(id) {
       `
           SELECT * FROM recipes
           INNER JOIN favoriteRecipes
-          ON favoriteRecipes.recipe_id = recipe.recipe_id
+          ON favoriteRecipes.recipe_id = recipes.recipe_id
           WHERE favoriteRecipes.user_id = $1;
       `,
       [id]
