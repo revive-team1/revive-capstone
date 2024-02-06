@@ -17,6 +17,7 @@ import './App.css'
 
 function App() {
   // const [token, setToken] = useState(null)
+  const [user, setUser] = useState({})
 
   return (
     <>
@@ -29,13 +30,13 @@ function App() {
         <Route path="/account" element={<Account />} />
         <Route path="/selfcare" element={<SelfCare />} />
         <Route path="/excerises" element={<Exercises />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/login" setUser={setUser} element={<Login />} />
+        <Route path="/register" setUser={setUser} element={<Register />} />
         <Route path="/recipes" element={<Recipes />} />
         <Route path="/selfcare/:id" element={<SingleSelfCare />} />
         <Route path="/excerises/:id" element={<SingleExercise />} />
-        <Route path="/favorite-exercises" element={<FavoriteExercises />} />
-        <Route path="/favorite-recipes" element={<FavoriteRecipes />} />
+        <Route path="/favorite-exercises" user ={user} setUser = {setUser} element={<FavoriteExercises />} />
+        <Route path="/favorite-recipes" user={user} setUser = {setUser} element={<FavoriteRecipes />} />
         
 
       </Routes>

@@ -6,7 +6,7 @@ import { useRegisterMutation } from '../api/fetching'
 import { updateToken, updateUserId } from '../actions/actionsSlice'
 
 
-const Register = () => {
+const Register = ( {setUser}) => {
   const [ email, setEmail ] = useState('')
   const [ password, setPassword ] = useState('')
   const [ username, setUsername ] = useState('')
@@ -23,7 +23,7 @@ const Register = () => {
       const result = await register({ firstname, lastname, email, password, username });
       console.log(result)
       dispatch(updateToken(result.data.token))
-      dispatch(updateUserId(result.data.user.user_id))
+      setUser(result.data)
     } catch (error) {
       console.error(error);
     }
