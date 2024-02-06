@@ -1,38 +1,9 @@
 
 
 import React from "react";
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { configureStore } from '@reduxjs/toolkit';
+import { useGetSelfCareQuery } from "../api/fetching";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react"
-
-
-const selfCareApi = createApi({
-  reducerPath: "selfCare",
-  baseQuery: fetchBaseQuery({
-    baseUrl: `http://localhost:8080/api`,
-    prepareHeaders(headers) {
-      headers.set('Content-type', 'application/json'); 
-      return headers;
-    }
-  }),
-  endpoints: (builder) => ({
-    getBooks: builder.query({
-      query: () => `/selfCare`,
-    }),
-  }),
-});
-
-
-const { useGetSelfCareQuery } = selfCareApi;
-
-export const store = configureStore({
-  reducer: {
-    [selfCareApi.reducerPath]: selfCareApi.reducer
-  },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(selfCareApi.middleware), 
-});
 
 export default function SelfCare() {
   const [search, setSearch] = useState('')

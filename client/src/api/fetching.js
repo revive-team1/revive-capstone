@@ -32,7 +32,12 @@ export const fetchingApi = createApi({
         getSingleExercise: build.query({
             query: (id) => `/exercises/${id}`
         }),
+
+        //get selfCare data
+        getSelfCare: build.query({
+            query: () => `/selfcare`
+        })
     })
 });
 
-export const { useLoginMutation, useRegisterMutation, useGetExercisesQuery, useGetSingleExerciseQuery } = fetchingApi
+export const { useLoginMutation, useRegisterMutation, useGetExercisesQuery, useGetSingleExerciseQuery, useGetSelfCareQuery } = fetchingApi
