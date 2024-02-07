@@ -35,11 +35,11 @@ async function createSelfCare(body) {
       rows: [selfCare],
     } = await client.query(
       `
-        INSERT INTO selfCare(name, description, article_url)
-        VALUES($1, $2, $3)
+        INSERT INTO selfCare(name, imgUrl, description, article_url)
+        VALUES($1, $2, $3, $4)
         RETURNING *;
         `,
-      [body.name, body.description, body.article_url]
+      [body.name, body.imgUrl, body.description, body.article_url]
     );
     return selfCare;
   } catch (error) {
