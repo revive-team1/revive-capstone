@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 function Recipes() {
   const [recipeList, setRecipeList] = useState([])
+
 
   useEffect(() => {
 
@@ -32,7 +33,7 @@ function Recipes() {
               <img src={recipe.imgUrl} />
 
               <div>
-                <Link to={`/recipes/${id}`}>
+                <Link to={`/recipes/${recipe.recipe_id}`}>
                   <button>
                     See Details
                   </button>
