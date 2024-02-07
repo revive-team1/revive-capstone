@@ -25,7 +25,32 @@ const Login = () => {
   }
 
   return (
-    <div>Login</div>
+    <>
+      <h1>Login</h1>
+      {error && <p>{error}</p>}
+            <form onSubmit={handleLogin} >
+                <div >    
+                    <input
+                        type='email'
+                        onChange={(event) => {
+                            setEmail(event.target.value)
+                        }}
+                    />
+                    <label>Email: {''}</label>
+                </div>
+                <div>
+                    <input
+                        type='password'
+                        onChange={(event) => {
+                            setPassword(event.target.value)
+                        }}
+                    />
+                    <label >Password: {''}</label>
+                    {successMessage && <p>{successMessage}</p>}
+                </div>
+                <button type='submit'>Login</button>
+            </form>
+    </>
   )
 }
 
