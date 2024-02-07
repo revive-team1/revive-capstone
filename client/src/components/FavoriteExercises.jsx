@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { useNavigate }  from 'react-router-dom';
 // import RemoveButton from './RemoveButton';
 
-export default function FavoriteExercises({ user, favorites, setFavorites }) {
+export default function FavoriteExercises({ user }) {
   const navigate = useNavigate()
-  const [favoriteExcercises, setFavoriteExercises] = useState([])
+  const [favoriteExercises, setFavoriteExercises] = useState([])
   useEffect(() => {
     async function fetchFavoriteExercises() {
       try {
@@ -22,14 +22,14 @@ export default function FavoriteExercises({ user, favorites, setFavorites }) {
     fetchFavoriteExercises();
   }, []);
 
-  if(!favorites.length) {
+  if(!favoriteExercises.length) {
     return (
     <>
       <p className ="noFavoritesMessage">You do not currently have any favorite exercises saved.</p>
       <div className="favoritesPageButton">
         <button onClick={() => {
-          navigate(`/places`);
-        }}>Explore Locations</button> 
+          navigate(`/`);
+        }}>Home</button> 
       </div>
     </>)
   }
@@ -41,18 +41,18 @@ export default function FavoriteExercises({ user, favorites, setFavorites }) {
       <>
         {favoriteExercises.map((favoriteExercise) => (
           <>
-          <div key={favoritePlace.place_id} className="favorite-card">
-            <div className="place-image-container">
+          <div key={favoriteExercise.exercise_id} className="favorite-card">
+            {/* <div className="place-image-container">
               <img className="place-image" src={favoritePlace.img_url} />
-            </div>
+            </div> */}
             <div className="place-details">
-              <span className="favoritePlaceName">  {favoritePlace.place_name} </span> <br />
+              <span className="favoriteExerciseName">  {favoriteExercise.name} </span> <br />
 
-              <RemoveButton
+              {/* <RemoveButton
                 favorites={favorites}
                 favoritePlace={favoritePlace}
                 setFavorites={setFavorites}
-              />
+              /> */}
               <br />
             </div>
           </div>
