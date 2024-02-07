@@ -57,6 +57,7 @@ async function createTables() {
         CREATE TABLE selfCare (
             selfCare_id SERIAL PRIMARY KEY,
             name TEXT, 
+            imgUrl TEXT,
             description TEXT, 
             article_url TEXT
         );
@@ -196,10 +197,10 @@ const createInitialSelfCare = async () => {
     for (const activity of selfCare) {
       await client.query(
         `
-                INSERT INTO selfCare(name, description, article_url)
-                VALUES($1, $2, $3)
+                INSERT INTO selfCare(name, imgUrl, description, article_url)
+                VALUES($1, $2, $3, $4)
                 `,
-        [activity.name, activity.description, activity.article_url]
+        [activity.name, activity.imgUrl, activity.description, activity.article_url]
       );
     }
     console.log("created self care!");

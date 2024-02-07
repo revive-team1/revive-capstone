@@ -74,30 +74,35 @@ const users = [
 const selfCare = [
   {
     name: "Drink water",
+    imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNDSa7DfHiFNj_bAv0VxyaEH4cpWYcUelHuCGxbkVgWGVhK8ho2dbtjrMFsFnFzyAn9qk&usqp=CAU",
     description: "Drink 72oz of water",
     article_url:
       "https://www.hsph.harvard.edu/nutritionsource/water/#:~:text=The%20National%20Academy%20of%20Medicine,exposed%20to%20very%20warm%20climates.",
   },
   {
     name: "Get sunlight",
+    imgUrl: "no-image.jpeg",
     description: "Get 10-30 mins of sunlight per day",
     article_url:
       "https://www.healthline.com/nutrition/vitamin-d-from-sun#:~:text=Regular%20sun%20exposure%20is%20the,your%20skin%20is%20to%20sunlight.",
   },
   {
     name: "Exercise",
+    imgUrl: "no-image.jpeg",
     description: "Walk 30 minutes a day",
     article_url:
       "https://walkwithadoc.org/join-a-walk/why-walk/?gad_source=1&gclid=Cj0KCQiAn-2tBhDVARIsAGmStVlXrTu_H0byRakGVV4G6SPZ8D2FzeVKhY0wyOk7RrI2odkWc_we5g0aAlFCEALw_wcB",
   },
   {
     name: "Meditate",
+    imgUrl: "no-image.jpeg",
     description: "Take a few minutes to relax and breathe.",
     article_url:
       "https://www.consequenceofhabit.org/meditation?gad_source=1&gclid=Cj0KCQiAn-2tBhDVARIsAGmStVkL1rIX1WGERteiauR5COWZcYo3jyaie5X4dX-IkSMtteVMg1Gy4CAaAh0AEALw_wcB",
   },
   {
     name: "Read",
+    imgUrl: "no-image.jpeg",
     description: "Grab a book and read.",
     article_url:
       "https://rw-c.org/reading-habits/?gad_source=1&gclid=Cj0KCQiAn-2tBhDVARIsAGmStVmLE6b44Jbkm7_9q6b1R9ac-nHMxRCSTFzWqWlr8pCb_5u93Ahp3AIaApmLEALw_wcB",

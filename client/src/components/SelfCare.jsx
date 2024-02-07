@@ -35,6 +35,7 @@ export default function SelfCare() {
         }).map((selfCareIdea) => (
           <div key={selfCareIdea.selfCare_id} className="selfCareCard">
             <h3>{selfCareIdea.name}</h3>
+            {/* <img src={new URL(`${selfCareIdea.imgURL}`, import.meta.url).href} alt={selfCareIdea.name}></img> */}
             <br />
             <button onClick={() => {
               navigate(`/selfCare/${selfCareIdea.selfcare_id}`)
