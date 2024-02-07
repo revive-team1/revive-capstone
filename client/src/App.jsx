@@ -33,7 +33,7 @@ function App() {
         <Route path="/login" setUser={setUser} element={<Login />} />
         <Route path="/register" setUser={setUser} element={<Register />} />
         <Route path="/recipes" element={<Recipes />} />
-        <Route path="/selfcare/:id" element={<SingleSelfCare />} />
+        <Route path="/selfcare/:selfCare_id" element={<SingleSelfCare />} />
         <Route path="/excerises/:id" element={<SingleExercise />} />
         <Route path="/favorite-exercises" user ={user} setUser = {setUser} element={<FavoriteExercises />} />
         <Route path="/favorite-recipes" user={user} setUser = {setUser} element={<FavoriteRecipes />} />
