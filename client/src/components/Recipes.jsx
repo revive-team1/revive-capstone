@@ -23,15 +23,21 @@ function Recipes() {
       <div>
         {recipeList.map((recipe) => {
           return (
-            <div>
-
+            <>
               <p>{recipe.name}</p>
               <p>{recipe.difficulty}</p>
               <p>{recipe.recipe_yield}</p>
               <p>{recipe.description}</p>
               <img src={recipe.imgUrl} />
 
-            </div>
+              <div>
+                <Link to={`/recipes/${id}`}>
+                  <button>
+                    See Details
+                  </button>
+                </Link>
+              </div>
+            </>
           )
         })}
       </div>
