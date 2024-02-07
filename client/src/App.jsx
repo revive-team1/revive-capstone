@@ -30,8 +30,8 @@ function App() {
         <Route path="/account" element={<Account />} />
         <Route path="/selfcare" element={<SelfCare />} />
         <Route path="/excerises" element={<Exercises />} />
-        <Route path="/login"  element={<Login setUser={setUser}/>} />
-        <Route path="/register"  element={<Register setUser={setUser} />} />
+        <Route path="/login"  element={<Login setToken={setToken} setUser={setUser}/>} />
+        <Route path="/register"  element={<Register setToken={setToken} setUser={setUser} />} />
         <Route path="/recipes" element={<Recipes />} />
         <Route path="/recipes/:recipe-id" element={<SingleRecipe />} />
         <Route path="/selfcare/:selfCare_id" element={<SingleSelfCare />} />

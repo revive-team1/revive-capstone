@@ -16,6 +16,7 @@ const Login = ({ setUser }) => {
     e.preventDefault()
     try {
       const result = await login({ email, password });
+      console.log(result)
       dispatch(updateToken(result.data.token))
       console.log(result)
       setUser(result.data)
