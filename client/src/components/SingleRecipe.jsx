@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 function SingleRecipe() {
   const [recipe, setRecipe] = useState(null)
@@ -25,7 +25,8 @@ function SingleRecipe() {
     <>
 
       <div className='button'>
-        <Link to="/recipes">
+        <Link
+         to="/recipes">
           <button className='backButton'>Back</button>
         </Link>
       </div>
