@@ -24,8 +24,8 @@ export default function SingleSelfCare() {
         <div>
             <h2>{selfCare.name}</h2>
             <p>Description: {selfCare.description}</p>
-            {/* <p >Link to article: {selfCare.article_url}</p>  */}
-            {/* <Link to={selfCare.article_url}>Click here for an aritcle to learn more</Link> */}
+            <Link to={selfCare.article_url} target="blank">Click here for an aritcle to learn more </Link>
+            <br />
             <br />
             <Link to={'/selfCare'}>Back to all Self Care Ideas</Link>
             <br />
