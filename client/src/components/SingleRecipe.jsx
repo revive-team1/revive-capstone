@@ -23,11 +23,20 @@ function SingleRecipe() {
 
   return (
     <>
+
+      <div className='button'>
+        <Link to="/recipes">
+          <button className='backButton'>Back</button>
+        </Link>
+      </div>
+
+
       <p>{recipe.name}</p>
       <p>{recipe.difficulty}</p>
-      <p>{recipe.recipe_yield}</p>
+      <p>{"yield: "(recipe.recipe_yield)}</p>
       <p>{recipe.description}</p>
       <img src={recipe.imgUrl} />
+
     </>
   )
 }
