@@ -1,9 +1,10 @@
-import { useEffect } from "react";
-// import { useNavigate }  from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { useNavigate }  from 'react-router-dom';
 // import RemoveButton from './RemoveButton';
 
-export default function FavoriteExercises({ user, favorites, setFavorites }) {
+export default function FavoriteExercises({ user }) {
   const navigate = useNavigate()
+  const [favoriteRecipes, setFavoriteRecipes] = useState([])
   useEffect(() => {
     async function fetchFavoriteRecipes() {
       try {
@@ -13,7 +14,7 @@ export default function FavoriteExercises({ user, favorites, setFavorites }) {
           },
         });
         const result = await response.json();
-        setFavorites(result);
+        setFavoriteRecipes(result);
       } catch (error) {
         console.error(error);
       }
@@ -21,14 +22,14 @@ export default function FavoriteExercises({ user, favorites, setFavorites }) {
     fetchFavoriteRecipes();
   }, []);
 
-  if(!favorites.length) {
+  if(!favoriteRecipes.length) {
     return (
     <>
       <p className ="noFavoritesMessage">You do not currently have any favorite recipes saved.</p>
       <div className="favoritesPageButton">
         <button onClick={() => {
-          navigate(`/places`);
-        }}>Explore Locations</button> 
+          navigate(`/`);
+        }}>Home</button> 
       </div>
     </>)
   }
@@ -38,20 +39,20 @@ export default function FavoriteExercises({ user, favorites, setFavorites }) {
     <div className="favoritesContainer">
       <h1 className="favoritesHeading">{`${user.first_name}`}'s Favorite Places</h1>
       <>
-        {favorites.map((favoritePlace) => (
+        {favoriteRecipes.map((favoriteRecipe) => (
           <>
-          <div key={favoritePlace.place_id} className="favorite-card">
-            <div className="place-image-container">
+          <div key={favoriteRecipe.recipe_id} className="favorite-card">
+            {/* <div className="place-image-container">
               <img className="place-image" src={favoritePlace.img_url} />
-            </div>
-            <div className="place-details">
-              <span className="favoritePlaceName">  {favoritePlace.place_name} </span> <br />
+            </div> */}
+            <div className="favorite-details">
+              <span className="favoriteRecipeName">  {favoriteRecipe.name} </span> <br />
 
-              <RemoveButton
+              {/* <RemoveButton
                 favorites={favorites}
                 favoritePlace={favoritePlace}
                 setFavorites={setFavorites}
-              />
+              /> */}
               <br />
             </div>
           </div>
