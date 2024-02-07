@@ -16,7 +16,7 @@ import SingleSelfCare from './components/SingleSelfCare'
 import './App.css'
 
 function App() {
-  // const [token, setToken] = useState(null)
+  const [token, setToken] = useState(null)
   const [user, setUser] = useState({})
 
   return (
