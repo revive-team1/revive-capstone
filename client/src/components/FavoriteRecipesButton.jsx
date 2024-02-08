@@ -1,10 +1,10 @@
 
 
-export default function FavoriteButton({ user_id, recipe_id, setFavoriteRecipes }) {
+export default function FavoriteRecipesButton({ user_id, recipe_id, setFavoriteRecipes }) {
 
   async function handleClick() {
     try {
-      const response = await fetch('http://localhost:8080/api/recipes/favoriteRecipes', {
+      const response = await fetch('http://localhost:8080/api/favoriteRecipes', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({user_id, recipe_id}),

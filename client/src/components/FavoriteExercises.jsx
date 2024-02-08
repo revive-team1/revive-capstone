@@ -37,7 +37,7 @@ export default function FavoriteExercises({ user }) {
     <>
     <br/>
     <div className="favoritesContainer">
-      <h1 className="favoritesHeading">{`${user.first_name}`}'s Favorite Places</h1>
+      <h1 className="favoritesHeading">{`${user.firstname}`}'s Favorite Exercises</h1>
       <>
         {favoriteExercises.map((favoriteExercise) => (
           <>

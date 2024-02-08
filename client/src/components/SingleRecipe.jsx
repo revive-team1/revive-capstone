@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import FavoriteRecipesButton from './FavoriteRecipesButton'
 
-function SingleRecipe() {
+function SingleRecipe({user_id}) {
   const [recipe, setRecipe] = useState([])
   const { recipe_id } = useParams()
 
@@ -37,6 +38,8 @@ function SingleRecipe() {
       <p>{recipe.recipe_yield}</p>
       <p>{recipe.description}</p>
       <img src={recipe.imgUrl} />
+
+      <FavoriteRecipesButton user_id = {user_id} recipe_id = {recipe.recipe_id}/>
 
     </>
   )
