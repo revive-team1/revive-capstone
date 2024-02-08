@@ -3,6 +3,10 @@ import { Link, useParams } from 'react-router-dom'
 
 function Recipes() {
   const [recipeList, setRecipeList] = useState([])
+  const [search, setSearch] = useState("")
+
+  const searchResults = recipeList.filter((recipe) => recipe.name.toLowerCase().includes(search.toLowerCase()))
+  console.log(searchResults)
 
 
   useEffect(() => {
@@ -23,7 +27,11 @@ function Recipes() {
   return (
     <>
       <div>
-        {recipeList.map((recipe) => {
+        <div id="searchbarContainer">
+          <input id="searchbar" placeholder="Search Recipes" type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
+        </div>
+
+        {searchResults.map((recipe) => {
           return (
             <>
               <p>{recipe.name}</p>
