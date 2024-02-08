@@ -38,6 +38,28 @@ const exercises = [
     imgUrl: "no-image.jpeg",
     difficulty: "intermediate",
   },
+  {
+    name: "Bear Crawls",
+    description:
+      "to be filled...",
+    imgUrl: "no-image.jpeg",
+    difficulty: "intermediate",
+  },
+  {
+    name: "Dumbbell Renegade Row",
+    description:
+      "blah blah...",
+    imgUrl: "no-image.jpeg",
+    difficulty: "intermediate",
+  },
+  {
+    name: "Wall-Sit",
+    description:
+      "blah blah...",
+    imgUrl: "no-image.jpeg",
+    difficulty: "beginner",
+  },
+
 ];
 
 const users = [
@@ -181,6 +203,17 @@ const favoriteRecipes = [
     recipe_id: 5,
   },
 ];
+
+const workouts = [
+  {
+    workout_id: 1,
+    name: "Full Body Endurance", 
+    description: 'Perform 2-3 rounds of each superset. Fully complete the 2-3 rounds of a superset before moving on to the next superset. Each exercise within a superset will be anywhere from 8-12 reps. If something is for time, it will be noted in the exercise. There are 3 Supersets within this workout, which means you will be hitting 9 rounds total. After each exercise rest for 30-60 seconds.',
+    exercise_id: 6,
+    exercise_id: 7,
+    exercise_id: 8
+  }
+]
 
 const favoriteExercises = [
   {
