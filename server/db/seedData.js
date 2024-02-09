@@ -59,6 +59,139 @@ const exercises = [
     imgUrl: "no-image.jpeg",
     difficulty: "beginner",
   },
+  {
+    name: "Single Leg Hops",
+    description:
+      "blah blah...",
+    imgUrl: "no-image.jpeg",
+    difficulty: "beginner",
+  },
+  {
+      name: "Pistol Squat",
+      description:
+        "blah blah...",
+      imgUrl: "no-image.jpeg",
+      difficulty: "high-level",
+    },
+    {
+      name: "Push-Ups",
+      description:
+        "blah blah...",
+      imgUrl: "no-image.jpeg",
+      difficulty: "beginner",
+    },
+    {
+      name: "Step Ups",
+      description:
+        "blah blah...",
+      imgUrl: "no-image.jpeg",
+      difficulty: "intermediate",
+    },
+    {
+      name: "Skater",
+      description:
+        "blah blah...",
+      imgUrl: "no-image.jpeg",
+      difficulty: "intermediate",
+    },
+    {
+      name: "Two Arm Row",
+      description:
+        "blah blah...",
+      imgUrl: "no-image.jpeg",
+      difficulty: "intermediate",
+    },
+    {
+      name: "Cable Pull Down",
+      description:
+        "blah blah...",
+      imgUrl: "no-image.jpeg",
+      difficulty: "intermediate",
+    },
+    {
+      name: "Bicep Curl",
+      description:
+        "blah blah...",
+      imgUrl: "no-image.jpeg",
+      difficulty: "intermediate",
+    },
+    {
+      name: "Glute Bridges",
+      description:
+        "blah blah...",
+      imgUrl: "no-image.jpeg",
+      difficulty: "beginner",
+    },
+    {
+      name: "Bulgarian Split Squat",
+      description:
+        "blah blah...",
+      imgUrl: "no-image.jpeg",
+      difficulty: "intermediate",
+    },
+    {
+      name: "Back Fly",
+      description:
+        "blah blah...",
+      imgUrl: "no-image.jpeg",
+      difficulty: "intermediate",
+    },
+    {
+      name: "Dips",
+      description:
+        "blah blah...",
+      imgUrl: "no-image.jpeg",
+      difficulty: "intermediate",
+    },
+    {
+      name: "Bench Press",
+      description:
+        "blah blah...",
+      imgUrl: "no-image.jpeg",
+      difficulty: "intermediate",
+    },
+    {
+      name: "Shoulder External Rotation",
+      description:
+        "blah blah...",
+      imgUrl: "no-image.jpeg",
+      difficulty: "intermediate",
+    },
+    {
+      name: "Shoulder Internal Rotation",
+      description:
+        "blah blah...",
+      imgUrl: "no-image.jpeg",
+      difficulty: "intermediate",
+    },
+    {
+      name: "Lateral Raise",
+      description:
+        "blah blah...",
+      imgUrl: "no-image.jpeg",
+      difficulty: "intermediate",
+    },
+    {
+      name: "Curtsy Lunge",
+      description:
+        "blah blah...",
+      imgUrl: "no-image.jpeg",
+      difficulty: "intermediate",
+    },
+    {
+      name: "Goblet Squat",
+      description:
+        "blah blah...",
+      imgUrl: "no-image.jpeg",
+      difficulty: "intermediate",
+    },
+    {
+      name: "Leg Extension",
+      description:
+        "blah blah...",
+      imgUrl: "no-image.jpeg",
+      difficulty: "intermediate",
+    },
 
 ];
 
@@ -206,13 +339,41 @@ const favoriteRecipes = [
 
 const workouts = [
   {
-    workout_id: 1,
     name: "Full Body Endurance", 
     description: 'Perform 2-3 rounds of each superset. Fully complete the 2-3 rounds of a superset before moving on to the next superset. Each exercise within a superset will be anywhere from 8-12 reps. If something is for time, it will be noted in the exercise. There are 3 Supersets within this workout, which means you will be hitting 9 rounds total. After each exercise rest for 30-60 seconds.',
-    exercise_id: 6,
-    exercise_id: 7,
-    exercise_id: 8
-  }
+    exercise_id1: 6,
+    exercise_id2: 7,
+    exercise_id3: 8,
+    exercise_id4: 9,
+    exercise_id5: 10,
+    exercise_id6: 11,
+    exercise_id7: 12,
+    exercise_id8: 13
+  },
+  {
+      name: "Pull Workout", 
+      description: 'Perform 2-3 rounds of each superset. Fully complete the 2-3 rounds of a superset before moving on to the next superset. Each exercise within a superset will be anywhere from 8-12 reps. If something is for time, it will be noted in the exercise. There are 3 Supersets within this workout, which means you will be hitting 9 rounds total. After each exercise rest for 30-60 seconds.',
+      exercise_id1: 5,
+      exercise_id2: 14,
+      exercise_id3: 15,
+      exercise_id4: 16,
+      exercise_id5: 17,
+      exercise_id6: 18,
+      exercise_id7: 2,
+      exercise_id8: 19
+    },
+    {
+      name: "Push Workout", 
+      description: 'Perform 2-3 rounds of each superset. Fully complete the 2-3 rounds of a superset before moving on to the next superset. Each exercise within a superset will be anywhere from 8-12 reps. If something is for time, it will be noted in the exercise. There are 3 Supersets within this workout, which means you will be hitting 9 rounds total. After each exercise rest for 30-60 seconds.',
+      exercise_id1: 20,
+      exercise_id2: 21,
+      exercise_id3: 22,
+      exercise_id4: 23,
+      exercise_id5: 24,
+      exercise_id6: 25,
+      exercise_id7: 26,
+      exercise_id8: 27
+    },
 ]
 
 const favoriteExercises = [

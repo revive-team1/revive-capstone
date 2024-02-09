@@ -78,8 +78,19 @@ async function createTables() {
         CREATE TABLE favoriteExercises (
             favorite_id SERIAL PRIMARY KEY,
             user_id INTEGER REFERENCES users(user_id),
-            exercise_id INTEGER REFERENCES exercises(exercise_id)
-            
+            exercise_id INTEGER REFERENCES exercises(exercise_id)  
+        );
+        CREATE TABLE workouts (
+          workout_id SERIAL PRIMARY KEY,
+          description TEXT,
+          exercise_id1 INTEGER REFERENCES exercises(exercise_id),
+          exercise_id2 INTEGER REFERENCES exercises(exercise_id),
+          exercise_id3 INTEGER REFERENCES exercises(exercise_id),
+          exercise_id4 INTEGER REFERENCES exercises(exercise_id),
+          exercise_id5 INTEGER REFERENCES exercises(exercise_id),
+          exercise_id6 INTEGER REFERENCES exercises(exercise_id),
+          exercise_id7 INTEGER REFERENCES exercises(exercise_id),
+          exercise_id8 INTEGER REFERENCES exercises(exercise_id)
         );
         `);
   } catch (error) {
