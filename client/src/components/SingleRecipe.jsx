@@ -37,7 +37,7 @@ function SingleRecipe({user_id}) {
       <p>{recipe.difficulty}</p>
       <p>{recipe.recipe_yield}</p>
       <p>{recipe.description}</p>
-      <img src={recipe.imgUrl} />
+      <img src={recipe.imgurl} />
 
       <FavoriteRecipesButton user_id = {user_id} recipe_id = {recipe.recipe_id}/>
 

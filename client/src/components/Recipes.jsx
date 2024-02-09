@@ -38,7 +38,7 @@ function Recipes() {
               <p>{recipe.difficulty}</p>
               <p>{recipe.recipe_yield}</p>
               <p>{recipe.description}</p>
-              <img src={recipe.imgUrl} />
+              <img src={recipe.imgurl} />
 
               <div>
                 <Link to={`/recipes/${recipe.recipe_id}`}>
