@@ -2,18 +2,24 @@
 import React from 'react'
 import { useState } from 'react';
 
-export default function Checklist() {
+export default function SelfCareChecklist() {
     const [items, setItems] = useState([]);
-    const [inputValue, setInputValue] = useState('');
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
   
-    const handleInputChange = (event) => {
-      setInputValue(event.target.value);
+    const handleNameChange = (event) => {
+      setName(event.target.value);
+    };
+  
+    const handleDescriptionChange = (event) => {
+      setDescription(event.target.value);
     };
   
     const handleAddItem = () => {
-      if (inputValue.trim() !== '') {
-        setItems([...items, { text: inputValue, checked: false }]);
-        setInputValue('');
+      if (name.trim() !== '' && description.trim() !== '') {
+        setItems([...items, { name: name, description: description, checked: false }]);
+        setName('');
+        setDescription('');
       }
     };
   
@@ -28,27 +34,42 @@ export default function Checklist() {
         <h2>Self Care Checklist</h2>
         <input
           type="text"
-          value={inputValue}
-          onChange={handleInputChange}
+          value={name}
+          onChange={handleNameChange}
           placeholder="Self Care Activity"
         />
+        <input
+          type="text"
+          value={description}
+          onChange={handleDescriptionChange}
+          placeholder="Description"
+        />
         <button onClick={handleAddItem}>Add</button>
-        <ul>
-          {items.map((item, index) => (
-            <div key={index}>
-              <input
-                type="checkbox"
-                checked={item.checked}
-                onChange={() => toggleItem(index)}
-              />
-              <span
-                style={{ textDecoration: item.checked ? 'line-through' : 'none' }}
-              >
-                {item.text}
-              </span>
-            </div>
-          ))}
-        </ul>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Completed</th>
+            </tr>
+          </thead>
+          <tbody>
+            {items.map((item, index) => (
+              <tr key={index}>
+                <td>{item.name}</td>
+                <td>{item.description}</td>
+                <td>
+                  <input
+                    type="checkbox"
+                    checked={item.checked}
+                    onChange={() => toggleItem(index)}
+                  />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     );
   }
+  
