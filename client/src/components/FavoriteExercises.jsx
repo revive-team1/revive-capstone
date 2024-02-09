@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate }  from 'react-router-dom';
-// import RemoveButton from './RemoveButton';
+import RemoveFavoriteExerciseButton from './RemoveFavoriteExerciseButton';
 
 export default function FavoriteExercises({ user }) {
   const navigate = useNavigate()
@@ -28,8 +28,8 @@ export default function FavoriteExercises({ user }) {
       <p className ="noFavoritesMessage">You do not currently have any favorite exercises saved.</p>
       <div className="favoritesPageButton">
         <button onClick={() => {
-          navigate(`/`);
-        }}>Home</button> 
+          navigate(`/exercises`);
+        }}>Explore Exercises</button> 
       </div>
     </>)
   }
@@ -48,11 +48,15 @@ export default function FavoriteExercises({ user }) {
             <div className="place-details">
               <span className="favoriteExerciseName">  {favoriteExercise.name} </span> <br />
 
-              {/* <RemoveButton
-                favorites={favorites}
-                favoritePlace={favoritePlace}
-                setFavorites={setFavorites}
-              /> */}
+              {/* <button onClick={() => {
+                navigate(`/exercises/${favoriteExercises.exercise_id}`);
+                }}>See Exercise</button>  */}
+
+              <RemoveFavoriteExerciseButton
+                favoriteExercises={favoriteExercises}
+                favoriteExercise={favoriteExercise}
+                setFavoriteExercises={setFavoriteExercises}
+              />
               <br />
             </div>
           </div>
