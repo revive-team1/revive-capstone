@@ -14,6 +14,7 @@ router.use('/calendars', require('./calendars'));
 router.use('/selfCare', require('./selfCare'));
 router.use('/favoriteRecipes', require('./favoriteRecipes'));
 router.use('/favoriteExercises', require('./favoriteExercises'));
+router.use('/favoriteSelfCare', require('./favoriteSelfCare'));
 
 
 module.exports = router;

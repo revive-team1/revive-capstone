@@ -428,6 +428,7 @@ module.exports = {
   selfCare,
   recipes,
   calendars,
+  workouts,
   favoriteRecipes,
   favoriteExercises,
   favoriteSelfCare
