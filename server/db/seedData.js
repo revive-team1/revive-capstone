@@ -3,7 +3,7 @@ const exercises = [
     name: "Jumping Jacks",
     description: "jump in jack",
     imgUrl:
-      "https://www.spotebi.com/wp-content/uploads/2014/10/jumping-jacks-exercise-illustration.jpg",
+      "no-image.jpeg",
     difficulty: "beginner",
   },
 
