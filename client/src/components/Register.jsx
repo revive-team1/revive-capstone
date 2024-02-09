@@ -23,7 +23,7 @@ const Register = ( {setUser}) => {
       const result = await register({ firstname, lastname, email, password, username });
       console.log(result)
       dispatch(updateToken(result.data.token))
-      setUser(result.data)
+      setUser(result.data.user)
     } catch (error) {
       console.error(error);
     }

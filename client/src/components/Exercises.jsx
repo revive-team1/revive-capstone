@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom'
 import { useGetExercisesQuery } from '../api/fetching'
 import { useSelector } from 'react-redux'
 import { useState } from 'react'
+import FavoriteExercisesButton from './FavoriteExercisesButton'
 
-const Exercises = () => {
+const Exercises = ({user_id}) => {
 
   const token = useSelector((it) => it.actionsSlice.token)
 
@@ -62,7 +63,7 @@ const Exercises = () => {
                                     </>
                                 ): (
                                     <>
-                                    <button>Like</button>
+                                    <FavoriteExercisesButton user_id={user_id} exercise_id = {exercise.exercise_id}/>
                                     </>
                                 )}
                             </div>

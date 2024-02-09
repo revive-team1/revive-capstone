@@ -19,7 +19,7 @@ const Navigations = () => {
       <div id="navbarItems">
 
         <Link to="/">home</Link>
-        <Link to="/excerises">fitness</Link>
+        <Link to="/exercises">fitness</Link>
         <Link to="/selfcare">self care</Link>
         <Link to="/recipes">food</Link>
         <div>
