@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate }  from 'react-router-dom';
-// import RemoveButton from './RemoveButton';
+import RemoveFavoriteRecipeButton from './RemoveFavoriteRecipeButton';
 
 export default function FavoriteExercises({ user }) {
   const navigate = useNavigate()
@@ -28,8 +28,8 @@ export default function FavoriteExercises({ user }) {
       <p className ="noFavoritesMessage">You do not currently have any favorite recipes saved.</p>
       <div className="favoritesPageButton">
         <button onClick={() => {
-          navigate(`/`);
-        }}>Home</button> 
+          navigate(`/recipes`);
+        }}>Explore Recipes</button> 
       </div>
     </>)
   }
@@ -37,7 +37,7 @@ export default function FavoriteExercises({ user }) {
     <>
     <br/>
     <div className="favoritesContainer">
-      <h1 className="favoritesHeading">{`${user.first_name}`}'s Favorite Places</h1>
+      <h1 className="favoritesHeading">{`${user.firstname}`}'s Favorite Recipes</h1>
       <>
         {favoriteRecipes.map((favoriteRecipe) => (
           <>
@@ -48,11 +48,15 @@ export default function FavoriteExercises({ user }) {
             <div className="favorite-details">
               <span className="favoriteRecipeName">  {favoriteRecipe.name} </span> <br />
 
-              {/* <RemoveButton
-                favorites={favorites}
-                favoritePlace={favoritePlace}
-                setFavorites={setFavorites}
-              /> */}
+              <button onClick={() => {
+                navigate(`/recipes/${favoriteRecipe.recipe_id}`);
+                }}>See Recipe</button> 
+
+              <RemoveFavoriteRecipeButton
+                favoriteRecipes={favoriteRecipes}
+                favoriteRecipe={favoriteRecipe}
+                setFavoriteRecipes={setFavoriteRecipes}
+              />
               <br />
             </div>
           </div>

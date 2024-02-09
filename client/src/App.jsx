@@ -18,6 +18,8 @@ import './App.css'
 function App() {
   const [token, setToken] = useState(null)
   const [user, setUser] = useState({})
+  const [favoriteExercises, setFavoriteExercises] = useState([])
+  const [favoriteRecipes, setFavoriteRecipes] = useState([])
 
   return (
     <>
@@ -29,15 +31,15 @@ function App() {
         <Route path="/" />
         <Route path="/account" element={<Account />} />
         <Route path="/selfcare" element={<SelfCare />} />
-        <Route path="/excerises" element={<Exercises />} />
+        <Route path="/exercises" element={<Exercises user_id={user.user_id}/>} />
         <Route path="/login"  element={<Login setToken={setToken} setUser={setUser}/>} />
         <Route path="/register"  element={<Register setToken={setToken} setUser={setUser} />} />
         <Route path="/recipes" element={<Recipes />} />
-        <Route path="/recipes/:recipe_id" element={<SingleRecipe />} />
+        <Route path="/recipes/:recipe_id" element={<SingleRecipe user_id={user.user_id} />} />
         <Route path="/selfcare/:selfCare_id" element={<SingleSelfCare />} />
-        <Route path="/excerises/:id" element={<SingleExercise />} />
-        <Route path="/favorite-exercises" element={<FavoriteExercises user ={user} setUser = {setUser}/>} />
-        <Route path="/favorite-recipes" element={<FavoriteRecipes user={user} setUser = {setUser} />} />
+        <Route path="/exercises/:id" element={<SingleExercise />} />
+        <Route path="/favorite-exercises" element={<FavoriteExercises favoriteExercises= {favoriteExercises} setFavoriteExericises={setFavoriteExercises} user ={user} setUser = {setUser}/>} />
+        <Route path="/favorite-recipes" element={<FavoriteRecipes user={user} setUser = {setUser} favoriteRecipes = {favoriteRecipes} setFavoriteRecipes={setFavoriteRecipes}/>} />
         
 
       </Routes>

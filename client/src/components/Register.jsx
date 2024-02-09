@@ -15,25 +15,31 @@ const Register = ( {setUser}) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [ register, {error, successMessage } ] = useRegisterMutation()
+  const [errorMessage, setErrorMessage] = useState('')
 
   const handleRegister = async (e) => {
     e.preventDefault()
+    setErrorMessage('')
 
     try {
-      const result = await register({ firstname, lastname, email, password, username });
+      const result = await register({ firstname, lastname, email, password, username }).unwrap();
       console.log(result)
-      dispatch(updateToken(result.data.token))
-      setUser(result.data)
+      dispatch(updateToken(result.token))
+      setUser(result.user)
+      navigate('/')
     } catch (error) {
       console.error(error);
+      const message = error.data.message || 'An error occurred please try again';
+      setErrorMessage(message)
+      alert(message)
     }
-    //navigate('/')
+    
   }
 
   return (
     <>
       <h1>Register</h1>
-      {error && <p>{error}</p>}
+      {errorMessage && <p>{errorMessage}</p>}
       <div>
         <form onSubmit={handleRegister}>
           <div>

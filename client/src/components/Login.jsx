@@ -19,7 +19,7 @@ const Login = ({ setUser }) => {
       console.log(result)
       dispatch(updateToken(result.data.token))
       console.log(result)
-      setUser(result.data)
+      setUser(result.data.user)
     } catch (error) {
       console.error(error)
     }

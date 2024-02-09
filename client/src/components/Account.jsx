@@ -1,8 +1,12 @@
 import React from 'react'
+import Checklist from './Checklist'
 
-const Account = () => {
+function Account () {
   return (
-    <div>Account</div>
+    <>
+      <div>Account</div>
+      <div>{<Checklist />}</div>
+    </>
   )
 }
 
