@@ -399,6 +399,29 @@ const favoriteExercises = [
   },
 ];
 
+const favoriteSelfCare = [
+  {
+    user_id: 1,
+    selfCare_id: 2,
+  },
+  {
+    user_id: 1,
+    selfCare_id: 4,
+  },
+  {
+    user_id: 2,
+    selfCare_id: 3,
+  },
+  {
+    user_id: 3,
+    selfCare_id: 4,
+  },
+  {
+    user_id: 4,
+    selfCare_id: 5,
+  },
+];
+
 module.exports = {
   exercises,
   users,
@@ -407,4 +430,5 @@ module.exports = {
   calendars,
   favoriteRecipes,
   favoriteExercises,
+  favoriteSelfCare
 };

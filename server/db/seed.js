@@ -7,6 +7,7 @@ const {
   calendars,
   favoriteRecipes,
   favoriteExercises,
+  favoriteSelfCare
 } = require("./seedData");
 
 // drop tables for clients, membership, exercises
@@ -21,6 +22,8 @@ async function dropTables() {
       DROP TABLE IF EXISTS favoriteExercises CASCADE;
       DROP TABLE IF EXISTS calendars CASCADE;
       DROP TABLE IF EXISTS selfCare CASCADE;
+      DROP TABLE IF EXISTS workouts CASCADE;
+      DROP TABLE IF EXISTS favoriteSelfCare CASCADE;
     `);
   } catch (error) {
     throw error;
@@ -92,6 +95,11 @@ async function createTables() {
           exercise_id7 INTEGER REFERENCES exercises(exercise_id),
           exercise_id8 INTEGER REFERENCES exercises(exercise_id)
         );
+        CREATE TABLE favoriteSelfCare (
+          favorite_id SERIAL PRIMARY KEY,
+          user_id INTEGER REFERENCES users(user_id),
+          selfCare_id INTEGER REFERENCES selfCare(selfCare_id)  
+      );
         `);
   } catch (error) {
     console.log("error creating tables");
@@ -242,6 +250,23 @@ const createInitialRecipes = async () => {
     throw error;
   }
 };
+const createInitialFavoriteSelfCare = async () => {
+  try {
+    for (const favSelfCare of favoriteSelfCare) {
+      await client.query(
+        `
+            INSERT INTO favoriteSelfCare(user_id, selfCare_id)
+            VALUES($1, $2);
+        `,
+        [favSelfCare.user_id, favSelfCare.selfCare_id]
+      );
+    }
+
+    console.log("created favorite self care!");
+  } catch (error) {
+    throw error;
+  }
+};
 
 // Call all functions to build the db
 const buildDb = async () => {
@@ -259,6 +284,7 @@ const buildDb = async () => {
     await createInitialCalendars();
     await createInitialFavoriteRecipes();
     await createInitialFavoriteExercises();
+    await createInitialFavoriteSelfCare();
   } catch (error) {
     console.error(error);
   } finally {
