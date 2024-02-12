@@ -36,9 +36,6 @@ const Navigations = () => {
         )}
         </div>
         
-        <Link to="/favorite-exercises">favorite exercises</Link>
-        <Link to="/favorite-recipes">favorite recipes</Link>
-
       </div>
     </header>
   )

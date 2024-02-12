@@ -3,8 +3,6 @@ import { Routes, Route } from "react-router-dom"
 import Account from './components/Account'
 import Calendars from './components/Calendars'
 import Exercises from './components/Exercises'
-import FavoriteExercises from './components/FavoriteExercises'
-import FavoriteRecipes from './components/FavoriteRecipes'
 import Login from './components/Login'
 import Navigations from './components/Navigations'
 import Recipes from './components/Recipes'
@@ -29,7 +27,7 @@ function App() {
       <Routes>
 
         <Route path="/" />
-        <Route path="/account" element={<Account />} />
+        <Route path="/account" element={<Account user={user} favoriteExercises={favoriteExercises} setFavoriteExercises={setFavoriteExercises}/>} favoriteRecipes = {favoriteRecipes} setFavoriteRecipes={setFavoriteRecipes} />
         <Route path="/selfcare" element={<SelfCare />} />
         <Route path="/exercises" element={<Exercises user_id={user.user_id}/>} />
         <Route path="/login"  element={<Login setToken={setToken} setUser={setUser}/>} />
@@ -38,9 +36,6 @@ function App() {
         <Route path="/recipes/:recipe_id" element={<SingleRecipe user_id={user.user_id} />} />
         <Route path="/selfcare/:selfCare_id" element={<SingleSelfCare />} />
         <Route path="/exercises/:id" element={<SingleExercise />} />
-        <Route path="/favorite-exercises" element={<FavoriteExercises favoriteExercises= {favoriteExercises} setFavoriteExericises={setFavoriteExercises} user ={user} setUser = {setUser}/>} />
-        <Route path="/favorite-recipes" element={<FavoriteRecipes user={user} setUser = {setUser} favoriteRecipes = {favoriteRecipes} setFavoriteRecipes={setFavoriteRecipes}/>} />
-        
 
       </Routes>
     </>
