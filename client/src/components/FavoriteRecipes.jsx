@@ -37,30 +37,31 @@ export default function FavoriteExercises({ user }) {
     <>
     <br/>
     <div className="favoritesContainer">
-      <h1 className="favoritesHeading">{`${user.firstname}`}'s Favorite Recipes</h1>
+      <h3 className="favoritesHeading">{`${user.firstname}`}'s Favorite Recipes</h3>
+      <div className="breakLine"></div>
       <>
         {favoriteRecipes.map((favoriteRecipe) => (
           <>
           <div key={favoriteRecipe.recipe_id} className="favorite-card">
-            {/* <div className="place-image-container">
-              <img className="place-image" src={favoritePlace.img_url} />
-            </div> */}
+            <div className="recipe-image-container">
+              <img className="recipeImage" src={favoriteRecipe.imgurl} />
+            </div>
             <div className="favorite-details">
               <span className="favoriteRecipeName">  {favoriteRecipe.name} </span> <br />
 
               <button onClick={() => {
                 navigate(`/recipes/${favoriteRecipe.recipe_id}`);
-                }}>See Recipe</button> 
+                }}>See Recipe</button> <br/>
 
               <RemoveFavoriteRecipeButton
                 favoriteRecipes={favoriteRecipes}
                 favoriteRecipe={favoriteRecipe}
                 setFavoriteRecipes={setFavoriteRecipes}
               />
+            
               <br />
             </div>
           </div>
-          <div className="longBreakLine"></div>
         
           <br/>
           </>
