@@ -25,11 +25,14 @@ export default function FavoriteExercises({ user }) {
   if(!favoriteRecipes.length) {
     return (
     <>
+    <div className="favoritesContainer">
       <p className ="noFavoritesMessage">You do not currently have any favorite recipes saved.</p>
       <div className="favoritesPageButton">
+        <br/>
         <button onClick={() => {
           navigate(`/recipes`);
         }}>Explore Recipes</button> 
+      </div>
       </div>
     </>)
   }
