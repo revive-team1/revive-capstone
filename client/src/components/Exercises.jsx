@@ -53,7 +53,7 @@ const Exercises = ({user_id}) => {
                     {data.map((exercise) => (
                         <div key={exercise.exercise_id}>
                             <div>
-                                <img src={new URL(`../assets/images/${exercise.imgUrl}`, import.meta.url).href} alt={exercise.name}></img>
+                                <img src={new URL(`../assets/images/${exercise.imgurl}`, import.meta.url).href} alt={exercise.name}></img>
                                 <h2> {exercise.name} </h2>
                                 <p><strong>Description:</strong><span> {exercise.description}</span> </p>
                                 <button type='button'><Link to={`/exercises/${exercise.exercise_id}`}>See More</Link></button>

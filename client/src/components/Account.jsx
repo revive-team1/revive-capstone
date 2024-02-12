@@ -1,16 +1,16 @@
 import React from 'react'
+
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FavoriteExercises from './FavoriteExercises'
 import FavoriteRecipes from './FavoriteRecipes'
-// import Checklist from './Checklist'
+import Checklist from './Checklist'
 
 
 export default function Account({ user,favoriteRecipes, setFavoriteRecipes, favoriteExercises, setFavoriteExercises, setUser }) {
   const navigate = useNavigate();
 
   return (
-
     <div className="userInfo">
       <h2 className="welcomeMessage">Welcome, {`${user.firstname}`}!</h2>
      <br/>
@@ -24,6 +24,6 @@ export default function Account({ user,favoriteRecipes, setFavoriteRecipes, favo
       <FavoriteExercises favoriteExercises= {favoriteExercises} setFavoriteExercises={setFavoriteExercises} user ={user} setUser = {setUser}/>
       <FavoriteRecipes user={user} setUser = {setUser} favoriteRecipes = {favoriteRecipes} setFavoriteRecipes={setFavoriteRecipes}/>
     </div>
-
+    <div>{<Checklist />}</div>
   );
 };
