@@ -7,7 +7,8 @@ const {
   calendars,
   favoriteRecipes,
   favoriteExercises,
-  favoriteSelfCare
+  favoriteSelfCare,
+  workouts
 } = require("./seedData");
 
 // drop tables for clients, membership, exercises
@@ -268,6 +269,34 @@ const createInitialFavoriteSelfCare = async () => {
   }
 };
 
+const createInitialWorkouts = async () => {
+  try {
+    for (const workout of workouts) {
+      await client.query(
+        `
+                INSERT INTO workouts(description, exercise_id1, exercise_id2, exercise_id3, exercise_id4, exercise_id5, exercise_id6, exercise_id7, exercise_id8 )
+                VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9);
+            `,
+        [
+          workout.description,
+          workout.exercise_id1,
+          workout.exercise_id2,
+          workout.exercise_id3,
+          workout.exercise_id4,
+          workout.exercise_id5,
+          workout.exercise_id6,
+          workout.exercise_id7,
+          workout.exercise_id8,
+        ]
+      );
+    }
+    console.log("created workouts");
+  } catch (error) {
+    throw error;
+  }
+};
+
+
 // Call all functions to build the db
 const buildDb = async () => {
   try {
@@ -285,6 +314,7 @@ const buildDb = async () => {
     await createInitialFavoriteRecipes();
     await createInitialFavoriteExercises();
     await createInitialFavoriteSelfCare();
+    await createInitialWorkouts();
   } catch (error) {
     console.error(error);
   } finally {

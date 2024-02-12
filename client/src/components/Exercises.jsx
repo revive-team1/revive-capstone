@@ -93,7 +93,7 @@ const Exercises = ({user_id}) => {
             <div>
                 <div>
                     {filtered.map((exercise) => (
-                        <div key={exercise.id}>
+                        <div key={exercise.exercise_id}>
                             <div>
                                 <img src=
                                 {new URL(`../assets/images/${exercise.imgUrl}`, import.meta.url).href} alt={exercise.name}></img>
