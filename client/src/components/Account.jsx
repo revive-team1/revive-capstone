@@ -11,6 +11,7 @@ export default function Account({ user,favoriteRecipes, setFavoriteRecipes, favo
   const navigate = useNavigate();
 
   return (
+    <>
     <div className="userInfo">
       <h2 className="welcomeMessage">Welcome, {`${user.firstname}`}!</h2>
      <br/>
@@ -25,5 +26,6 @@ export default function Account({ user,favoriteRecipes, setFavoriteRecipes, favo
       <FavoriteRecipes user={user} setUser = {setUser} favoriteRecipes = {favoriteRecipes} setFavoriteRecipes={setFavoriteRecipes}/>
     </div>
     <div>{<Checklist />}</div>
+    </>
   );
 };
