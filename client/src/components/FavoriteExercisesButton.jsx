@@ -18,7 +18,7 @@ export default function FavoriteExercisesButton({ user_id, exercise_id, setFavor
 
 return (
   <div className="favoriteButton">
-    <button onClick={() => {
+    <button className='btn btn-outline-dark' type='button' role='button' onClick={() => {
     handleClick();
     alert("This exercise has been added to your favorites.")
     }}>Add to Favorites</button>

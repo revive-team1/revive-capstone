@@ -15,6 +15,7 @@ router.use('/selfCare', require('./selfCare'));
 router.use('/favoriteRecipes', require('./favoriteRecipes'));
 router.use('/favoriteExercises', require('./favoriteExercises'));
 router.use('/favoriteSelfCare', require('./favoriteSelfCare'));
+router.use('/workouts', require('./workouts'))
 
 
 module.exports = router;
