@@ -14,6 +14,7 @@ export default function FavoriteExercises({ user }) {
           },
         });
         const result = await response.json();
+        console.log(result)
         setFavoriteRecipes(result);
       } catch (error) {
         console.error(error);

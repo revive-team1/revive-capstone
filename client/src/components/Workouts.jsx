@@ -57,7 +57,7 @@ const Workouts = () => {
                 </div>
                 <div>
                     {data.map((workout) => (
-                        <div key={workout.workout_id}>
+                        <div key={workout.exercise_id1}>
                             <p>Name: {workout.name}</p>
                             <img src={new URL(`../assets/images/${workout.imgUrl}`, import.meta.url).href} alt={workout.name}></img>
                         </div>
