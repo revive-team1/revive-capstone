@@ -46,7 +46,7 @@ function Recipes() {
 
                 <div id='recipeCard' className='border border-5 border-black p-3 m-5'>
 
-                  <img src={recipe.imgurl} alt={recipe.name} className='w-75' />
+                  <img src={recipe.imgurl} alt={recipe.name} style={{ width: '200px', height: '250px', padding: '5px' }}  />
                   <h3>{recipe.name}</h3>
                   {/* <p>Difficulty: {recipe.difficulty}</p> */}
                   {/* <p>Serves {recipe.recipe_yield}</p> */}
