@@ -20,11 +20,13 @@ export default function SelfCare() {
 
   return (
     <>
-    <div id='spotlight' className='border border-5 border-black p-5 m-5'>
+      <div id='spotlight' className='border border-5 border-black p-5 m-5'>
         <h1 className='m-4'>Self Care Spotlight</h1>
-        <a href='https://www.youtube.com/watch?v=nun1hwBNdm0' className='border border-3 border-black p-2 m-3' target="blank">Self Care Do's & Don'ts</a>
-        <a href='https://www.youtube.com/watch?v=Mqqxi8mt4t0' className='border border-3 border-black p-2 m-3' target="blank">Small Ways to Practice Self-Care in Difficult Times</a>
-        <a href='https://www.youtube.com/watch?v=q5viyKoCikI' className='border border-3 border-black p-2 m-3' target="blank">What is self-care and why is it important?</a>
+        <div className='d-flex flex-wrap'>
+          <a href='https://www.youtube.com/watch?v=nun1hwBNdm0' className='border border-3 border-black p-2 m-3' target="blank">Self Care Do's & Don'ts</a>
+          <a href='https://www.youtube.com/watch?v=Mqqxi8mt4t0' className='border border-3 border-black p-2 m-3' target="blank">Small Ways to Practice Self-Care in Difficult Times</a>
+          <a href='https://www.youtube.com/watch?v=q5viyKoCikI' className='border border-3 border-black p-2 m-3' target="blank">What is self-care and why is it important?</a>
+        </div>
       </div>
       <br />
       <div>
@@ -33,7 +35,7 @@ export default function SelfCare() {
             onChange={(e) => setSearch(e.target.value)} />
         </form>
       </div>
-      
+
       <div className='row row-cols-1 row-cols-md-2 row-cols-lg-4 justify-content-center'>
         {data.filter((selfCareIdea) => {
           return search.toLowerCase() === '' ? selfCareIdea : selfCareIdea.name.toLowerCase().includes(search)

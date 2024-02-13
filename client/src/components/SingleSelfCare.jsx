@@ -26,7 +26,7 @@ export default function SingleSelfCare() {
             <p>What to do: {selfCare.description}</p>
             <img className='singlePageImg' src={new URL(`${selfCare.imgurl}`, import.meta.url).href} alt={selfCare.name}></img>
             <br />
-            <Link to={selfCare.article_url} target="blank" className="textOnImg">Click here for an aritcle to learn more </Link>
+            <Link to={selfCare.article_url} target="blank" className="textOnImg">Click here for an article to learn more </Link>
             <br />
             <br />
             <Link to={'/selfCare'}>Back to all Self Care Ideas</Link>
