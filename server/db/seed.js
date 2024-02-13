@@ -86,8 +86,8 @@ async function createTables() {
         );
         CREATE TABLE workouts (
           workout_id SERIAL PRIMARY KEY,
-          name TEXT,
-          description TEXT,
+          workout_name TEXT,
+          workout_description TEXT,
           exercise_id1 INTEGER REFERENCES exercises(exercise_id),
           exercise_id2 INTEGER REFERENCES exercises(exercise_id),
           exercise_id3 INTEGER REFERENCES exercises(exercise_id),
@@ -275,12 +275,12 @@ const createInitialWorkouts = async () => {
     for (const workout of workouts) {
       await client.query(
         `
-                INSERT INTO workouts(name, description, exercise_id1, exercise_id2, exercise_id3, exercise_id4, exercise_id5, exercise_id6, exercise_id7, exercise_id8)
+                INSERT INTO workouts(workout_name, workout_description, exercise_id1, exercise_id2, exercise_id3, exercise_id4, exercise_id5, exercise_id6, exercise_id7, exercise_id8)
                 VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);
             `,
         [
-          workout.name,
-          workout.description,
+          workout.workout_name,
+          workout.workout_description,
           workout.exercise_id1,
           workout.exercise_id2,
           workout.exercise_id3,

@@ -6,7 +6,9 @@ async function getAllWorkouts() {
     try {
         console.log(3)
         const { rows: workouts } = await client.query(`
-        SELECT * FROM workouts;
+        SELECT * FROM workouts
+          INNER JOIN exercises
+          ON workouts.exercise_id1 = exercises.exercise_id
         `);
         return workouts;
     } catch (error) {
