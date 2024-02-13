@@ -30,7 +30,7 @@ export const fetchingApi = createApi({
         }),
 
         getSingleExercise: build.query({
-            query: (id) => `/exercises/${id}`
+            query: (exercise_id) => `/exercises/${exercise_id}`
         }),
 
         //get selfCare data
