@@ -26,7 +26,6 @@ function App() {
       <header className='header'>
       <Navigations />
       </header>
-      <h1>revive</h1>
     </div>
       <Routes>
 

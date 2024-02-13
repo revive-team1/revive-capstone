@@ -69,6 +69,26 @@ button:focus-visible {
   }
 }
 
+.selfCareimg{
+  width: 225px;
+  height: 175px;
+}
+
+.singlePageImg {
+  width: 400px;
+}
+
+/* .singleBackground {
+  background-image:url('./assets/images/download.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  margin: 0;
+  width: 600px;
+  content: "width=device-width, initial-scale=1";
+} */
+
 .favoritesCard {
   /* border-style: double; */
   border-width: thick;
@@ -76,8 +96,6 @@ button:focus-visible {
   padding: 20px;
   margin-left: 10px;
   margin-right: 10px;
-  
-
   
 }
 
@@ -136,3 +154,4 @@ button:focus-visible {
   margin-right: 5px;
 
 }
+
