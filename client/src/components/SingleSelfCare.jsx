@@ -21,10 +21,12 @@ export default function SingleSelfCare() {
     }, [])
 
     return (
-        <div>
+        <div className="singleBackground">
             <h2>{selfCare.name}</h2>
-            <p>Description: {selfCare.description}</p>
-            <Link to={selfCare.article_url} target="blank">Click here for an aritcle to learn more </Link>
+            <p>What to do: {selfCare.description}</p>
+            <img className='singlePageImg' src={new URL(`${selfCare.imgurl}`, import.meta.url).href} alt={selfCare.name}></img>
+            <br />
+            <Link to={selfCare.article_url} target="blank" className="textOnImg">Click here for an aritcle to learn more </Link>
             <br />
             <br />
             <Link to={'/selfCare'}>Back to all Self Care Ideas</Link>

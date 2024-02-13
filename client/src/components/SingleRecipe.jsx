@@ -25,20 +25,20 @@ function SingleRecipe({user_id}) {
   return (
     <>
 
+     
+
+
+      <h3>{recipe.name}</h3>
+      <p>Difficulty level: {recipe.difficulty}</p>
+      <p>Servings: {recipe.recipe_yield}</p>
+      <p>Instructions: <br/> {recipe.description}</p>
+      <img src={recipe.imgurl} className='singlePageImg'/>
       <div className='button'>
         <Link
          to="/recipes">
           <button className='backButton'>Back</button>
         </Link>
       </div>
-
-
-      <p>{recipe.name}</p>
-      <p>{recipe.difficulty}</p>
-      <p>{recipe.recipe_yield}</p>
-      <p>{recipe.description}</p>
-      <img src={recipe.imgurl} />
-
       <FavoriteRecipesButton user_id = {user_id} recipe_id = {recipe.recipe_id}/>
 
     </>

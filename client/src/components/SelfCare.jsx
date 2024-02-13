@@ -1,5 +1,4 @@
 
-
 import React from "react";
 import { useGetSelfCareQuery } from "../api/fetching";
 import { useNavigate } from "react-router-dom";
@@ -21,21 +20,27 @@ export default function SelfCare() {
 
   return (
     <>
+    <div id='spotlight' className='border border-5 border-black p-5 m-5'>
+        <h1 className='m-4'>Self Care Spotlight</h1>
+        <a href='https://www.youtube.com/watch?v=nun1hwBNdm0' className='border border-3 border-black p-2 m-3' target="blank">Self Care Do's & Don'ts</a>
+        <a href='https://www.youtube.com/watch?v=Mqqxi8mt4t0' className='border border-3 border-black p-2 m-3' target="blank">Small Ways to Practice Self-Care in Difficult Times</a>
+        <a href='https://www.youtube.com/watch?v=q5viyKoCikI' className='border border-3 border-black p-2 m-3' target="blank">What is self-care and why is it important?</a>
+      </div>
       <br />
       <div>
         <form>
-          <input placeholder="Type self care name here..."
+          <input placeholder="Search self care here..."
             onChange={(e) => setSearch(e.target.value)} />
         </form>
       </div>
       
-      <div className="selfCare">
+      <div className='row row-cols-1 row-cols-md-2 row-cols-lg-4 justify-content-center'>
         {data.filter((selfCareIdea) => {
           return search.toLowerCase() === '' ? selfCareIdea : selfCareIdea.name.toLowerCase().includes(search)
         }).map((selfCareIdea) => (
-          <div key={selfCareIdea.selfCare_id} className="selfCareCard">
+          <div key={selfCareIdea.selfcare_id} className='border border-5 border-black p-3 m-5' id="selfCareCard">
             <h3>{selfCareIdea.name}</h3>
-            <img src={new URL(`${selfCareIdea.imgurl}`, import.meta.url).href} alt={selfCareIdea.name}></img>
+            <img className='selfCareimg' src={new URL(`${selfCareIdea.imgurl}`, import.meta.url).href} alt={selfCareIdea.name}></img>
             <br />
             <button onClick={() => {
               navigate(`/selfCare/${selfCareIdea.selfcare_id}`)
