@@ -68,3 +68,23 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.selfCareimg{
+  width: 225px;
+  height: 175px;
+}
+
+.singlePageImg {
+  width: 400px;
+}
+
+/* .singleBackground {
+  background-image:url('./assets/images/download.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  margin: 0;
+  width: 600px;
+  content: "width=device-width, initial-scale=1";
+} */
