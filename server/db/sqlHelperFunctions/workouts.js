@@ -30,11 +30,11 @@ async function getWorkoutsById(id) {
 
 //POST - /api/workouts - create new workout
 async function createWorkouts(body) {
-    const { description, exercise_id1, exercise_id2, exercise_id3, exercise_id4, exercise_id5, exercise_id6, exercise_id7, exercise_id8 } = body;
+    const { name, description, exercise_id1, exercise_id2, exercise_id3, exercise_id4, exercise_id5, exercise_id6, exercise_id7, exercise_id8 } = body;
     try {
         const { rows: [workouts] } = await client.query(`
-        INSERT INTO workouts(description, exercise_id1, exercise_id2, exercise_id3, exercise_id4, exercise_id5, exercise_id6, exercise_id7, exercise_id8)
-        VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)
+        INSERT INTO workouts(name, description, exercise_id1, exercise_id2, exercise_id3, exercise_id4, exercise_id5, exercise_id6, exercise_id7, exercise_id8)
+        VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
         RETURNING *;
         `, [description, exercise_id1, exercise_id2, exercise_id3, exercise_id4, exercise_id5, exercise_id6, exercise_id7, exercise_id8]);
         return workouts;

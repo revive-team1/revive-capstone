@@ -36,8 +36,16 @@ export const fetchingApi = createApi({
         //get selfCare data
         getSelfCare: build.query({
             query: () => `/selfcare`
+        }),
+
+        getWorkouts: build.query({
+            query: () => '/workouts'
+        }),
+
+        getSingleWorkout: build.query({
+            query: (workout_id) => `/workouts/${workout_id}`
         })
     })
 });
 
-export const { useLoginMutation, useRegisterMutation, useGetExercisesQuery, useGetSingleExerciseQuery, useGetSelfCareQuery } = fetchingApi
+export const { useLoginMutation, useRegisterMutation, useGetExercisesQuery, useGetSingleExerciseQuery, useGetSelfCareQuery, useGetWorkoutsQuery } = fetchingApi

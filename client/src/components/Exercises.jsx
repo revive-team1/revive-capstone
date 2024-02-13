@@ -10,7 +10,6 @@ const Exercises = ({ user_id }) => {
     const token = useSelector((it) => it.actionsSlice.token)
 
     const { data, error, isLoading } = useGetExercisesQuery()
-    console.log(data)
     const [filtered, setFiltered] = useState([])
     const [searched, setSearched] = useState(0)
     const [searchInput, setSearchInput] = useState('')
