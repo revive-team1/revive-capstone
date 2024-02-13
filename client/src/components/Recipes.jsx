@@ -26,11 +26,11 @@ function Recipes() {
 
   return (
     <>
-      <div id='spotlight' className='border border-5 border-black p-5 m-5'>
+      <div id='spotlight' className='border border-3 border-black rounded-4 p-5 m-5'>
         <h1 className='m-4'>Chef Spotlight</h1>
-        <a href='www.tiktok.com' className='border border-3 border-black p-2 m-3'>tiktok</a>
-        <a href='www.tiktok.com' className='border border-3 border-black p-2 m-3'>tiktok</a>
-        <a href='www.tiktok.com' className='border border-3 border-black p-2 m-3'>tiktok</a>
+        <a href='www.tiktok.com' className='border border-3 border-black rounded-2 p-2 m-3'>tiktok</a>
+        <a href='www.tiktok.com' className='border border-3 border-black rounded-2 p-2 m-3'>tiktok</a>
+        <a href='www.tiktok.com' className='border border-3 border-black rounded-2 p-2 m-3'>tiktok</a>
       </div>
       <div>
         <div id="searchbarContainer">
@@ -44,7 +44,7 @@ function Recipes() {
             return (
               <>
 
-                <div id='recipeCard' className='border border-5 border-black p-3 m-5'>
+                <div id='recipeCard' className='border border-3 border-black rounded-4 p-3 m-5'>
 
                   <img src={recipe.imgurl} alt={recipe.name} style={{ width: '200px', height: '250px', padding: '5px' }}  />
                   <h3>{recipe.name}</h3>
@@ -54,10 +54,8 @@ function Recipes() {
 
                   <div className='p-3 m-3'>
 
-                    <Link to={`/recipes/${recipe.recipe_id}`}>
-                      <button>
-                        See Details
-                      </button>
+                    <Link to={`/recipes/${recipe.recipe_id}`}  className='btn btn-outline-dark'>
+                    See Details
                     </Link>
                   </div>
 
