@@ -13,19 +13,23 @@ export default function Account({ user,favoriteRecipes, setFavoriteRecipes, favo
   return (
     <>
     <div className="userInfo">
-      <h2 className="welcomeMessage">Welcome, {`${user.firstname}`}!</h2>
+      <br/>
+      <h1 className="welcomeMessage">Welcome, {`${user.firstname}`}!</h1>
      <br/>
-      <h2 className="accountHeading">Account Information:</h2>
+      <h2 className="accountHeading">Account Information</h2>
+      <div className="breakLine"></div>
+      
       <div className="accountDetails">
+        <br/>
         <span>Name: {user.firstname} {user.lastname}</span><br />
         <span>Username: {user.username}</span><br/> <br/>
       </div>
       <br/>
 
-      <FavoriteExercises favoriteExercises= {favoriteExercises} setFavoriteExercises={setFavoriteExercises} user ={user} setUser = {setUser}/>
-      <FavoriteRecipes user={user} setUser = {setUser} favoriteRecipes = {favoriteRecipes} setFavoriteRecipes={setFavoriteRecipes}/>
+      <div className="favoritesCard"><FavoriteExercises favoriteExercises= {favoriteExercises} setFavoriteExercises={setFavoriteExercises} user ={user} setUser = {setUser}/> </div>
+      <div className="favoritesCard"><FavoriteRecipes user={user} setUser = {setUser} favoriteRecipes = {favoriteRecipes} setFavoriteRecipes={setFavoriteRecipes}/> </div>
     </div>
-    <div>{<Checklist />}</div>
+    <div className="selfCareChecklist">{<Checklist />}</div>
     </>
   );
 };
