@@ -25,11 +25,14 @@ export default function FavoriteExercises({ user }) {
   if(!favoriteExercises.length) {
     return (
     <>
+      <div className="favoritesContainer">
       <p className ="noFavoritesMessage">You do not currently have any favorite exercises saved.</p>
       <div className="favoritesPageButton">
+        <br/>
         <button onClick={() => {
           navigate(`/exercises`);
         }}>Explore Exercises</button> 
+      </div>
       </div>
     </>)
   }
@@ -37,21 +40,25 @@ export default function FavoriteExercises({ user }) {
     <>
     <br/>
     <div className="favoritesContainer">
-      <h1 className="favoritesHeading">{`${user.firstname}`}'s Favorite Exercises</h1>
+      <h3 className="favoritesHeading">{`${user.firstname}`}'s Favorite Exercises</h3>
+      <div className="breakLine"></div>
       <>
         {favoriteExercises.map((favoriteExercise) => (
           <>
           <div key={favoriteExercise.exercise_id} className="favorite-card">
-            {/* <div className="place-image-container">
-              <img className="place-image" src={favoritePlace.img_url} />
-            </div> */}
-            <div className="place-details">
+            <div className="exercise-image-container">
+              <img className="exerciseImage" src={favoriteExercise.imgurl} />
+            </div>
+            <div className="exercise-details">
               <span className="favoriteExerciseName">  {favoriteExercise.name} </span> <br />
 
               {/* <button onClick={() => {
                 navigate(`/exercises/${favoriteExercises.exercise_id}`);
                 }}>See Exercise</button>  */}
 
+              <button onClick={() => {
+                navigate(`/exercises/${favoriteExercise.exercise_id}`);
+                }}>See exercise</button> 
               <RemoveFavoriteExerciseButton
                 favoriteExercises={favoriteExercises}
                 favoriteExercise={favoriteExercise}

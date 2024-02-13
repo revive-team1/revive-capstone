@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom"
 import Account from './components/Account'
 import Calendars from './components/Calendars'
 import Exercises from './components/Exercises'
+import Workouts from './components/Workouts'
 import Login from './components/Login'
 import Navigations from './components/Navigations'
 import Recipes from './components/Recipes'
@@ -45,13 +46,13 @@ function App() {
           }/>
         <Route path="/account" element={<Account user={user} favoriteExercises={favoriteExercises} setFavoriteExercises={setFavoriteExercises}/>} favoriteRecipes = {favoriteRecipes} setFavoriteRecipes={setFavoriteRecipes} />
         <Route path="/selfcare" element={<SelfCare />} />
-        <Route path="/exercises" element={<Exercises user_id={user.user_id}/>} />
+        <Route path="/workouts" element={<Workouts user_id={user.user_id}/>} />
         <Route path="/login"  element={<Login setToken={setToken} setUser={setUser}/>} />
         <Route path="/register"  element={<Register setToken={setToken} setUser={setUser} />} />
         <Route path="/recipes" element={<Recipes />} />
         <Route path="/recipes/:recipe_id" element={<SingleRecipe user_id={user.user_id} />} />
         <Route path="/selfcare/:selfCare_id" element={<SingleSelfCare />} />
-        <Route path="/exercises/:id" element={<SingleExercise />} />
+        <Route path="/exercises/:exercise_id" element={<SingleExercise />} />
 
       </Routes>
     </>

@@ -30,30 +30,34 @@ export default function SelfCareChecklist() {
     };
   
     return (
-      <div>
+      <div classname="checklistCard">
         <h2>Self Care Checklist</h2>
+        <div className="breakLine"></div>
+        <br/>
         <input
+          className="checklistInput"
           type="text"
           value={name}
           onChange={handleNameChange}
           placeholder="Self Care Activity"
         />
         <input
+          className="checklistInput"
           type="text"
           value={description}
           onChange={handleDescriptionChange}
           placeholder="Description"
         />
         <button onClick={handleAddItem}>Add</button>
-        <table>
+        <table className="checklistTable">
           <thead>
             <tr>
-              <th>Name</th>
+              <th>Activity Name</th>
               <th>Description</th>
               <th>Completed</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="checklistBody">
             {items.map((item, index) => (
               <tr key={index}>
                 <td>{item.name}</td>
