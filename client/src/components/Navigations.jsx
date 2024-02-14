@@ -24,7 +24,9 @@ const Navigations = () => {
           <div className='collapse navbar-collapse justify-content-end align-center' id='main-nav'>
             <div className='navbar-nav'>
               <div className='nav-item'>
-                <Link to="/exercises" className='nav-link mx-3'>fitness</Link>
+
+                <Link to="/workouts" className='nav-link mx-3'>fitness</Link>
+
               </div>
               <div className='nav-item'>
                 <Link to="/selfcare" className='nav-link mx-3'>self care</Link>

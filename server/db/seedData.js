@@ -374,40 +374,31 @@ const favoriteRecipes = [
 const workouts = [
   {
     workout_name: "Full Body Endurance", 
-    workout_description: 'Perform 2-3 rounds of each superset. Fully complete the 2-3 rounds of a superset before moving on to the next superset. Each exercise within a superset will be anywhere from 8-12 reps. If something is for time, it will be noted in the exercise. There are 3 Supersets within this workout, which means you will be hitting 9 rounds total. After each exercise rest for 30-60 seconds.',
-    exercise_id1: 6,
-    exercise_id2: 7,
-    exercise_id3: 8,
-    exercise_id4: 9,
-    exercise_id5: 10,
-    exercise_id6: 11,
-    exercise_id7: 12,
-    exercise_id8: 13
+    workout_description: 'Perform 2-3 rounds of each superset. Fully complete the 2-3 rounds of a superset before moving on to the next superset. Each exercise within a superset will be anywhere from 8-12 reps. If something is for time, it will be noted in the exercise. There are 3 Supersets within this workout, which means you will be hitting 9 rounds total. After each exercise rest for 30-60 seconds.'
   },
   {
     workout_name: "Pull Workout",
-    workout_description: 'Perform 2-3 rounds of each superset. Fully complete the 2-3 rounds of a superset before moving on to the next superset. Each exercise within a superset will be anywhere from 8-12 reps. If something is for time, it will be noted in the exercise. There are 3 Supersets within this workout, which means you will be hitting 9 rounds total. After each exercise rest for 30-60 seconds.',
-    exercise_id1: 5,
-    exercise_id2: 14,
-    exercise_id3: 15,
-    exercise_id4: 16,
-    exercise_id5: 17,
-    exercise_id6: 18,
-    exercise_id7: 2,
-    exercise_id8: 19
+    workout_description: 'Perform 2-3 rounds of each superset. Fully complete the 2-3 rounds of a superset before moving on to the next superset. Each exercise within a superset will be anywhere from 8-12 reps. If something is for time, it will be noted in the exercise. There are 3 Supersets within this workout, which means you will be hitting 9 rounds total. After each exercise rest for 30-60 seconds.'
   },
   {
     workout_name: "Push Workout",
-    workout_description: 'Perform 2-3 rounds of each superset. Fully complete the 2-3 rounds of a superset before moving on to the next superset. Each exercise within a superset will be anywhere from 8-12 reps. If something is for time, it will be noted in the exercise. There are 3 Supersets within this workout, which means you will be hitting 9 rounds total. After each exercise rest for 30-60 seconds.',
-    exercise_id1: 20,
-    exercise_id2: 21,
-    exercise_id3: 22,
-    exercise_id4: 23,
-    exercise_id5: 24,
-    exercise_id6: 25,
-    exercise_id7: 26,
-    exercise_id8: 27
+    workout_description: 'Perform 2-3 rounds of each superset. Fully complete the 2-3 rounds of a superset before moving on to the next superset. Each exercise within a superset will be anywhere from 8-12 reps. If something is for time, it will be noted in the exercise. There are 3 Supersets within this workout, which means you will be hitting 9 rounds total. After each exercise rest for 30-60 seconds.'
   },
+];
+
+const workoutExercises = [
+  {
+    workout_id: 1,
+    exercises: [6, 7, 8, 9, 10, 11, 12, 13]
+  },
+  {
+    workout_id: 2,
+    exercises: [5, 14, 15, 16, 17, 18, 2, 19]
+  },
+  {
+    workout_id: 3,
+    exercises: [20, 21, 22, 23, 24, 25, 26, 27]
+  }
 ]
 
 const favoriteExercises = [
@@ -465,5 +456,6 @@ module.exports = {
   workouts,
   favoriteRecipes,
   favoriteExercises,
-  favoriteSelfCare
+  favoriteSelfCare, 
+  workoutExercises
 };

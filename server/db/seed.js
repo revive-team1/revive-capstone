@@ -8,7 +8,8 @@ const {
   favoriteRecipes,
   favoriteExercises,
   favoriteSelfCare,
-  workouts
+  workouts,
+  workoutExercises
 } = require("./seedData");
 
 // drop tables for clients, membership, exercises
@@ -25,6 +26,7 @@ async function dropTables() {
       DROP TABLE IF EXISTS selfCare CASCADE;
       DROP TABLE IF EXISTS workouts CASCADE;
       DROP TABLE IF EXISTS favoriteSelfCare CASCADE;
+      DROP TABLE IF EXISTS workoutExercises CASCADE;
     `);
   } catch (error) {
     throw error;
@@ -87,21 +89,19 @@ async function createTables() {
         CREATE TABLE workouts (
           workout_id SERIAL PRIMARY KEY,
           workout_name TEXT,
-          workout_description TEXT,
-          exercise_id1 INTEGER REFERENCES exercises(exercise_id),
-          exercise_id2 INTEGER REFERENCES exercises(exercise_id),
-          exercise_id3 INTEGER REFERENCES exercises(exercise_id),
-          exercise_id4 INTEGER REFERENCES exercises(exercise_id),
-          exercise_id5 INTEGER REFERENCES exercises(exercise_id),
-          exercise_id6 INTEGER REFERENCES exercises(exercise_id),
-          exercise_id7 INTEGER REFERENCES exercises(exercise_id),
-          exercise_id8 INTEGER REFERENCES exercises(exercise_id)
+          workout_description TEXT
         );
         CREATE TABLE favoriteSelfCare (
           favorite_id SERIAL PRIMARY KEY,
           user_id INTEGER REFERENCES users(user_id),
           selfCare_id INTEGER REFERENCES selfCare(selfCare_id)  
-      );
+        );
+        CREATE TABLE workoutExercises (
+          workoutExercise_id SERIAL PRIMARY KEY,
+          workout_id INTEGER REFERENCES workouts(workout_id),
+          exercise_id INTEGER REFERENCES exercises(exercise_id),
+          sequence_number INTEGER
+        );
         `);
   } catch (error) {
     console.log("error creating tables");
@@ -275,20 +275,12 @@ const createInitialWorkouts = async () => {
     for (const workout of workouts) {
       await client.query(
         `
-                INSERT INTO workouts(workout_name, workout_description, exercise_id1, exercise_id2, exercise_id3, exercise_id4, exercise_id5, exercise_id6, exercise_id7, exercise_id8)
-                VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);
+                INSERT INTO workouts(workout_name, workout_description)
+                VALUES($1, $2);
             `,
         [
           workout.workout_name,
           workout.workout_description,
-          workout.exercise_id1,
-          workout.exercise_id2,
-          workout.exercise_id3,
-          workout.exercise_id4,
-          workout.exercise_id5,
-          workout.exercise_id6,
-          workout.exercise_id7,
-          workout.exercise_id8,
         ]
       );
     }
@@ -298,6 +290,33 @@ const createInitialWorkouts = async () => {
   }
 };
 
+const createInitialWorkoutsExercises = async () => {
+  try {
+    for (const workoutExercise of workoutExercises) {
+      let sequenceNumber = 1;
+
+      for (const exerciseId of workoutExercise.exercises) {
+        await client.query(
+          `
+                  INSERT INTO workoutExercises(workout_id, exercise_id, sequence_number)
+                  VALUES($1, $2, $3);
+              `,
+          [
+            workoutExercise.workout_id,
+            exerciseId,
+            sequenceNumber
+          ]
+        );
+        sequenceNumber++;
+      }
+      
+    }
+    console.log("created workout exercises relationships");
+  } catch (error) {
+    console.error('Error creating workout exercise relationships:', error)
+    throw error;
+  }
+};
 
 // Call all functions to build the db
 const buildDb = async () => {
@@ -317,6 +336,7 @@ const buildDb = async () => {
     await createInitialFavoriteExercises();
     await createInitialFavoriteSelfCare();
     await createInitialWorkouts();
+    await createInitialWorkoutsExercises();
   } catch (error) {
     console.error(error);
   } finally {

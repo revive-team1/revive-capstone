@@ -34,7 +34,7 @@ const Exercises = ({ user_id }) => {
         return (
             <>
                 <div id='spotlight' className='border border-5 border-black p-5 m-5'>
-                    <h1 className='m-4'>Chef Spotlight</h1>
+                    <h1 className='m-4'>Personal Trainer Spotlight</h1>
                     <a href='www.tiktok.com' className='border border-3 border-black p-2 m-3'>tiktok</a>
                     <a href='www.tiktok.com' className='border border-3 border-black p-2 m-3'>tiktok</a>
                     <a href='www.tiktok.com' className='border border-3 border-black p-2 m-3'>tiktok</a>

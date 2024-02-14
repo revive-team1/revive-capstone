@@ -46,7 +46,7 @@ function App() {
           }/>
         <Route path="/account" element={<Account user={user} favoriteExercises={favoriteExercises} setFavoriteExercises={setFavoriteExercises}/>} favoriteRecipes = {favoriteRecipes} setFavoriteRecipes={setFavoriteRecipes} />
         <Route path="/selfcare" element={<SelfCare />} />
-        <Route path="/exercises" element={<Exercises user_id={user.user_id}/>} />
+        <Route path="/workouts" element={<Workouts user_id={user.user_id}/>} />
         <Route path="/login"  element={<Login setToken={setToken} setUser={setUser}/>} />
         <Route path="/register"  element={<Register setToken={setToken} setUser={setUser} />} />
         <Route path="/recipes" element={<Recipes />} />
