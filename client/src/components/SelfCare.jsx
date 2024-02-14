@@ -44,6 +44,7 @@ export default function SelfCare() {
             <h3>{selfCareIdea.name}</h3>
             <img className='selfCareimg' src={new URL(`${selfCareIdea.imgurl}`, import.meta.url).href} alt={selfCareIdea.name}></img>
             <br />
+            <br />
             <button onClick={() => {
               navigate(`/selfCare/${selfCareIdea.selfcare_id}`)
             }}>See Details</button>

@@ -4,8 +4,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FavoriteExercises from './FavoriteExercises'
 import FavoriteRecipes from './FavoriteRecipes'
-import Checklist from './Checklist'
-
+import SelfCareChecklist from './SelfCareChecklist'
 
 export default function Account({ user,favoriteRecipes, setFavoriteRecipes, favoriteExercises, setFavoriteExercises, setUser }) {
   const navigate = useNavigate();
@@ -29,7 +28,7 @@ export default function Account({ user,favoriteRecipes, setFavoriteRecipes, favo
       <div className="favoritesCard"><FavoriteExercises favoriteExercises= {favoriteExercises} setFavoriteExercises={setFavoriteExercises} user ={user} setUser = {setUser}/> </div>
       <div className="favoritesCard"><FavoriteRecipes user={user} setUser = {setUser} favoriteRecipes = {favoriteRecipes} setFavoriteRecipes={setFavoriteRecipes}/> </div>
     </div>
-    <div className="selfCareChecklist">{<Checklist />}</div>
+    <div className="selfCareChecklist">{<SelfCareChecklist />}</div>
     </>
   );
 };
