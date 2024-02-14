@@ -155,3 +155,56 @@ button:focus-visible {
 
 }
 
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  padding: 20px;
+}
+
+.calendar-card{
+  text-align: center;
+}
+
+.addAppointmentButton {
+  width: 150px;
+  margin: 0 auto;
+
+}
+
+.modalButton {
+  width: 150px;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 5px;
+
+}
+
+.modal {
+  display: flex;
+  width: 400px;
+  justify-content: center; 
+  border: solid;
+  height: 300px;
+  position: fixed;
+}
+.appointmentInput {
+  width: 250px;
+  margin: 0 auto;
+  margin-top: 5px;
+}
+
+.calendar-card{
+
+}
+
+.modal, .overlay {
+  width: 400px;
+  height: 300px;
+  top: 30vh;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  margin: 0 auto;
+}
