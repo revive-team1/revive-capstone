@@ -32,6 +32,10 @@ const Navigations = () => {
               <div className='nav-item'>
                 <Link to="/recipes" className='nav-link'>food</Link>
               </div>
+              <div className='nav-item'>
+                <Link to="/calendar" className='nav-link'>calendar</Link>
+              </div>
+              
 
               {(!token) ? (
                 <>
