@@ -11,7 +11,7 @@ const Workouts = () => {
     const { data, error, isLoading } = useGetWorkoutsQuery()
     console.log(data)
     const [filtered, setFiltered] = useState([])
-    const [search, setSearch] = useState(0)
+    const [searched, setSearched] = useState(0)
     const [searchInput, setSearchInput] = useState('')
 
     function searchExercises(e) {
@@ -57,9 +57,21 @@ const Workouts = () => {
                 </div>
                 <div>
                     {data.map((workout) => (
-                        <div key={workout.exercise_id1}>
-                            <p>Name: {workout.name}</p>
-                            <img src={new URL(`../assets/images/${workout.imgUrl}`, import.meta.url).href} alt={workout.name}></img>
+                        <div key={workout.workout_id}>
+                            <h3>Name: {workout.workout_name}</h3>
+                            <p><strong>Description:</strong> {workout.workout_description}</p>
+                            <div>
+                                {workout.exercises.map((exercise) => (
+                                    <div key={exercise.exercise_id}>
+                                        <ul className='list-group'>
+                                            <li className='list-group-item'>
+                                                <strong>{exercise.name}</strong>
+                                                <button className='btn btn-outline-dark m-2' type='button' role='button'><Link to={`/exercises/${exercise.exercise_id}`}>See More</Link></button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     ))}
                 </div>

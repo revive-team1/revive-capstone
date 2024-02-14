@@ -5,14 +5,38 @@ const util = require('util');
 async function getAllWorkouts() {
     try {
         console.log(3)
-        const { rows: workouts } = await client.query(`
+        const { rows } = await client.query(`
         SELECT workouts.workout_id, workouts.workout_name, workouts.workout_description, exercises.exercise_id, exercises.name, exercises.description, exercises.imgUrl, exercises.difficulty, workoutExercises.sequence_number
         FROM workouts
         JOIN workoutExercises ON workouts.workout_id = workoutExercises.workout_id
         JOIN exercises ON workoutExercises.exercise_id = exercises.exercise_id
         ORDER BY workouts.workout_id, workoutExercises.sequence_number;
         `);
-        return workouts;
+        // Group exercises by workout
+        const workouts = {};
+        rows.forEach(row => {
+            if (!workouts[row.workout_id]) {
+                workouts[row.workout_id] = {
+                    workout_id: row.workout_id,
+                    workout_name: row.workout_name,
+                    workout_description: row.workout_description,
+                    exercises: []
+                };
+            }
+            workouts[row.workout_id].exercises.push({
+                exercise_id: row.exercise_id,
+                name: row.name,
+                description: row.description,
+                imgUrl: row.imgUrl,
+                difficulty: row.difficulty,
+                sequence_number: row.sequence_number
+            });
+        });
+
+        // Convert the workouts object to an array of workouts
+        const workoutsArray = Object.values(workouts);
+
+        return workoutsArray;
     } catch (error) {
         console.error('Error getting workout', error);
         throw new Error(`Failed to get workout: ${error.message}`)
