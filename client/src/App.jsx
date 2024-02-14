@@ -53,6 +53,7 @@ function App() {
         <Route path="/recipes/:recipe_id" element={<SingleRecipe user_id={user.user_id} />} />
         <Route path="/selfcare/:selfCare_id" element={<SingleSelfCare />} />
         <Route path="/exercises/:exercise_id" element={<SingleExercise />} />
+        <Route path="/calendar" element={<Calendars/>} />
 
       </Routes>
     </>
