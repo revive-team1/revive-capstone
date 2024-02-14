@@ -63,7 +63,7 @@ export default function SingleSelfCare({ user_id }) {
                 </Link>
                 <br />
             </div>
-
+            </div>
         </div>
     );
 }
