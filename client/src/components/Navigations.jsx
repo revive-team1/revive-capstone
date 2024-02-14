@@ -14,23 +14,23 @@ const Navigations = () => {
   }
 
   return (
-    <div className='navbar navbar-expand-lg navbar-light fixed-top'>
+    <div className='navbar navbar-expand-lg navbar-light sticky-top'>
       <div className='container-xxl'>
         <div className='navbar-brand'>
-          <Link to="/" className='fw-bold text-secondary'>revive</Link>
+          <Link to="/" className='fw-bold text-secondary text-decoration-none'>revive.</Link>
         </div>
         <div>
           <button className='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#main-nav' aria-controls='main-nav' aria-expanded='false' aria-label='Toggle Navigation'> <span className='navbar-toggler-icon'></span></button>
           <div className='collapse navbar-collapse justify-content-end align-center' id='main-nav'>
             <div className='navbar-nav'>
               <div className='nav-item'>
-                <Link to="/exercises" className='nav-link'>fitness</Link>
+                <Link to="/exercises" className='nav-link mx-3'>fitness</Link>
               </div>
               <div className='nav-item'>
-                <Link to="/selfcare" className='nav-link'>self care</Link>
+                <Link to="/selfcare" className='nav-link mx-3'>self care</Link>
               </div>
               <div className='nav-item'>
-                <Link to="/recipes" className='nav-link'>food</Link>
+                <Link to="/recipes" className='nav-link mx-3'>food</Link>
               </div>
               <div className='nav-item'>
                 <Link to="/calendar" className='nav-link'>calendar</Link>
@@ -40,10 +40,10 @@ const Navigations = () => {
               {(!token) ? (
                 <>
                   <div className='nav-item'>
-                    <Link to="/login" className='nav-link'>login</Link>
+                    <Link to="/login" className='nav-link mx-3'>login</Link>
                   </div>
                   <div className='nav-item'>
-                    <Link to="/register" className='nav-link'>register</Link>
+                    <Link to="/register" className='nav-link mx-3'>register</Link>
                   </div>
                 </>
               ) : (
