@@ -1,15 +1,17 @@
 
 
-export default function FavoriteExercisesButton({ user_id, exercise_id, setFavoriteExercises }) {
+export default function FavoriteWorkoutExercisesButton({ user_id, workout_id, setFavoriteWorkoutExercises }) {
   async function handleClick() {
     try {
-      const response = await fetch('http://localhost:8080/api/favoriteExercises', {
+      const response = await fetch('http://localhost:8080/api/favoriteWorkoutExercises', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({user_id, exercise_id}),
+        body: JSON.stringify({user_id, workout_id}),
       });
       const result = await response.json();
-      setFavoriteExercises(result);
+      console.log(result)
+      setFavoriteWorkoutExercises(result);
+      
       
 
     } catch (error) {

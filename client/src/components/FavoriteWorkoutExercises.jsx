@@ -1,28 +1,28 @@
 import { useEffect, useState } from "react";
 import { useNavigate }  from 'react-router-dom';
-import RemoveFavoriteExerciseButton from './RemoveFavoriteExerciseButton';
+import RemoveFavoriteWorkoutExerciseButton from './RemoveFavoriteWorkoutExerciseButton';
 
-export default function FavoriteExercises({ user }) {
+export default function FavoriteWorkoutExercises({ user }) {
   const navigate = useNavigate()
-  const [favoriteExercises, setFavoriteExercises] = useState([])
+  const [favoriteWorkoutExercises, setFavoriteWorkoutExercises] = useState([])
   useEffect(() => {
-    async function fetchFavoriteExercises() {
+    async function fetchFavoriteWorkoutExercises() {
       try {
-        const response = await fetch(`http://localhost:8080/api/favoriteExercises/user/${user.user_id}`, {
+        const response = await fetch(`http://localhost:8080/api/favoriteWorkoutExercises/user/${user.user_id}`, {
           headers: {
             "Content-Type": "application/json",
           },
         });
         const result = await response.json();
-        setFavoriteExercises(result);
+        setFavoriteWorkoutExercises(result);
       } catch (error) {
         console.error(error);
       }
     }
-    fetchFavoriteExercises();
+    fetchFavoriteWorkoutExercises();
   }, []);
 
-  if(!favoriteExercises.length) {
+  if(!favoriteWorkoutExercises.length) {
     return (
     <>
       <div className="favoritesContainer">
@@ -30,8 +30,8 @@ export default function FavoriteExercises({ user }) {
       <div className="favoritesPageButton">
         <br/>
         <button onClick={() => {
-          navigate(`/exercises`);
-        }}>Explore Exercises</button> 
+          navigate(`/workouts`);
+        }}>Explore Workouts</button> 
       </div>
       </div>
     </>)
@@ -40,29 +40,29 @@ export default function FavoriteExercises({ user }) {
     <>
     <br/>
     <div className="favoritesContainer">
-      <h3 className="favoritesHeading">{`${user.firstname}`}'s Favorite Exercises</h3>
+      <h3 className="favoritesHeading">{`${user.firstname}`}'s Favorite Workouts</h3>
       <div className="breakLine"></div>
       <>
-        {favoriteExercises.map((favoriteExercise) => (
+        {favoriteWorkoutExercises.map((favoriteWorkoutExercise) => (
           <>
-          <div key={favoriteExercise.exercise_id} className="favorite-card">
+          <div key={favoriteWorkoutExercise.workoutExercise_id} className="favorite-card">
             <div className="exercise-image-container">
-              <img className="exerciseImage" src={favoriteExercise.imgurl} />
+            
             </div>
             <div className="exercise-details">
-              <span className="favoriteExerciseName">  {favoriteExercise.name} </span> <br />
+              <span className="favoriteExerciseName">  {favoriteWorkoutExercise.name} </span> <br />
 
               {/* <button onClick={() => {
                 navigate(`/exercises/${favoriteExercises.exercise_id}`);
                 }}>See Exercise</button>  */}
 
               <button onClick={() => {
-                navigate(`/exercises/${favoriteExercise.exercise_id}`);
-                }}>See exercise</button> 
-              <RemoveFavoriteExerciseButton
-                favoriteExercises={favoriteExercises}
-                favoriteExercise={favoriteExercise}
-                setFavoriteExercises={setFavoriteExercises}
+                navigate(`/exercises/${favoriteWorkoutExercise.exercise_id}`);
+                }}>See workout</button> 
+              <RemoveFavoriteWorkoutExerciseButton
+                favoriteWorkoutExercises={favoriteWorkoutExercises}
+                favoriteWorkoutExercise={favoriteWorkoutExercise}
+                setFavoriteWorkoutExercises={setFavoriteWorkoutExercises}
               />
               <br />
             </div>

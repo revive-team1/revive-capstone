@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useGetExercisesQuery } from '../api/fetching'
 import { useSelector } from 'react-redux'
 import { useState } from 'react'
-import FavoriteExercisesButton from './FavoriteExercisesButton'
+//import FavoriteExercisesButton from './FavoriteExercisesButton'
 
 const Exercises = ({ user_id }) => {
 

@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import { useGetWorkoutsQuery } from '../api/fetching'
 import { useSelector } from 'react-redux'
 import { useState } from 'react'
-import FavoriteExercisesButton from './FavoriteExercisesButton'
+import FavoriteWorkoutExercisesButton from './FavoriteWorkoutExercisesButton'
 
-const Workouts = () => {
+const Workouts = ({ user_id }) => {
     const token = useSelector((it) => it.actionsSlice.token)
 
     const { data, error, isLoading } = useGetWorkoutsQuery()
@@ -39,42 +39,53 @@ const Workouts = () => {
                 <a href='www.tiktok.com' className='border border-3 border-black p-2 m-3'>tiktok</a>
             </div>
             <form onSubmit={searchExercises}>
-                    <label>
-                        Search Exercise by Name:
-                    </label>
-                    <input
-                        placeholder='Type to search...'
-                        type='search'
-                        value={searchInput}
-                        onChange={(event) => setSearchInput(event.target.value)}
-                    />
-                    <button type='submit'>Search Exercise</button>
-                </form>
+                <label>
+                    Search Exercise by Name:
+                </label>
+                <input
+                    placeholder='Type to search...'
+                    type='search'
+                    value={searchInput}
+                    onChange={(event) => setSearchInput(event.target.value)}
+                />
+                <button type='submit'>Search Exercise</button>
+            </form>
             <div>
                 <>
-                <div>
-                    <h1>Workout Library</h1>
-                </div>
-                <div>
-                    {data.map((workout) => (
-                        <div key={workout.workout_id}>
-                            <h3>Name: {workout.workout_name}</h3>
-                            <p><strong>Description:</strong> {workout.workout_description}</p>
-                            <div>
-                                {workout.exercises.map((exercise) => (
-                                    <div key={exercise.exercise_id}>
-                                        <ul className='list-group'>
-                                            <li className='list-group-item'>
-                                                <strong>{exercise.name}</strong>
-                                                <button className='btn btn-outline-dark m-2' type='button' role='button'><Link to={`/exercises/${exercise.exercise_id}`}>See More</Link></button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                ))}
+                    <div>
+                        <h1>Workout Library</h1>
+                    </div>
+                    <div>
+                        {data.map((workout) => (
+                            <div key={workout.workout_id}>
+                                <h3>Name: {workout.workout_name}</h3>
+                                <p><strong>Description:</strong> {workout.workout_description}</p>
+                                <div>
+                                    {workout.exercises.map((exercise) => (
+                                        <div key={exercise.exercise_id}>
+                                            <ul className='list-group'>
+                                                <li className='list-group-item'>
+                                                    <strong>{exercise.name}</strong>
+                                                    <button className='btn btn-outline-dark m-2' type='button' role='button'><Link to={`/exercises/${exercise.exercise_id}`}>See More</Link></button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    ))}
+                                </div>
+                                {(!token) ? (
+                                    <>
+                                        <button>Login to Like Workout</button>
+                                    </>
+                                ) : (
+                                    <>
+                                        <FavoriteWorkoutExercisesButton user_id={user_id} workout_id={workout.workout_id} />
+                                        {console.log(user_id, workout.workout_id)}
+                                    </>
+                                )}
                             </div>
-                        </div>
-                    ))}
-                </div>
+
+                        ))}
+                    </div>
                 </>
             </div>
 

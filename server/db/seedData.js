@@ -401,26 +401,26 @@ const workoutExercises = [
   }
 ]
 
-const favoriteExercises = [
+const favoriteWorkoutExercises = [
   {
     user_id: 1,
-    exercise_id: 2,
+    workoutExercise_id: 2,
   },
   {
     user_id: 1,
-    exercise_id: 4,
+    workoutExercise_id: 1,
   },
   {
     user_id: 2,
-    exercise_id: 3,
+    workoutExercise_id: 3,
   },
   {
     user_id: 3,
-    exercise_id: 4,
+    workoutExercise_id: 2,
   },
   {
     user_id: 4,
-    exercise_id: 5,
+    workoutExercise_id: 1,
   },
 ];
 
@@ -455,7 +455,7 @@ module.exports = {
   calendars,
   workouts,
   favoriteRecipes,
-  favoriteExercises,
+  favoriteWorkoutExercises,
   favoriteSelfCare, 
   workoutExercises
 };

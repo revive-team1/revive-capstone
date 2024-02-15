@@ -17,7 +17,7 @@ import './App.css'
 function App() {
   const [token, setToken] = useState(null)
   const [user, setUser] = useState({})
-  const [favoriteExercises, setFavoriteExercises] = useState([])
+  const [favoriteWorkoutExercises, setFavoriteWorkoutExercises] = useState([])
   const [favoriteRecipes, setFavoriteRecipes] = useState([])
 
   return (
@@ -44,7 +44,7 @@ function App() {
               </div>
             </section>
           }/>
-        <Route path="/account" element={<Account user={user} favoriteExercises={favoriteExercises} setFavoriteExercises={setFavoriteExercises}/>} favoriteRecipes = {favoriteRecipes} setFavoriteRecipes={setFavoriteRecipes} />
+        <Route path="/account" element={<Account user={user} favoriteWorkoutExercises={favoriteWorkoutExercises} setFavoriteWorkoutExercises={setFavoriteWorkoutExercises}/>} favoriteRecipes = {favoriteRecipes} setFavoriteRecipes={setFavoriteRecipes} />
         <Route path="/selfcare" element={<SelfCare />} />
         <Route path="/workouts" element={<Workouts user_id={user.user_id}/>} />
         <Route path="/login"  element={<Login setToken={setToken} setUser={setUser}/>} />

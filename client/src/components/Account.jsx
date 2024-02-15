@@ -2,12 +2,13 @@ import React from 'react'
 
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import FavoriteExercises from './FavoriteExercises'
+import FavoriteWorkoutExercises from './FavoriteWorkoutExercises'
 import FavoriteRecipes from './FavoriteRecipes'
 import SelfCareChecklist from './SelfCareChecklist'
 
-export default function Account({ user,favoriteRecipes, setFavoriteRecipes, favoriteExercises, setFavoriteExercises, setUser }) {
+export default function Account({ user,favoriteRecipes, setFavoriteRecipes, favoriteWorkoutExercises, setFavoriteWorkoutExercises, setUser }) {
   const navigate = useNavigate();
+  console.log(user)
 
   return (
     <>
@@ -25,7 +26,7 @@ export default function Account({ user,favoriteRecipes, setFavoriteRecipes, favo
       </div>
       <br/>
 
-      <div className="favoritesCard"><FavoriteExercises favoriteExercises= {favoriteExercises} setFavoriteExercises={setFavoriteExercises} user ={user} setUser = {setUser}/> </div>
+      <div className="favoritesCard"><FavoriteWorkoutExercises favoriteWorkoutExercises= {favoriteWorkoutExercises} setFavoriteWorkoutExercises={setFavoriteWorkoutExercises} user ={user} setUser = {setUser}/> </div>
       <div className="favoritesCard"><FavoriteRecipes user={user} setUser = {setUser} favoriteRecipes = {favoriteRecipes} setFavoriteRecipes={setFavoriteRecipes}/> </div>
     </div>
     <div className="selfCareChecklist">{<SelfCareChecklist />}</div>

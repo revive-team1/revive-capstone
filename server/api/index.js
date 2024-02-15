@@ -13,7 +13,7 @@ router.use('/recipes', require('./recipes'));
 router.use('/calendars', require('./calendars'));
 router.use('/selfCare', require('./selfCare'));
 router.use('/favoriteRecipes', require('./favoriteRecipes'));
-router.use('/favoriteExercises', require('./favoriteExercises'));
+router.use('/favoriteWorkoutExercises', require('./favoriteWorkoutExercises'));
 router.use('/favoriteSelfCare', require('./favoriteSelfCare'));
 router.use('/workouts', require('./workouts'))
 
