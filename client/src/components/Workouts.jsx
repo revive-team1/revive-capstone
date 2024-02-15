@@ -7,7 +7,7 @@ import FavoriteWorkoutExercisesButton from './FavoriteWorkoutExercisesButton'
 
 const Workouts = ({ user_id }) => {
     const token = useSelector((it) => it.actionsSlice.token)
-
+    console.log(user_id)
     const { data, error, isLoading } = useGetWorkoutsQuery()
     console.log(data)
     const [filtered, setFiltered] = useState([])
