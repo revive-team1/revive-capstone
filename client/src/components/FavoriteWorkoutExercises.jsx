@@ -14,6 +14,7 @@ export default function FavoriteWorkoutExercises({ user }) {
           },
         });
         const result = await response.json();
+        console.log(result)
         setFavoriteWorkoutExercises(result);
       } catch (error) {
         console.error(error);
@@ -45,12 +46,12 @@ export default function FavoriteWorkoutExercises({ user }) {
       <>
         {favoriteWorkoutExercises.map((favoriteWorkoutExercise) => (
           <>
-          <div key={favoriteWorkoutExercise.workoutExercise_id} className="favorite-card">
+          <div key={favoriteWorkoutExercise.workout_id} className="favorite-card">
             <div className="exercise-image-container">
             
             </div>
             <div className="exercise-details">
-              <span className="favoriteExerciseName">  {favoriteWorkoutExercise.name} </span> <br />
+              <span className="favoriteExerciseName">  {favoriteWorkoutExercise.workout_id} </span> <br />
 
               {/* <button onClick={() => {
                 navigate(`/exercises/${favoriteExercises.exercise_id}`);

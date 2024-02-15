@@ -33,7 +33,6 @@ async function getAllWorkouts() {
             });
         });
 
-        // Convert the workouts object to an array of workouts
         const workoutsArray = Object.values(workouts);
 
         return workoutsArray;

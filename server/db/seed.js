@@ -101,7 +101,7 @@ async function createTables() {
         CREATE TABLE favoriteWorkoutExercises (
           favorite_id SERIAL PRIMARY KEY,
           user_id INTEGER REFERENCES users(user_id),
-          workoutExercise_id INTEGER REFERENCES workoutExercises(workoutExercise_id)  
+          workout_id INTEGER REFERENCES workouts(workout_id)  
       );
         `);
   } catch (error) {
@@ -306,10 +306,10 @@ const createInitialFavoriteWorkoutExercises = async () => {
     for (const favWorkoutExercise of favoriteWorkoutExercises) {
       await client.query(
         `
-            INSERT INTO favoriteWorkoutExercises(user_id, workoutExercise_id)
+            INSERT INTO favoriteWorkoutExercises(user_id, workout_id)
             VALUES($1, $2);
         `,
-        [favWorkoutExercise.user_id, favWorkoutExercise.workoutExercise_id]
+        [favWorkoutExercise.user_id, favWorkoutExercise.workout_id]
       );
     }
 

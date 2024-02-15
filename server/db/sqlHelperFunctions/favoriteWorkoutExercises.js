@@ -29,17 +29,17 @@ async function getFavoriteWorkoutExerciseById(id) {
 }
 
 async function addFavoriteWorkoutExercise(body) {
-  const { user_id, workoutExercise_id } = body;
+  const { user_id, workout_id } = body;
   try {
     const {
       rows: [favoriteWorkoutExercise],
     } = await client.query(
       `
-          INSERT INTO favoriteWorkoutExercises (user_id, workoutExercise_id)
+          INSERT INTO favoriteWorkoutExercises (user_id, workout_id)
           VALUES($1, $2)
           RETURNING *;
       `,
-      [user_id, workoutExercise_id]
+      [user_id, workout_id]
     );
     return favoriteWorkoutExercise;
   } catch (error) {
@@ -71,7 +71,7 @@ async function getFavoriteWorkoutExercisesByUserId(id) {
       `
           SELECT * FROM workoutExercises
           INNER JOIN favoriteWorkoutExercises
-          ON favoriteWorkoutExercises.workoutExercise_id = workoutExercises.workoutExercise_id
+          ON favoriteWorkoutExercises.workout_id = workoutExercises.workout_id
           WHERE favoriteWorkoutExercises.user_id = $1;
       `,
       [id]
