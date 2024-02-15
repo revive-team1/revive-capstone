@@ -45,7 +45,7 @@ export default function SingleSelfCare({ user_id }) {
             )}
             <br />
             <br />
-            <Link to={'/selfCare'}>Back to all Self Care Ideas</Link>
+            <Link className='btn btn-outline-dark' to={'/selfCare'}>Back to all Self Care Ideas</Link>
             <br />
 
         <div className='d-flex justify-content-center p-5'>
