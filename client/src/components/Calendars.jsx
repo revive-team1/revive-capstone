@@ -11,12 +11,13 @@ const CalendarDay = ({ day }) => {
 const Calendars = () => {
 
   const currentDate = new Date();
-  const month = currentDate.getMonth();
-  const year = currentDate.getFullYear();
-
-
-  const firstDayOfMonth = new Date(year, month, 1);
-  const lastDayOfMonth = new Date(year, month + 1, 0);
+  const [calendarMonth, setCalendarMonth] = useState(currentDate.getMonth())
+  const [calendarYear, setCalendarYear] = useState(currentDate.getFullYear());
+  const monthNames=["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+  const firstDayOfMonth = new Date(calendarYear, calendarMonth, 1);
+  const lastDayOfMonth = new Date(calendarYear, calendarMonth + 1, 0);
+  console.log(currentDate.getMonth())
+ 
 
   const firstDayOfWeek = firstDayOfMonth.getDay();
   const totalDays = lastDayOfMonth.getDate();
@@ -30,6 +31,30 @@ const Calendars = () => {
     calendarDays.push(day);
   }
 
+  let nextMonth = new Date(calendarYear, calendarMonth + 1)
+  let previousMonth = new Date(calendarYear, calendarMonth - 1)
+  console.log(previousMonth.getMonth())
+  console.log(calendarYear +1)
+
+  console.log (nextMonth)
+
+  function showNextMonth() {
+    if (calendarMonth === 11) {
+      setCalendarMonth(nextMonth.getMonth())
+      setCalendarYear(calendarYear + 1)
+    }
+    else {setCalendarMonth(nextMonth.getMonth())
+    }
+  }
+
+  function showPreviousMonth() {
+    if (calendarMonth === 0) {
+      setCalendarMonth(previousMonth.getMonth())
+      setCalendarYear(calendarYear - 1)
+    }
+    else {setCalendarMonth(previousMonth.getMonth())
+    }
+  }
 
   const [modal, setModal] = useState(false)
   
@@ -43,10 +68,16 @@ const Calendars = () => {
     <>
     <div className="calendar-card">
       <h1>Calendar</h1>
+      <h3>{monthNames[calendarMonth]} {calendarYear}</h3>
       <div id="calendar" className="calendar-grid">
         {calendarDays.map((day) => <CalendarDay day={day} />)}
       </div>
+
+    <button className="addAppointmentButton" onClick={showPreviousMonth}>Previous Month</button>
+    <button className="addAppointmentButton" onClick={showNextMonth}>Next Month</button>
+    
    
+    <br/> <br/>
 
     <button className="addAppointmentButton" onClick={toggleAppointmentModal}>Add Event</button>
   
