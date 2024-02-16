@@ -6,7 +6,7 @@ const {
   recipes,
   calendars,
   favoriteRecipes,
-  favoriteExercises,
+  favoriteWorkoutExercises,
   favoriteSelfCare,
   workouts,
   workoutExercises
@@ -21,12 +21,12 @@ async function dropTables() {
       DROP TABLE IF EXISTS users CASCADE;
       DROP TABLE IF EXISTS recipes CASCADE;
       DROP TABLE IF EXISTS favoriteRecipes CASCADE;
-      DROP TABLE IF EXISTS favoriteExercises CASCADE;
       DROP TABLE IF EXISTS calendars CASCADE;
       DROP TABLE IF EXISTS selfCare CASCADE;
       DROP TABLE IF EXISTS workouts CASCADE;
       DROP TABLE IF EXISTS favoriteSelfCare CASCADE;
       DROP TABLE IF EXISTS workoutExercises CASCADE;
+      DROP TABLE IF EXISTS favoriteWorkoutExercises CASCADE;
     `);
   } catch (error) {
     throw error;
@@ -81,11 +81,7 @@ async function createTables() {
             user_id INTEGER REFERENCES users(user_id),
             recipe_id INTEGER REFERENCES recipes(recipe_id)
         );
-        CREATE TABLE favoriteExercises (
-            favorite_id SERIAL PRIMARY KEY,
-            user_id INTEGER REFERENCES users(user_id),
-            exercise_id INTEGER REFERENCES exercises(exercise_id)  
-        );
+        
         CREATE TABLE workouts (
           workout_id SERIAL PRIMARY KEY,
           workout_name TEXT,
@@ -102,6 +98,11 @@ async function createTables() {
           exercise_id INTEGER REFERENCES exercises(exercise_id),
           sequence_number INTEGER
         );
+        CREATE TABLE favoriteWorkoutExercises (
+          favorite_id SERIAL PRIMARY KEY,
+          user_id INTEGER REFERENCES users(user_id),
+          workout_id INTEGER REFERENCES workouts(workout_id)  
+      );
         `);
   } catch (error) {
     console.log("error creating tables");
@@ -145,24 +146,6 @@ const createInitialFavoriteRecipes = async () => {
       );
     }
     console.log("created favorite recipes!");
-  } catch (error) {
-    throw error;
-  }
-};
-
-const createInitialFavoriteExercises = async () => {
-  try {
-    for (const favExercise of favoriteExercises) {
-      await client.query(
-        `
-            INSERT INTO favoriteExercises(user_id, exercise_id)
-            VALUES($1, $2);
-        `,
-        [favExercise.user_id, favExercise.exercise_id]
-      );
-    }
-
-    console.log("created favorite exercises!");
   } catch (error) {
     throw error;
   }
@@ -318,6 +301,24 @@ const createInitialWorkoutsExercises = async () => {
   }
 };
 
+const createInitialFavoriteWorkoutExercises = async () => {
+  try {
+    for (const favWorkoutExercise of favoriteWorkoutExercises) {
+      await client.query(
+        `
+            INSERT INTO favoriteWorkoutExercises(user_id, workout_id)
+            VALUES($1, $2);
+        `,
+        [favWorkoutExercise.user_id, favWorkoutExercise.workout_id]
+      );
+    }
+
+    console.log("created favorite workoutExercises!");
+  } catch (error) {
+    throw error;
+  }
+};
+
 // Call all functions to build the db
 const buildDb = async () => {
   try {
@@ -333,10 +334,10 @@ const buildDb = async () => {
     await createInitialRecipes();
     await createInitialCalendars();
     await createInitialFavoriteRecipes();
-    await createInitialFavoriteExercises();
     await createInitialFavoriteSelfCare();
     await createInitialWorkouts();
     await createInitialWorkoutsExercises();
+    await createInitialFavoriteWorkoutExercises();
   } catch (error) {
     console.error(error);
   } finally {

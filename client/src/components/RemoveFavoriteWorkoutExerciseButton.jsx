@@ -1,10 +1,10 @@
 
 
-export default function RemoveFavoriteExerciseButton({ favoriteExercise,favoriteExercises, setFavoriteExercises }) {
+export default function RemoveFavoriteWorkoutExerciseButton({ favoriteWorkoutExercise,favoriteWorkoutExercises, setFavoriteWorkoutExercises }) {
 
   async function handleClick() {
     try {
-      const response = await fetch(`http://localhost:8080/api/favoriteExercises/${favoriteExercise.favorite_id}`, {
+      const response = await fetch(`http://localhost:8080/api/favoriteWorkoutExercises/${favoriteWorkoutExercise.favorite_id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -13,7 +13,7 @@ export default function RemoveFavoriteExerciseButton({ favoriteExercise,favorite
       const result = await response.json();
       console.log(result)
      
-      setFavoriteExercises(favoriteExercises.filter((favoriteExercise) => favoriteExercise.favorite_id !== result.favorite_id));
+      setFavoriteWorkoutExercises(favoriteWorkoutExercises.filter((favoriteWorkoutExercise) => favoriteWorkoutExercise.favorite_id !== result.favorite_id));
     } catch (error) {
     }
   }
