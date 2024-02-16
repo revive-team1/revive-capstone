@@ -227,40 +227,118 @@ const users = [
 
 const selfCare = [
   {
-    name: "Drink water",
+    name: "Drink water regularly",
     imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0RzB9iTwqcap4fvSWC5y-L8Uz9kOGZEOYsZSKsZLDXW6gStgWZkXgXALLE-O43kmQiwc&usqp=CAUç",
-    description: "Drink 72oz of water",
+    description: "Drinking 72oz of water a day for women or 104oz of water a day for men is generally suggested to maintain a healthly level of hydration",
     article_url:
       "https://www.hsph.harvard.edu/nutritionsource/water/#:~:text=The%20National%20Academy%20of%20Medicine,exposed%20to%20very%20warm%20climates.",
   },
   {
-    name: "Get sunlight",
+    name: "Get sunlight everday",
     imgUrl: "https://sites.uci.edu/morningsignout/files/2021/08/Sunny-science.jpg",
-    description: "Get 10-30 mins of sunlight per day",
+    description: "Getting 10-30 mins of sunlight per day gives you your daily dose of vitamin D and can lead to stronger bones and a better nights sleep",
     article_url:
       "https://www.healthline.com/nutrition/vitamin-d-from-sun#:~:text=Regular%20sun%20exposure%20is%20the,your%20skin%20is%20to%20sunlight.",
   },
   {
-    name: "Regular exercise",
+    name: "Get regular exercise",
     imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREWR0nU22XW4OZUHtGcq5kx2hwTLg5pth8Nw&usqp=CAU",
-    description: "Walk at least 30 minutes a day",
+    description: "Walking at least 30 minutes a day or getting 150 minutes of aerobic activity a week offers several health benefits but can also just be fun and social",
     article_url:
       "https://walkwithadoc.org/join-a-walk/why-walk/?gad_source=1&gclid=Cj0KCQiAn-2tBhDVARIsAGmStVlXrTu_H0byRakGVV4G6SPZ8D2FzeVKhY0wyOk7RrI2odkWc_we5g0aAlFCEALw_wcB",
   },
   {
-    name: "Meditate",
+    name: "Meditate each day",
     imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0JhJ37yidT3uCieBWDW9a1rV-yXcYdc6-rA&usqp=CAU",
-    description: "Take a few minutes to relax and breathe.",
+    description: "Take a few minutes a day to relax and unwind whenever you have some spare time",
     article_url:
       "https://www.consequenceofhabit.org/meditation?gad_source=1&gclid=Cj0KCQiAn-2tBhDVARIsAGmStVkL1rIX1WGERteiauR5COWZcYo3jyaie5X4dX-IkSMtteVMg1Gy4CAaAh0AEALw_wcB",
   },
   {
-    name: "Read",
+    name: "Enjoy a book",
     imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoCnXSpA47kRzV2vC37xC35ggu5nLPE3RhIMKVc_E3HFkYfoMB3Almo5y_pr-TSyd0ZFI&usqp=CAU",
-    description: "Grab a book and read.",
+    description: "Reading a book can help reduce stress, improve memory and even help you get a better nights sleep",
     article_url:
       "https://rw-c.org/reading-habits/?gad_source=1&gclid=Cj0KCQiAn-2tBhDVARIsAGmStVmLE6b44Jbkm7_9q6b1R9ac-nHMxRCSTFzWqWlr8pCb_5u93Ahp3AIaApmLEALw_wcB",
   },
+  {
+    name: "Get adequate sleep",
+    imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFxO6zHQMjcHT6AX7NhYah2gBs_juJuCIWrg&usqp=CAU",
+    description: "Gettting a steady eight hours of sleep each night can help improve mood and energy throughout the day",
+    article_url: "https://newsinhealth.nih.gov/2013/04/benefits-slumber#:~:text=Throughout%20the%20night%2C%20your%20heart,can%20affect%20your%20body%20weight.",
+  },
+  {
+    name: "Healthy meal prep",
+    imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdDjKh-_cq1wkumDJvrasOmW-HtykmzCHLyw&usqp=CAU",
+    description: "Eating healthy is for more than just self-control. It can help improve your energy in your day to day and offer numerous health benefits",
+    article_url: "https://www.hsph.harvard.edu/nutritionsource/meal-prep/",
+  },
+  {
+    name: "Spend time with friends",
+    imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR37uLP4nMYTIZ3SHaJeduk6_gi3HOXOySkVg&usqp=CAU",
+    description: "Spending time with your friends or family can help relieve stress and improve mood",
+    article_url: "https://www.mayoclinic.org/healthy-lifestyle/adult-health/in-depth/friendships/art-20044860",
+  },
+  {
+    name: "Start a morning routine",
+    imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1CC-L5_tYyjyoFnJWqE9p3op3qHcjHMVCSQ&usqp=CAU",
+    description: "Taking time to develop a morning routine for yourself can help you start the day off right, alleviate stress and be more productive throughout the day",
+    article_url: "https://www.verywellmind.com/morning-routine-4174576#:~:text=The%20morning%20routine%20helps%20us,%2C%20ultimately%2C%20increase%20our%20productivity.",
+  },
+  {
+    name: "Find a new playlist or podcast",
+    imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx8SNwiiX--nJ_QjyH958blr4u6k6g36pWZg&usqp=CAU",
+    description: "Incorporating music into your daily routine can help improve memory and make you feel more centered and grounded",
+    article_url: "https://www.chnola.org/news-blog/2023/april/world-music-therapy-week-how-to-incorporate-musi/",
+  },
+  {
+    name: "Donate your time",
+    imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpSEzUH-AwKSM7oqLBOlERQraOxPSe3pejag&usqp=CAU",
+    description: "Giving back to others can not only help ohers but can also help improve your self-esteem and satisfaction in life",
+    article_url: "https://www.ef.com/wwen/blog/efacademyblog/importance-giving-back-to-your-community/",
+  },
+  {
+    name: "Pamper yourself",
+    imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkNcrm-dFpK4thmuPHr06xu8gxKsXXI1ytaw&usqp=CAU",
+    description: "Taking a moment to pamper yourself periodically can increase happiness and even physical health",
+    article_url: "https://www.tomsofmaine.com/good-matters/healthy-feeling/how-pampering-yourself-makes-you-healthier",
+  },
+  {
+    name: "Plan a getaway",
+    imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRykfm0tz0EWTAYX3vVyJgHw-L0YYMmzjtXnQ&usqp=CAU",
+    description: "Taking the time to plan a getaway can allow you to keep yourself physically and mentally fit and healthy",
+    article_url: "https://whyttmagazine.com/all/reasons-why-travel-is-an-essential-form-of-self-care#:~:text=It%20helps%20to%20keep%20you%20physically%20and%20mentally%20fit%20and%20healthy&text=Whatever%20it%20is%2C%20travel%20acts,remain%20as%20healthy%20as%20possible.",
+  },
+  {
+    name: "Take a new class",
+    imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUe1XBTDJp77pgAAyHz4bAwh4B0Y_v8qUrTA&usqp=CAU",
+    description: "Dealing with stress is complicated, but learning something new can have significant mental health benefits such as making your brain healthier and creating healthier habits",
+    article_url: "https://tutor.id/blog/learning-as-self-care/",
+  },
+  {
+    name: "Start a journal",
+    imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh_7f26y1YKgR6s55E55GDrjv32yw_m5o1Bw&usqp=CAU",
+    description: "Starting a journal can help you work through things going on in your life and help you become more self-aware",
+    article_url: "https://dayoneapp.com/blog/self-care-journal/",
+  },
+  {
+    name: "Start a nighttime routine",
+    imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI6mz8dvsI2INfMTMJvJ5cysQADQoZszs3uQ&usqp=CAU",
+    description: "Developing a nighttime can help you unwind from hectic day and lead to a more restful and higher-quality sleep",
+    article_url: "https://familyserviceregina.com/create-a-nighttime-routine-for-better-mental-health/",
+  },
+  {
+    name: "Breathe essential oils",
+    imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2rQDg6MxCkH0xTcTQbG7a90zFk-lW96PZmw&usqp=CAU",
+    description: "Using essential oils in differnt situations can have many positive benefits such as boosting your mood or improving job performance by reducing stress and anxiety",
+    article_url: "https://health.clevelandclinic.org/essential-oils-101-do-they-work-how-do-you-use-them",
+  },
+  {
+    name: "Take a relaxing bath",
+    imgUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY_5Mj9cMzufZDGQYOtZZ33hM5Xrl2JPIjOQ&usqp=CAU",
+    description: "Putting some time aside to take a bath can improve your mental and emotional health by taking your mind off things that might be negatively affecting you",
+    article_url: "https://health.clevelandclinic.org/reasons-to-take-a-bath",
+  }
 ];
 
 const recipes = [
