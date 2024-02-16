@@ -14,6 +14,8 @@ const Navigations = () => {
   }
 
   return (
+    <header>
+
     <div className='navbar navbar-expand-lg navbar-light sticky-top'>
       <div className='container-xxl'>
         <div className='navbar-brand'>
@@ -35,7 +37,7 @@ const Navigations = () => {
                 <Link to="/recipes" className='nav-link mx-3'>food</Link>
               </div>
               <div className='nav-item'>
-                <Link to="/calendar" className='nav-link'>calendar</Link>
+                <Link to="/calendar" className='nav-link mx-3'>calendar</Link>
               </div>
               
 
@@ -53,11 +55,11 @@ const Navigations = () => {
                   <div className='nav-item'>
                     <Link to="/account" className='nav-link'>my account</Link>
                   </div>
-                  <div className='nav-item d-md-none'>
-                    <button onClick={handleLogOut} className='btn btn-secondary'>Logout</button>
+                  <div className='nav-item d-md-none mx-3'>
+                    <button onClick={handleLogOut} className='btn btn-secondary'>logout</button>
                   </div>
-                  <div className='nav-item ms-2 d-none d-md-inline'>
-                    <button onClick={handleLogOut} className='btn btn-secondary'>Logout</button>
+                  <div className='nav-item ms-2 d-none d-md-inline mx-3'>
+                    <button onClick={handleLogOut} className='btn btn-secondary'>logout</button>
                   </div>
                 </>
               )}
@@ -67,6 +69,7 @@ const Navigations = () => {
         </div>
       </div>
     </div>
+    </header>
   )
 }
 
