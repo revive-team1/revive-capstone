@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from "react";
 
 
-export default function AddCalendarAppointment({ user_id, toggleAppointmentModal }) {
+export default function AddCalendarAppointment({setAppointments, user_id, toggleAppointmentModal }) {
 
 
   const [activity_date, setActivityDate] = useState("");
@@ -10,7 +10,7 @@ export default function AddCalendarAppointment({ user_id, toggleAppointmentModal
   const [activity_time, setActivityTime] = useState("");
   const [activity_description, setActivityDescription] = useState("");
   const [activity_link, setActivityLink] = useState("");
-  const [appointments, setAppointments] = useState([])
+  
 
   async function handleSubmit(event) {
     event.preventDefault();

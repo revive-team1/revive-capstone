@@ -1,15 +1,42 @@
 import React from 'react'
 import { useState } from "react";
 import AddCalendarAppointment from './AddCalendarAppointment';
+import { useNavigate }  from 'react-router-dom';
 
-const CalendarDay = ({ day }) => {
+
+const CalendarDay = ({ user_id, day, calendarYear, calendarMonth, setDate }) => {
+  const navigate = useNavigate()
+  let formattedDay = `${day}`;
+  let formattedMonth = `${calendarMonth}`;
+
+  function formatDate() {
+    console.log(formattedDay);
+    if (formattedDay.length < 2) {
+      formattedDay = "0" + formattedDay
+    }
+
+    if (formattedMonth.length < 2) {
+      formattedMonth = "0" + (calendarMonth + 1)
+    }
+    let formattedDate = `${calendarYear}-${formattedMonth}-${formattedDay}`
+    return formattedDate
+  }
+  function handleClick() {
+    const newDate = formatDate();
+    setDate(newDate);
+    navigate(`/calendar/${user_id}/${newDate}`)
+    console.log(newDate);
+  }
   return day ? (
-    <div className="calendar-day" id={`day-${day}`}>{day}</div>
+    <button className="calendar-day" id={`day-${day}`}onClick={handleClick}
+    > {day}</button>
+    
   ) : (
-    <div></div>
+    <div className="calendar-day"></div>
+   
 )};
 
-const Calendars = ({user_id}) => {
+const Calendars = ({user_id, date, setDate, appointments, setAppointments}) => {
 
   const currentDate = new Date();
   const [calendarMonth, setCalendarMonth] = useState(currentDate.getMonth())
@@ -17,7 +44,8 @@ const Calendars = ({user_id}) => {
   const monthNames=["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
   const firstDayOfMonth = new Date(calendarYear, calendarMonth, 1);
   const lastDayOfMonth = new Date(calendarYear, calendarMonth + 1, 0);
-  console.log(currentDate.getMonth())
+ 
+  const navigate = useNavigate()
  
 
   const firstDayOfWeek = firstDayOfMonth.getDay();
@@ -31,13 +59,11 @@ const Calendars = ({user_id}) => {
   for (let day = 1; day <= totalDays; day++) {
     calendarDays.push(day);
   }
+ 
 
   let nextMonth = new Date(calendarYear, calendarMonth + 1)
   let previousMonth = new Date(calendarYear, calendarMonth - 1)
-  console.log(previousMonth.getMonth())
-  console.log(calendarYear +1)
 
-  console.log (nextMonth)
 
   function showNextMonth() {
     if (calendarMonth === 11) {
@@ -80,7 +106,7 @@ const Calendars = ({user_id}) => {
       </div>
 
       <div id="calendar" className="calendar-grid">
-        {calendarDays.map((day) => <CalendarDay day={day} />)}
+        {calendarDays.map((day) => <CalendarDay user_id={user_id} day={day} calendarYear={calendarYear} calendarMonth={calendarMonth} setDate={setDate} date={date}/>)}
       </div>
   
       
@@ -93,7 +119,7 @@ const Calendars = ({user_id}) => {
     <button className="addAppointmentButton" onClick={toggleAppointmentModal}>Add Event</button>
   
     {modal ? ( 
-      <AddCalendarAppointment user_id={user_id} toggleAppointmentModal={toggleAppointmentModal}/>
+      <AddCalendarAppointment setAppointments={setAppointments} appointments={appointments}user_id={user_id} toggleAppointmentModal={toggleAppointmentModal}/>
     ) : null}
 
     </div>

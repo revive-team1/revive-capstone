@@ -28,6 +28,57 @@ async function getCalendarAppointmentById(id) {
   }
 }
 
+async function getCalendarAppointmentsByUserId(id) {
+  try {
+    const {
+      rows: [appointment],
+    } = await client.query(
+      `
+          SELECT * FROM calendars
+          WHERE calendars.user_id = $1;
+      `,
+      [id]
+    );
+    return appointment;
+  } catch (error) {
+    throw error;
+  }
+}
+
+async function getUserAppointmentsByDate(id, date) {
+  try {
+    const {
+      rows: appointments,
+    } = await client.query(
+      `
+          SELECT * FROM calendars
+          WHERE calendars.user_id = $1 AND calendars.activity_date = $2
+      `,
+      [id, `'${date}'`]
+    );
+    return appointments;
+  } catch (error) {
+    throw error;
+  }
+}
+
+async function getCalendarAppointmentsByDate(date) {
+  try {
+    const {
+      rows: [appointment],
+    } = await client.query(
+      `
+          SELECT * FROM calendars
+          WHERE calendars.activity_date = $1;
+      `,
+      [`'${date}'`]
+    );
+    return appointment;
+  } catch (error) {
+    throw error;
+  }
+}
+
 async function createCalendarAppointment(body) {
   const {
     user_id,
@@ -107,7 +158,10 @@ async function updateCalendarAppointment(id, fields = {}) {
 module.exports = {
   getAllCalendarAppointments,
   getCalendarAppointmentById,
+  getCalendarAppointmentsByDate,
   createCalendarAppointment,
   deleteCalendarAppointment,
   updateCalendarAppointment,
+  getCalendarAppointmentsByUserId,
+  getUserAppointmentsByDate,
 };

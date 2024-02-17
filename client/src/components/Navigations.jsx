@@ -39,6 +39,9 @@ const Navigations = () => {
               <div className='nav-item'>
                 <Link to="/calendar" className='nav-link mx-3'>calendar</Link>
               </div>
+              <div className='nav-item'>
+                <Link to="/calendar/day" className='nav-link mx-3'>single day</Link>
+              </div>
               
 
               {(!token) ? (
