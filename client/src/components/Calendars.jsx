@@ -19,6 +19,7 @@ const CalendarDay = ({ user_id, day, calendarYear, calendarMonth, setDate }) => 
       formattedMonth = "0" + (calendarMonth + 1)
     }
     let formattedDate = `${calendarYear}-${formattedMonth}-${formattedDay}`
+  
     return formattedDate
   }
   function handleClick() {

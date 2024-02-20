@@ -1,8 +1,9 @@
 import React from 'react'
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"
 
 
-export default function AddCalendarAppointment({setAppointments, user_id, toggleAppointmentModal }) {
+export default function AddCalendarAppointment({ date, setAppointments, user_id, toggleAppointmentModal }) {
 
 
   const [activity_date, setActivityDate] = useState("");
@@ -10,6 +11,7 @@ export default function AddCalendarAppointment({setAppointments, user_id, toggle
   const [activity_time, setActivityTime] = useState("");
   const [activity_description, setActivityDescription] = useState("");
   const [activity_link, setActivityLink] = useState("");
+  const navigate = useNavigate();
   
 
   async function handleSubmit(event) {
@@ -25,6 +27,9 @@ export default function AddCalendarAppointment({setAppointments, user_id, toggle
       const result = await response.json();
       console.log(result)
       setAppointments(result)
+      toggleAppointmentModal()
+      navigate(`/calendar/${user_id}/${date}`)
+
      
     } catch (error) {
     }
@@ -37,7 +42,7 @@ export default function AddCalendarAppointment({setAppointments, user_id, toggle
         <div className="modal-content">
           <h3>Add Calendar Event</h3>
           <label>
-          Date: <input className="appointmentInput" type="date" value={activity_date}onChange={(event) => {
+          Date: <input className="appointmentInput" type="date" value={activity_date} onChange={(event) => {
                 setActivityDate(event.target.value)
               }}></input>
           </label>
@@ -55,14 +60,8 @@ export default function AddCalendarAppointment({setAppointments, user_id, toggle
           </label>
 
           <label>
-          Description: <input className="appointmentInput" type="text" placeholder="Appointment Description" value={activity_description}onChange={(event) => {
+          Description: <input className="appointmentInput" type="text" placeholder="Event Description" value={activity_description}onChange={(event) => {
                 setActivityDescription(event.target.value)
-              }}></input>
-          </label>
-
-          <label>
-          Link: <input className="appointmentInput" type="text" placeholder="Link" value={activity_link}onChange={(event) => {
-                setActivityLink(event.target.value)
               }}></input>
           </label>
 
