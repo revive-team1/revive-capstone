@@ -41,7 +41,7 @@ function SingleDay({ user_id, date, setAppointments, appointments }) {
       }
     }
     fetchSingleCalendarDay()
-  }, []);
+  }, [appointments.length]);
 
 
   return (
@@ -73,7 +73,7 @@ function SingleDay({ user_id, date, setAppointments, appointments }) {
       </div>
 
       {modal ? ( 
-      <AddCalendarAppointment  date={date} setAppointments={setAppointments} appointments={appointments}user_id={user_id} toggleAppointmentModal={toggleAppointmentModal}/>
+      <AddCalendarAppointment  date={date} setAppointments={setAppointments} appointments={appointments} user_id={user_id} toggleAppointmentModal={toggleAppointmentModal}/>
     ) : null}
 
     </>
