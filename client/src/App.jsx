@@ -13,6 +13,7 @@ import SingleExercise from './components/SingleExercise'
 import SingleRecipe from './components/SingleRecipe'
 import SingleSelfCare from './components/SingleSelfCare'
 import SingleDay from './components/SingleDay'
+import SingleWorkoutExercise from './components/SingleWorkoutExercise'
 import './App.css'
 
 function App() {
@@ -58,7 +59,7 @@ function App() {
         <Route path="/exercises/:exercise_id" element={<SingleExercise />} />
         <Route path="/calendar" element={<Calendars user_id={user.user_id} date={date} setDate={setDate}/>} />
         <Route path="/calendar/:user_id/:date" element={<SingleDay setAppointments={setAppointments} appointments={appointments} user_id={user.user_id} date={date} setDate={setDate}/>} />
-
+        <Route path='/workouts/:workout_id' element={<SingleWorkoutExercise />} />
       </Routes>
     </>
   )
