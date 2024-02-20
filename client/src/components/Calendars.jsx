@@ -1,14 +1,43 @@
 import React from 'react'
 import { useState } from "react";
+import AddCalendarAppointment from './AddCalendarAppointment';
+import { useNavigate }  from 'react-router-dom';
 
-const CalendarDay = ({ day }) => {
+
+const CalendarDay = ({ user_id, day, calendarYear, calendarMonth, setDate }) => {
+  const navigate = useNavigate()
+  let formattedDay = `${day}`;
+  let formattedMonth = `${calendarMonth}`;
+
+  function formatDate() {
+    console.log(formattedDay);
+    if (formattedDay.length < 2) {
+      formattedDay = "0" + formattedDay
+    }
+
+    if (formattedMonth.length < 2) {
+      formattedMonth = "0" + (calendarMonth + 1)
+    }
+    let formattedDate = `${calendarYear}-${formattedMonth}-${formattedDay}`
+  
+    return formattedDate
+  }
+  function handleClick() {
+    const newDate = formatDate();
+    setDate(newDate);
+    navigate(`/calendar/${user_id}/${newDate}`)
+    console.log(newDate);
+  }
   return day ? (
-    <div className="calendar-day" id={`day-${day}`}>{day}</div>
+    <button className="calendar-day" id={`day-${day}`}onClick={handleClick}
+    > {day}</button>
+    
   ) : (
-    <div></div>
+    <div className="calendar-day"></div>
+   
 )};
 
-const Calendars = () => {
+const Calendars = ({user_id, date, setDate, appointments, setAppointments}) => {
 
   const currentDate = new Date();
   const [calendarMonth, setCalendarMonth] = useState(currentDate.getMonth())
@@ -16,7 +45,8 @@ const Calendars = () => {
   const monthNames=["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
   const firstDayOfMonth = new Date(calendarYear, calendarMonth, 1);
   const lastDayOfMonth = new Date(calendarYear, calendarMonth + 1, 0);
-  console.log(currentDate.getMonth())
+ 
+  const navigate = useNavigate()
  
 
   const firstDayOfWeek = firstDayOfMonth.getDay();
@@ -30,13 +60,11 @@ const Calendars = () => {
   for (let day = 1; day <= totalDays; day++) {
     calendarDays.push(day);
   }
+ 
 
   let nextMonth = new Date(calendarYear, calendarMonth + 1)
   let previousMonth = new Date(calendarYear, calendarMonth - 1)
-  console.log(previousMonth.getMonth())
-  console.log(calendarYear +1)
 
-  console.log (nextMonth)
 
   function showNextMonth() {
     if (calendarMonth === 11) {
@@ -62,17 +90,27 @@ const Calendars = () => {
     setModal(!modal)
   }
   
-
   
   return (
     <>
     <div className="calendar-card">
       <h1>Calendar</h1>
       <h3>{monthNames[calendarMonth]} {calendarYear}</h3>
-      <div id="calendar" className="calendar-grid">
-        {calendarDays.map((day) => <CalendarDay day={day} />)}
+      <div className="dayNames"> 
+        <p>Sun</p>
+        <p>Mon</p>
+        <p>Tue</p>
+        <p>Wed</p>
+        <p>Thu</p>
+        <p>Fri</p>
+        <p>Sat</p>
       </div>
 
+      <div id="calendar" className="calendar-grid">
+        {calendarDays.map((day) => <CalendarDay user_id={user_id} day={day} calendarYear={calendarYear} calendarMonth={calendarMonth} setDate={setDate} date={date}/>)}
+      </div>
+  
+      
     <button className="addAppointmentButton" onClick={showPreviousMonth}>Previous Month</button>
     <button className="addAppointmentButton" onClick={showNextMonth}>Next Month</button>
     
@@ -81,34 +119,8 @@ const Calendars = () => {
 
     <button className="addAppointmentButton" onClick={toggleAppointmentModal}>Add Event</button>
   
-    {modal ? (
-      <div id="addAppointmentModal" className="modal">
-        <div className="overlay"></div>
-        <div className="modal-content">
-          <h3>Add Calendar Event</h3>
-          <label>
-          Date: <input className="appointmentInput" type="date"></input>
-          </label>
-          
-          <label>
-          Event Name: <input className="appointmentInput" type="text" placeholder="Event Name"></input>
-          </label>
-
-          <label>
-          Time: <input className="appointmentInput" type="time"></input>
-          </label>
-
-          <label>
-          Description: <input className="appointmentInput" type="text" placeholder="Appointment Description"></input>
-          </label>
-
-          <label>
-          Link: <input className="appointmentInput" type="text" placeholder="Link"></input>
-          </label>
-
-          <button className="modalButton" onClick={toggleAppointmentModal}>Add Event</button>
-        </div>
-      </div>
+    {modal ? ( 
+      <AddCalendarAppointment setAppointments={setAppointments} appointments={appointments}user_id={user_id} toggleAppointmentModal={toggleAppointmentModal}/>
     ) : null}
 
     </div>

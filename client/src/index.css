@@ -194,10 +194,6 @@ button:focus-visible {
   margin-top: 5px;
 }
 
-.calendar-card{
-
-}
-
 .modal, .overlay {
   width: 400px;
   height: 300px;
@@ -207,4 +203,16 @@ button:focus-visible {
   bottom: 0;
   position: fixed;
   margin: 0 auto;
+}
+
+.dayNames {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+
+}
+.calendar-day {
+  border: solid;
+  height: 75px;
+  text-align: right;
+  background: white;
 }
