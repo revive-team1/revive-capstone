@@ -412,6 +412,41 @@ const recipes = [
     recipe_yield: 4,
     imgUrl: "https://feelgoodfoodie.net/wp-content/uploads/2017/03/Spinach-_-Feta-Stuffed-Chicken-11.jpg",
     description: "Preheat oven to 400 F. Pat chicken dry with a paper towel and make a horizontal slit in the thickest part of the breast to create a pocket. Do not cut all the way through. In a bowl, combine 2 teaspoons paprika, 1 teaspoon oregano, 1 teaspoon garlic powder, 1/2 teaspoon of onion powder, 1/2 teaspoon salt, and 1/4 teaspoon pepper. Use the mixture to season both sides of the chicken. In another bowl. combine 5 oz chopped spinach, 1/2 crumbled feta, 1/4 cup ricotta, 2 tablespoons chopped scallions, 2 cloves minced garlic, and 1/2 teaspoon dried dill. Stuff mixture evenly into the chicken breast pocket and use toothpicks to close each pocket. In a large oven-safe skillet, sear chicken in olive oil until lightly golden brown (about 3-4 minutes per side), then transfer skillet into the oven to bake for 15-18 minutes. (Recipe from feelgoodfoodie.net)",
+  },
+  {
+    name: "Chickpea and Vegetable Curry",
+    difficulty: "Hard",
+    recipe_yield: 6,
+    imgUrl: "https://www.cookwithmanali.com/wp-content/uploads/2021/09/Vegetable-Chickpea-Coconut-Curry-500x500.jpg",
+    description: "In a pot, heat oil on medium heat, add 1.5 inches chopped ginger, 1/2 a jalapeño chopped, and 1 medium red onion, chopped. Cook until onion softens, then stir in 14.5oz can of diced tomatoes.  Cover the pot with a. lid and let cook for 4-5 minutes on medium heat. Next, add 1 teaspoon of coriander powder, 1/2 teaspoon cumin powder, 1/2 teaspoon smoked paprika, 1/2 teaspoon turmeric and a dash of salt.Stir and cook one more minute.Add 2 cups cauliflower florets, 1 and 1/4 cup diced sweet potatoes, and a 15.5 oz can of chickpeas (drained). Stir until everything is well coated with spices. Add a cup of water and a 13.5 oz can of coconut milk. Stir, cover, and let cook for 10 minutes, stirring occasionally. Remove lid and add 1 red pepper, sliced. Cover again and let simmer for 5 minutes. Add 1 tablespoon of chopped cilantro and squeeze in fresh lime juice from 1/2 a lime.Turn off heat and sprinkle in 1/4 teaspoon of garam masala. Serve with rice of your choice. (Recipe from cookwithmanali.com)",
+  },
+  {
+    name: "Shrimp and Broccoli Stir-Fry",
+    difficulty: 'Medium',
+    recipe_yield: 4,
+    imgUrl: "https://feelgoodfoodie.net/wp-content/uploads/2021/09/Shrimp-_-Broccoli-Stir-Fry-11.jpg",
+    description: "In a small bowl, whisk together 3 tablespoons soy sauce, 1 tablespoon rice wine vinegar, 1 tablespoon dark brown sugar, 1 tablespoon toasted sesame oil, 2 teaspoons Sriracha, 2 teaspoons cornstarch, 4 large cloves of garlic(grated), 1 knob of ginger(grated), and the juice of 1 lime.Set aside.Pat shrimp dry with a paper towel and season with salt and pepper.In a large skillet, heat 1 tablespoon of olive oil on high heat.Add broccoli florets from 1 head of broccoli and most of the chopped scallions from one bunch of scallions(save some for serving).When lightly charred, lower heat to medium high and add 1 tablespoon of oil.Add shrimp and cook until they are pink and cooked through, about 3 - 4 minutes.Add in the soy sauce mixture, toss with shrimp, broccoli, and scallions, and cook until sauce has thickened.Remove from heat, garnish with remaining scallions, and serve over brown rice. (Recipe from feelgoodfoodie.net)",
+  },
+  {
+    name: "Mushroom and Spinach Quiche",
+    difficulty: 'Medium',
+    recipe_yield: 6,
+    imgUrl: "https://www.eatingwell.com/thmb/uGsXYzeLLpq9eYyFK_aWGkqNTas=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/SpinachMushroomQuiche_103-1-21192c2554ac4c4697280ce26874b835.jpg",
+    description: "Preheat oven to 375 F and coat a 9 - inch pie pan with cooking spray.In a large nonstick skillet over medium high heat, add 2 tablespoons extra virgin olive oil.Cook 8 ounces of fresh sliced mushrooms until browned and tender.Add 1.5 cups sliced sweet onion and 1 tablespoon thinly sliced garlic then stir.Cook until softened and tender then add 5 ounces of coarsely chopped fresh baby spinach and cook until wilted.Remove from heat.Whisk 6 large eggs, 1 / 4 cups whole milk, 1 / 4 cup half and half, 1 tablespoon dijon mustard, 1 tablespoon fresh thyme, and 1 / 4 teaspoon of salt and pepper in a large bowl.Fold in 1.5 cups shredded gruyere cheese and the mushroom mixture.Spoon all ingredients into the prepared pie pan and bake about 30 minutes until golden brown.Let stand for 10 minutes before slicing, garnishing with thyme and serving. (Recipe from eatingwell.com)",
+  },
+  {
+    name: 'Green Soup',
+    difficulty: "Medium",
+    recipe_yield: 6,
+    imgUrl: "https://www.gimmesomeoven.com/wp-content/uploads/2018/02/Green-Goddess-Soup-with-Broccoli-Cauliflower-and-Spinach-3.jpg",
+    description: "Chop 1 onion and 2 cloves garlic.In a large saucepan, soften the onion and garlic in 2 tablespoons olive oil.Add 4 cups low sodium chicken broth, 2 cups of broccoli cut into florets, and 2 cups fresh asparagus, chopped.Bring to a boil and simmer uncovered for 15 minutes.Add 4 cups of fresh spinach and simmer for one minute.In a blender, puree the soup until it is smooth then strain it.Add Better than Bouillon to taste and a 1 / 2 cup of half and half.Heat through and enjoy."
+  },
+{
+    name: 'Tomato Watermelon Gazpacho',
+    difficulty: 'Medium',
+    recipe_yield: 12,
+    imgUrl: "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2012/7/25/1/FNM_090112-Tomato-and-Watermelon-Gazpacho-Recipe_s4x3.jpg.rend.hgtvcom.616.462.suffix/1371606900127.jpeg",
+    description: "Chop 4 medium tomatoes, 1 peeled cucumber, and 1 shallot.Dice 4 cups of seedless watermelon.In a blender, add the tomatoes, watermelon, cucumber, shallot, 1 / 3 cup basil and mint along with 1.5 teaspoons of salt and pepper.Add 1 / 3 cup extra virgin olive oil and 2 tablespoons champagne vinegar.Puree in a blender then strain through a fine mesh sieve into a bowl, pressing to extract any liquid; discard the solids and season with salt and pepper.Cover and refrigerate until chilled, about 1 hour.To serve, top the soup with a drizzle of olive oil and small mint and basil leaves."
   }
 ];
 
