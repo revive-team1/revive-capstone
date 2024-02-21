@@ -13,7 +13,6 @@ export default function AddCalendarAppointment({ date, setAppointments, user_id,
   const [activity_link, setActivityLink] = useState("");
   const navigate = useNavigate();
   
-
   async function handleSubmit(event) {
     event.preventDefault();
     try {
@@ -28,9 +27,6 @@ export default function AddCalendarAppointment({ date, setAppointments, user_id,
       console.log(result)
       setAppointments(result)
       toggleAppointmentModal()
-      navigate(`/calendar/${user_id}/${date}`)
-
-     
     } catch (error) {
     }
   }
