@@ -61,7 +61,6 @@ function SingleDay({ user_id, date, setAppointments, appointments }) {
         const response = await fetch(`http://localhost:8080/api/calendars/${user_id}/${date}`);
         const result = await response.json();
         setAppointments(result)
-        sortAppointments(result)
       } catch (error) {
         console.error(error)
       }
