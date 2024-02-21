@@ -30,6 +30,23 @@ function SingleDay({ user_id, date, setAppointments, appointments }) {
     return hours + ':' + minutes + amPm;
     };
 
+  function sortAppointments(apptsArray) {
+    apptsArray.sort((appointment1, appointment2) => {
+      const appt1= timeToDigits(appointment1.activity_time)
+      const appt2 = timeToDigits(appointment2.activity_time)
+      if (appt1 < appt2) {
+        return -1;
+      }
+      if (appt1 > appt2) {
+        return 1;
+      }
+      return 0;
+    }); 
+    return apptsArray
+    }
+
+  
+
   const [modal, setModal] = useState(false)
   
   function toggleAppointmentModal() {
@@ -44,6 +61,7 @@ function SingleDay({ user_id, date, setAppointments, appointments }) {
         const response = await fetch(`http://localhost:8080/api/calendars/${user_id}/${date}`);
         const result = await response.json();
         setAppointments(result)
+        sortAppointments(result)
       } catch (error) {
         console.error(error)
       }
@@ -63,10 +81,10 @@ function SingleDay({ user_id, date, setAppointments, appointments }) {
           <p >No events scheduled.</p>
         </>
       ) : (
-      appointments.map((appointment) => (
+      sortAppointments(appointments).map((appointment) => (
         <>
           <h3>{appointment.activity_name}</h3>
-          <h3> Time: {getFormattedTime(timeToDigits(appointment.activity_time))}</h3>
+          <h3>{getFormattedTime(timeToDigits(appointment.activity_time))}</h3>
           <p>{appointment.activity_description}</p>
           <RemoveCalendarAppointmentButton calendar_id={appointment.calendar_id} appointments={appointments} appointment={appointment} setAppointments={setAppointments}/>
           <br/>
