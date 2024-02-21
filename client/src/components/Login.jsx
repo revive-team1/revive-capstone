@@ -20,6 +20,7 @@ const Login = ({ setUser }) => {
       dispatch(updateToken(result.data.token))
       console.log(result)
       setUser(result.data.user)
+      navigate('/account')
     } catch (error) {
       console.error(error)
     }

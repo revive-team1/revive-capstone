@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate }  from 'react-router-dom';
 import RemoveFavoriteWorkoutExerciseButton from './RemoveFavoriteWorkoutExerciseButton';
+import { Link } from 'react-router-dom'
 
 export default function FavoriteWorkoutExercises({ user }) {
   const navigate = useNavigate()
@@ -47,19 +48,10 @@ export default function FavoriteWorkoutExercises({ user }) {
         {favoriteWorkoutExercises.map((favoriteWorkoutExercise) => (
           <>
           <div key={favoriteWorkoutExercise.workout_id} className="favorite-card">
-            <div className="exercise-image-container">
-            
-            </div>
             <div className="exercise-details">
-              <span className="favoriteExerciseName">  {favoriteWorkoutExercise.workout_id} </span> <br />
+              <span className="favoriteExerciseName">  {favoriteWorkoutExercise.workout_name} </span> <br />
 
-              {/* <button onClick={() => {
-                navigate(`/exercises/${favoriteExercises.exercise_id}`);
-                }}>See Exercise</button>  */}
-
-              <button onClick={() => {
-                navigate(`/exercises/${favoriteWorkoutExercise.exercise_id}`);
-                }}>See workout</button> 
+              <button><Link to={`/workouts/${favoriteWorkoutExercise.workout_id}`}>See workout</Link></button> 
               <RemoveFavoriteWorkoutExerciseButton
                 favoriteWorkoutExercises={favoriteWorkoutExercises}
                 favoriteWorkoutExercise={favoriteWorkoutExercise}
