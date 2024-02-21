@@ -47,10 +47,10 @@ router.delete("/:favorite_id", async (req, res, next) => {
 
 router.get("/user/:user_id", async (req, res, next) => {
   try {
-    const favoriteSelfCares = await getFavoriteSelfCareByUserId(
+    const favoriteSelfCare = await getFavoriteSelfCareByUserId(
       req.params.user_id
     );
-    res.send(favoriteSelfCares);
+    res.send(favoriteSelfCare);
   } catch (error) {
     next(error);
   }

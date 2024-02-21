@@ -8,6 +8,7 @@ export default function FavoriteSelfCareButton({ user_id, selfCare_id, setFavori
                 body: JSON.stringify({ user_id, selfCare_id }),
             });
             const result = await response.json();
+            console.log(result)
             setFavoriteSelfCare(result);
         } catch (error) {
         };
