@@ -95,7 +95,10 @@ const Calendars = ({user_id, date, setDate, appointments, setAppointments}) => {
     <>
     <div className="calendar-card">
       <h1>Calendar</h1>
+      <p> Click on a date to see your schedule and add events. </p>
       <h3>{monthNames[calendarMonth]} {calendarYear}</h3>
+      <div className="breakLine"></div>
+      <br/>
       <div className="dayNames"> 
         <p>Sun</p>
         <p>Mon</p>

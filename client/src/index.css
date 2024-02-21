@@ -127,6 +127,11 @@ button:focus-visible {
   border-bottom: solid;
   margin: 0 auto;
 }
+.longBreakLine {
+  width: 500px;
+  border-bottom: solid;
+  margin: 0 auto;
+}
 
 .accountDetails{
   font-size: 22px;
@@ -164,6 +169,8 @@ button:focus-visible {
 
 .calendar-card{
   text-align: center;
+  width: 750px;
+  margin: 0 auto;
 }
 
 .addAppointmentButton {
@@ -208,6 +215,8 @@ button:focus-visible {
 .dayNames {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  width: 750px;
+  text-align: center;
 
 }
 .calendar-day {
