@@ -13,6 +13,7 @@ import SingleExercise from './components/SingleExercise'
 import SingleRecipe from './components/SingleRecipe'
 import SingleSelfCare from './components/SingleSelfCare'
 import SingleDay from './components/SingleDay'
+// import AccountSchedule from './components/AccountSchedule'
 import './App.css'
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
   const [favoriteRecipes, setFavoriteRecipes] = useState([])
   const [date, setDate] = useState("")
   const [appointments, setAppointments] = useState([])
+  const [todaysAppointments, setTodaysAppointments] = useState([])
 
   return (
     <>
@@ -47,7 +49,7 @@ function App() {
               </div>
             </section>
           }/>
-        <Route path="/account" element={<Account user={user} favoriteWorkoutExercises={favoriteWorkoutExercises} setFavoriteWorkoutExercises={setFavoriteWorkoutExercises}/>} favoriteRecipes = {favoriteRecipes} setFavoriteRecipes={setFavoriteRecipes} />
+        <Route path="/account" element={<Account todaysAppointments={todaysAppointments} setTodaysAppointments={setTodaysAppointments} user={user} user_id={user.user_id} favoriteWorkoutExercises={favoriteWorkoutExercises} setFavoriteWorkoutExercises={setFavoriteWorkoutExercises}/>} favoriteRecipes = {favoriteRecipes} setFavoriteRecipes={setFavoriteRecipes} />
         <Route path="/selfcare" element={<SelfCare />} />
         <Route path="/workouts" element={<Workouts user_id={user.user_id}/>} />
         <Route path="/login"  element={<Login setToken={setToken} setUser={setUser}/>} />
@@ -58,6 +60,7 @@ function App() {
         <Route path="/exercises/:exercise_id" element={<SingleExercise />} />
         <Route path="/calendar" element={<Calendars user_id={user.user_id} date={date} setDate={setDate}/>} />
         <Route path="/calendar/:user_id/:date" element={<SingleDay setAppointments={setAppointments} appointments={appointments} user_id={user.user_id} date={date} setDate={setDate}/>} />
+        {/* <Route path="/today" element={<AccountSchedule todaysAppointments={todaysAppointments} setTodaysAppointments={setTodaysAppointments} user_id={user.user_id} date={date} setDate={setDate}/>} /> */}
 
       </Routes>
     </>
