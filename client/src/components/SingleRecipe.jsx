@@ -10,7 +10,7 @@ function SingleRecipe({ user_id }) {
 
     const fetchSingleRecipe = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/api/recipes/${recipe_id}`);
+        const response = await fetch(`https://revive-capstone.onrender.com/api/recipes/${recipe_id}`);
         const recipe = await response.json();
         console.log(recipe)
         setRecipe(recipe);

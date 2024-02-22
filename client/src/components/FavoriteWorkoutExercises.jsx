@@ -9,7 +9,7 @@ export default function FavoriteWorkoutExercises({ user }) {
   useEffect(() => {
     async function fetchFavoriteWorkoutExercises() {
       try {
-        const response = await fetch(`http://localhost:8080/api/favoriteWorkoutExercises/user/${user.user_id}`, {
+        const response = await fetch(`https://revive-capstone.onrender.com/api/favoriteWorkoutExercises/user/${user.user_id}`, {
           headers: {
             "Content-Type": "application/json",
           },
