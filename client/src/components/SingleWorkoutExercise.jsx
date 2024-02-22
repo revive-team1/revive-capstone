@@ -6,8 +6,16 @@ import { Link } from 'react-router-dom'
 const SingleWorkoutExercise = () => {
   const { workout_id } = useParams();
 
-  const { data = {} } = useGetSingleWorkoutQuery(workout_id);
+  const { data = {}, error, isLoading} = useGetSingleWorkoutQuery(workout_id);
   console.log(data)
+
+  if(isLoading) {
+    return <div>loading...</div>
+  }
+
+  if(error) {
+    return <div>Error: {error.message}</div>
+  }
 
   return (
     <div className='row row-cols-sm-1 row-cols-md-4 g-4'>
