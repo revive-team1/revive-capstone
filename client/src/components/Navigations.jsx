@@ -36,10 +36,6 @@ const Navigations = () => {
               <div className='nav-item'>
                 <Link to="/recipes" className='nav-link mx-3'>food</Link>
               </div>
-              <div className='nav-item'>
-                <Link to="/calendar" className='nav-link mx-3'>calendar</Link>
-              </div>
-              
 
               {(!token) ? (
                 <>
@@ -49,9 +45,13 @@ const Navigations = () => {
                   <div className='nav-item'>
                     <Link to="/register" className='nav-link mx-3'>register</Link>
                   </div>
+              
                 </>
               ) : (
                 <>
+                 <div className='nav-item'>
+                   <Link to="/calendar" className='nav-link mx-3'>calendar</Link>
+                  </div>
                   <div className='nav-item'>
                     <Link to="/account" className='nav-link'>my account</Link>
                   </div>
