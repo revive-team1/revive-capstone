@@ -1,8 +1,7 @@
 const { Client } = require("pg");
 
 const connectionString =
-  process.env.DATABASE_URL ||
-  "postgres://revive_cjk9_user:PhODRmThAQVx0UoTvsW0U4nZ372Uk4Ko@dpg-cnbpmied3nmc73ai9c6g-a/revive_cjk9/database?ssl=true";
+  process.env.DATABASE_URL || "postgres://localhost:54321/revive";
 
 const client = new Client({
   connectionString,
