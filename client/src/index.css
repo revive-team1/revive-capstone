@@ -225,3 +225,8 @@ button:focus-visible {
   text-align: right;
   background: white;
 }
+
+.calendar-day:hover{
+  border-color: #bcdef7;
+  border-width: thick;
+}

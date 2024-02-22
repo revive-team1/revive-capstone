@@ -7,7 +7,7 @@ import { useNavigate }  from 'react-router-dom';
 const CalendarDay = ({ user_id, day, calendarYear, calendarMonth, setDate }) => {
   const navigate = useNavigate()
   let formattedDay = `${day}`;
-  let formattedMonth = `${calendarMonth}`;
+  let formattedMonth = `${calendarMonth+1}`;
 
   function formatDate() {
     console.log(formattedDay);
@@ -18,6 +18,7 @@ const CalendarDay = ({ user_id, day, calendarYear, calendarMonth, setDate }) => 
     if (formattedMonth.length < 2) {
       formattedMonth = "0" + (calendarMonth + 1)
     }
+
     let formattedDate = `${calendarYear}-${formattedMonth}-${formattedDay}`
   
     return formattedDate

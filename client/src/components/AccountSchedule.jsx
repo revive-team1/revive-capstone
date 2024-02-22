@@ -1,32 +1,37 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import AddCalendarAppointment from './AddCalendarAppointment';
-import RemoveCalendarAppointmentButton from './RemoveCalendarAppointmentButton';
 
-function SingleDay({ user_id, date, setAppointments, appointments }) {
-
-  let year = new Date(date).getFullYear()
+function AccountSchedule({ user_id, setTodaysAppointments, todaysAppointments }) {
+  let today = new Date()
   let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-  let monthIndex = Number(date.charAt(5)+ date.charAt(6)) - 1
-  console.log(monthIndex)
+  let monthIndex = today.getMonth()
+  let monthNumber = monthIndex + 1
   let month = months[monthIndex]
-  let day = date.charAt(8)+ date.charAt(9)
+  let day = (today.getDate())
 
-  console.log(new Date(date).getDay())
   let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-  let dayIndex = (new Date(year, monthIndex, Number(day)).getDay())
+  let dayIndex = (today.getDay())
   let dayName = days[dayIndex]
-  console.log(dayName)
-
-  let clickedDate = `${dayName} ${month} ${day}, ${year}`
-  
-  
-  
-  
-  
+  let year = today.getFullYear()
+  let displayDate = `${dayName} ${month} ${day}, ${year}`
   
   const navigate= useNavigate()
+ 
+  let dayNum = (today.getDate()).toString()
+  let monthNum = (today.getMonth() + 1).toString()
+  function formatDate(date) {
+    if (dayNum.length < 2) {
+      dayNum = "0" + dayNum.toString()
+    }
 
+    if (monthNum.length < 2) {
+      monthNum = "0" + (monthNum.toString())
+    }
+    let formattedDate = `${year}-${monthNum}-${dayNum}`
+  
+    return formattedDate
+  }
+  console.log(formatDate(today))
   function timeToDigits(time) {
     return time.charAt(0)+ time.charAt(1) + time.charAt(3) + time.charAt(4)
   }
@@ -65,36 +70,35 @@ function SingleDay({ user_id, date, setAppointments, appointments }) {
 
   useEffect(() => {
 
-    const fetchSingleCalendarDay = async () => {
+    const fetchTodaysSchedule = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/api/calendars/${user_id}/${date}`);
+        const response = await fetch(`http://localhost:8080/api/calendars/${user_id}/${formatDate(today)}`);
         const result = await response.json();
-        setAppointments(result)
+        setTodaysAppointments(result)
       } catch (error) {
         console.error(error)
       }
     }
-    fetchSingleCalendarDay()
-  }, [appointments.length]);
+    fetchTodaysSchedule()
+  }, []);
 
 
   return (
     <>
     <br/>
-      <h2> Events for {clickedDate}</h2>
+      <h2> Events for {displayDate}</h2>
       <div className="longBreakLine"></div>
       <br/>
-      {!appointments.length? (
+      {!todaysAppointments.length? (
         <>
           <p >No events scheduled.</p>
         </>
       ) : (
-      sortAppointments(appointments).map((appointment) => (
+      sortAppointments(todaysAppointments).map((appointment) => (
         <>
           <h3>{appointment.activity_name}</h3>
           <h3>{getFormattedTime(timeToDigits(appointment.activity_time))}</h3>
           <p>{appointment.activity_description}</p>
-          <RemoveCalendarAppointmentButton calendar_id={appointment.calendar_id} appointments={appointments} appointment={appointment} setAppointments={setAppointments}/>
           <br/>
           <div className="breakLine"></div>
           <br/>
@@ -102,18 +106,10 @@ function SingleDay({ user_id, date, setAppointments, appointments }) {
       )))}
 
       <div>
-        <button onClick={toggleAppointmentModal}>Add Event</button> 
-      </div> <br/>
-      <div>
-        <button onClick={() => navigate(`/calendar`)}>Back to Calendar</button> 
+        <button onClick={() => navigate(`/calendar`)}>Go to Calendar</button> 
       </div>
-
-      {modal ? ( 
-      <AddCalendarAppointment date={date} setAppointments={setAppointments} appointments={appointments} user_id={user_id} toggleAppointmentModal={toggleAppointmentModal}/>
-    ) : null}
-
     </>
   )
 }
 
-export default SingleDay;
+export default AccountSchedule;
