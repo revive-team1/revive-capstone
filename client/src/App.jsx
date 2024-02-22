@@ -57,7 +57,7 @@ function App() {
         <Route path="/register"  element={<Register setToken={setToken} setUser={setUser} />} />
         <Route path="/recipes" element={<Recipes />} />
         <Route path="/recipes/:recipe_id" element={<SingleRecipe user_id={user.user_id} />} />
-        <Route path="/selfcare/:selfCare_id" element={<SingleSelfCare />} />
+        <Route path="/selfcare/:selfCare_id" element={<SingleSelfCare user_id={user.user_id}/>} />
         <Route path="/exercises/:exercise_id" element={<SingleExercise />} />
         <Route path="/calendar" element={<Calendars user_id={user.user_id} date={date} setDate={setDate}/>} />
         <Route path="/calendar/:user_id/:date" element={<SingleDay setAppointments={setAppointments} appointments={appointments} user_id={user.user_id} date={date} setDate={setDate}/>} />

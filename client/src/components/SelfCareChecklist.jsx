@@ -69,7 +69,7 @@ export default function SelfCareChecklist({ user }) {
       <h3 className="favoritesHeading">{`${user.firstname}`}'s Self Care Checklist</h3>
       <div className="breakLine"></div>
       <br />
-      <input
+      {/* <input
         className="checklistInput"
         type="text"
         value={name}
@@ -82,8 +82,8 @@ export default function SelfCareChecklist({ user }) {
         value={description}
         onChange={handleDescriptionChange}
         placeholder="Description"
-      />
-      <button onClick={handleAddItem}>Add</button>
+      /> */}
+      {/* <button onClick={handleAddItem}>Add</button> */}
       <table className="checklistTable">
         <thead>
           <tr>
@@ -93,6 +93,22 @@ export default function SelfCareChecklist({ user }) {
           </tr>
         </thead>
         <tbody className="checklistBody">
+          {favoriteSelfCare.map((activity, index) => (
+            <tr key={index}>
+              <td>{activity.name}</td>
+              <td>{activity.description}</td>
+              <td>
+                <input
+                  type="checkbox"
+                  checked={activity.checked}
+                  onChange={() => toggleItem(index)}
+                />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+        
+        {/* <tbody className="checklistBody">
           {items.map((item, index) => (
             <tr key={index}>
               <td>{item.name}</td>
@@ -106,7 +122,7 @@ export default function SelfCareChecklist({ user }) {
               </td>
             </tr>
           ))}
-        </tbody>
+        </tbody> */}
       </table>
     </div>
   );
