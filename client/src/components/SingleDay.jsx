@@ -5,16 +5,25 @@ import RemoveCalendarAppointmentButton from './RemoveCalendarAppointmentButton';
 
 function SingleDay({ user_id, date, setAppointments, appointments }) {
 
-  let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-  let monthIndex = new Date(date).getMonth()
-  let month = months[monthIndex]
-  let day = (new Date(date).getDate() + 1)
-
-  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-  let dayIndex = (new Date(date).getDay()+1)
-  let dayName = days[dayIndex]
   let year = new Date(date).getFullYear()
+  let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+  let monthIndex = Number(date.charAt(5)+ date.charAt(6)) - 1
+  console.log(monthIndex)
+  let month = months[monthIndex]
+  let day = date.charAt(8)+ date.charAt(9)
+
+  console.log(new Date(date).getDay())
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+  let dayIndex = (new Date(year, monthIndex, Number(day)).getDay())
+  let dayName = days[dayIndex]
+  console.log(dayName)
+
   let clickedDate = `${dayName} ${month} ${day}, ${year}`
+  
+  
+  
+  
+  
   
   const navigate= useNavigate()
 
