@@ -106,7 +106,7 @@ function AccountSchedule({ user_id, setTodaysAppointments, todaysAppointments })
       )))}
 
       <div>
-        <button onClick={() => navigate(`/calendar`)}>See Calendar</button> 
+        <button onClick={() => navigate(`/calendar`)}>Go to Calendar</button> 
       </div>
     </>
   )

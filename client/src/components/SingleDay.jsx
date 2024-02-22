@@ -105,7 +105,7 @@ function SingleDay({ user_id, date, setAppointments, appointments }) {
         <button onClick={toggleAppointmentModal}>Add Event</button> 
       </div> <br/>
       <div>
-        <button onClick={() => navigate(`/calendar`)}>See Calendar</button> 
+        <button onClick={() => navigate(`/calendar`)}>Back to Calendar</button> 
       </div>
 
       {modal ? ( 
