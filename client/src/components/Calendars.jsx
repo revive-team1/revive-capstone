@@ -10,7 +10,6 @@ const CalendarDay = ({ user_id, day, calendarYear, calendarMonth, setDate }) => 
   let formattedMonth = `${calendarMonth+1}`;
 
   function formatDate() {
-    console.log(formattedDay);
     if (formattedDay.length < 2) {
       formattedDay = "0" + formattedDay
     }
@@ -27,7 +26,6 @@ const CalendarDay = ({ user_id, day, calendarYear, calendarMonth, setDate }) => 
     const newDate = formatDate();
     setDate(newDate);
     navigate(`/calendar/${user_id}/${newDate}`)
-    console.log(newDate);
   }
   return day ? (
     <button className="calendar-day" id={`day-${day}`}onClick={handleClick}
