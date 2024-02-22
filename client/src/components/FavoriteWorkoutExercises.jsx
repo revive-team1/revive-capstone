@@ -9,7 +9,7 @@ export default function FavoriteWorkoutExercises({ user }) {
   useEffect(() => {
     async function fetchFavoriteWorkoutExercises() {
       try {
-        const response = await fetch(`http://localhost:8080/api/favoriteWorkoutExercises/user/${user.user_id}`, {
+        const response = await fetch(`https://revive-capstone.onrender.com/api/favoriteWorkoutExercises/user/${user.user_id}`, {
           headers: {
             "Content-Type": "application/json",
           },
@@ -51,7 +51,9 @@ export default function FavoriteWorkoutExercises({ user }) {
             <div className="exercise-details">
               <span className="favoriteExerciseName">  {favoriteWorkoutExercise.workout_name} </span> <br />
 
-              <button><Link to={`/workouts/${favoriteWorkoutExercise.workout_id}`}>See workout</Link></button> 
+              <button className="btn btn-outline-dark" onClick = {() => {
+                navigate(`/workouts/${favoriteWorkoutExercise.workout_id}`)
+              }}>See Workout</button> 
               <RemoveFavoriteWorkoutExerciseButton
                 favoriteWorkoutExercises={favoriteWorkoutExercises}
                 favoriteWorkoutExercise={favoriteWorkoutExercise}

@@ -2,7 +2,7 @@
 export default function FavoriteSelfCareButton({ user_id, selfCare_id, setFavoriteSelfCare }) {
     async function handleClick() {
         try {
-            const response = await fetch('http://localhost:8080/api/favoriteSelfCare', {
+            const response = await fetch('https://revive-capstone.onrender.com/api/favoriteSelfCare', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ user_id, selfCare_id }),
