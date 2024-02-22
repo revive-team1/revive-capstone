@@ -51,7 +51,9 @@ export default function FavoriteWorkoutExercises({ user }) {
             <div className="exercise-details">
               <span className="favoriteExerciseName">  {favoriteWorkoutExercise.workout_name} </span> <br />
 
-              <button><Link to={`/workouts/${favoriteWorkoutExercise.workout_id}`}>See workout</Link></button> 
+              <button className="btn btn-outline-dark" onClick = {() => {
+                navigate(`/workouts/${favoriteWorkoutExercise.workout_id}`)
+              }}>See Workout</button> 
               <RemoveFavoriteWorkoutExerciseButton
                 favoriteWorkoutExercises={favoriteWorkoutExercises}
                 favoriteWorkoutExercise={favoriteWorkoutExercise}

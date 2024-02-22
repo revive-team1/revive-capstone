@@ -69,11 +69,10 @@ async function getFavoriteWorkoutExercisesByUserId(id) {
   try {
     const { rows } = await client.query(
       `
-        SELECT workouts.workout_id, workouts.workout_name
-        FROM favoriteWorkoutExercises
-        INNER JOIN workouts ON favoriteWorkoutExercises.workout_id = workouts.workout_id
-        WHERE favoriteWorkoutExercises.user_id = $1
-        GROUP BY workouts.workout_id;
+      SELECT favoriteWorkoutExercises.favorite_id, workouts.workout_id, workouts.workout_name
+      FROM favoriteWorkoutExercises
+      INNER JOIN workouts ON favoriteWorkoutExercises.workout_id = workouts.workout_id
+      WHERE favoriteWorkoutExercises.user_id = $1;
       `,
       [id]
     );
