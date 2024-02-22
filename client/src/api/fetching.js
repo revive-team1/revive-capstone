@@ -44,6 +44,17 @@ export const fetchingApi = createApi({
 
         getSingleWorkout: build.query({
             query: (workout_id) => `/workouts/${workout_id}`
+        }),
+
+        deleteFavoriteWorkout: build.mutation({
+            query: (data) => ({
+                url: `/favoriteWorkoutExercises/${data.id}`,
+                method: 'DELETE', 
+                headers: {
+                    'content-type': 'application/json',
+                    authorization: `Bearer ${data.token}`,
+                },
+            })
         })
     })
 });
@@ -56,4 +67,5 @@ export const {
     useGetSelfCareQuery, 
     useGetWorkoutsQuery,
     useGetSingleWorkoutQuery,
+    useDeleteFavoriteWorkoutMutation
 } = fetchingApi

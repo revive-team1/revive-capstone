@@ -26,7 +26,7 @@ const Register = ( {setUser}) => {
       console.log(result)
       dispatch(updateToken(result.token))
       setUser(result.user)
-      navigate('/')
+      navigate('/account')
     } catch (error) {
       console.error(error);
       const message = error.data.message || 'An error occurred please try again';
