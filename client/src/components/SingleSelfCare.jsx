@@ -40,7 +40,7 @@ export default function SingleSelfCare({ user_id }) {
                 </>
             ) : (
                 <>
-                    <FavoriteSelfCareButton user_id={user_id} selfCare_id = {selfCare.selfCare_id} />
+                    <FavoriteSelfCareButton user_id={user_id} selfCare_id = {selfCare.selfcare_id} />
                 </>
             )}
             <br />

@@ -13,7 +13,7 @@ import SingleExercise from './components/SingleExercise'
 import SingleRecipe from './components/SingleRecipe'
 import SingleSelfCare from './components/SingleSelfCare'
 import SingleDay from './components/SingleDay'
-// import AccountSchedule from './components/AccountSchedule'
+import SingleWorkoutExercise from './components/SingleWorkoutExercise'
 import './App.css'
 
 function App() {
@@ -41,6 +41,7 @@ function App() {
                   <div className='col-md-5 text-center text-md-start'>
                   <h1 className='display-6'>Welcome to revive</h1>
                     <p className='lead my-4 text-muted'>Your one stop shop to all that is wellness!</p>
+                    <p>revive is designed to be your comprehensive wellness platform, offering a range of features to promote physical fitness, healthy nutrition, self-care, and more. Whether you’re a fitness enthusiast, a food lover, or someone seeking overall well-being, revive has you covered.</p>
                   </div>
                   <div className='col-md-6 text-center'>
                     <p>hey, let's get healthy</p>
@@ -60,8 +61,7 @@ function App() {
         <Route path="/exercises/:exercise_id" element={<SingleExercise />} />
         <Route path="/calendar" element={<Calendars user_id={user.user_id} date={date} setDate={setDate}/>} />
         <Route path="/calendar/:user_id/:date" element={<SingleDay setAppointments={setAppointments} appointments={appointments} user_id={user.user_id} date={date} setDate={setDate}/>} />
-        {/* <Route path="/today" element={<AccountSchedule todaysAppointments={todaysAppointments} setTodaysAppointments={setTodaysAppointments} user_id={user.user_id} date={date} setDate={setDate}/>} /> */}
-
+        <Route path='/workouts/:workout_id' element={<SingleWorkoutExercise />} />
       </Routes>
     </>
   )

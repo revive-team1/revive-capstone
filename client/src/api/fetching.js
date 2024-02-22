@@ -48,4 +48,12 @@ export const fetchingApi = createApi({
     })
 });
 
-export const { useLoginMutation, useRegisterMutation, useGetExercisesQuery, useGetSingleExerciseQuery, useGetSelfCareQuery, useGetWorkoutsQuery } = fetchingApi
+export const { 
+    useLoginMutation, 
+    useRegisterMutation, 
+    useGetExercisesQuery, 
+    useGetSingleExerciseQuery, 
+    useGetSelfCareQuery, 
+    useGetWorkoutsQuery,
+    useGetSingleWorkoutQuery,
+} = fetchingApi

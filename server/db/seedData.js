@@ -1,9 +1,9 @@
 const exercises = [
   {
     name: "Jumping Jacks",
-    description: "jump in jack",
+    description: "To perform a jumping jack, start by standing with your feet together and your arms at your sides. Then, jump up, spreading your legs to shoulder width while simultaneously raising your arms above your head, and finally jump back to the starting position.",
     imgUrl:
-      "no-image.jpeg",
+      "JumpingJack.jpeg",
     difficulty: "beginner",
   },
 
@@ -11,7 +11,7 @@ const exercises = [
     name: "Reverse Lunge",
     description:
       "facing forward, step backward with one foot and lower your hips until the front thigh is parallel to the ground, then push back to the starting position.",
-    imgUrl: "no-image.jpeg",
+    imgUrl: "ReverseLunge.jpeg",
     difficulty: "beginner",
   },
 
@@ -19,7 +19,7 @@ const exercises = [
     name: "Burpee",
     description:
       "dropping to a squat, kicking the feet back to a plank position, doing a push-up, returning to the squat, and jumping up with arms overhead.",
-    imgUrl: "no-image.jpeg",
+    imgUrl: "Burpee.jpeg",
     difficulty: "intermediate",
   },
 
@@ -27,7 +27,7 @@ const exercises = [
     name: "Cleans",
     description:
       "start by standing over the barbell with your feet shoulder-width apart, bending at the hips and knees while keeping your back straight to grip the bar slightly wider than shoulder width. Explosively lift the barbell by extending your hips and knees, keeping the bar close to your body, and as the bar reaches your thighs, shrug your shoulders and pull yourself under the bar, catching it at shoulder level with elbows forward. Finally, stand up straight by extending your hips and knees to the full upright position, completing the clean.",
-    imgUrl: "no-image.jpeg",
+    imgUrl: "Cleans.jpeg",
     difficulty: "high-level",
   },
 
@@ -35,161 +35,161 @@ const exercises = [
     name: "Pull Ups",
     description:
       "hang from a pull-up bar with your hands slightly wider than shoulder-width apart, then pull yourself up until your chin is over the bar, and lower yourself back down with control.",
-    imgUrl: "no-image.jpeg",
+    imgUrl: "PullUp.jpeg",
     difficulty: "intermediate",
   },
   {
     name: "Bear Crawls",
     description:
-      "to be filled...",
-    imgUrl: "no-image.jpeg",
+      "To perform a bear crawl exercise, start on all fours with your knees off the ground, keeping your back flat and your hands and feet shoulder-width apart. Move forward by advancing your right hand and left foot, then your left hand and right foot, continuing to alternate in a crawling motion while maintaining a tight core and flat back.",
+    imgUrl: "BearCrawl.jpeg",
     difficulty: "intermediate",
   },
   {
     name: "Dumbbell Renegade Row",
     description:
-      "blah blah...",
-    imgUrl: "no-image.jpeg",
+      "To perform a dumbbell renegade row, begin in a high plank position with a dumbbell in each hand, positioned directly beneath your shoulders, and your feet spaced wider than hip-width for stability. Keep your core engaged as you row one dumbbell towards your ribcage, keeping your elbow close to your body, then lower it back to the ground and repeat with the other arm, alternating sides while maintaining a strong plank position throughout the exercise.",
+    imgUrl: "RenegadeRow.jpeg",
     difficulty: "intermediate",
   },
   {
     name: "Wall-Sit",
     description:
-      "blah blah...",
-    imgUrl: "no-image.jpeg",
+      "To perform a wall sit exercise, start by standing with your back against a wall, then slide down the wall until your thighs are parallel to the floor, making sure your knees are directly above your ankles and your back is flat against the wall. Hold this position, keeping your core engaged and your hands either on your thighs or extended in front of you, for a set duration of time or as long as you can maintain the posture without compromising form.",
+    imgUrl: "WallSit.jpeg",
     difficulty: "beginner",
   },
   {
     name: "Single Leg Hops",
     description:
-      "blah blah...",
-    imgUrl: "no-image.jpeg",
+      "To perform lateral single-leg hops, start by standing on one foot, with the other foot slightly off the ground for balance. Then, hop sideways back and forth over an imaginary line or a small object, keeping your landing soft and controlled, and focusing on maintaining balance and stability on the hopping leg throughout the exercise.",
+    imgUrl: "SingleLegHops.jpeg",
     difficulty: "beginner",
   },
   {
     name: "Pistol Squat",
     description:
-      "blah blah...",
-    imgUrl: "no-image.jpeg",
+      "To perform a pistol squat, begin by standing on one leg with your other leg extended straight in front of you, parallel to the floor. Slowly lower your body into a squat position on the single supporting leg, keeping your extended leg straight, and then push back up to the starting position, using your arms for balance throughout the movement.",
+    imgUrl: "PistolSquat.jpeg",
     difficulty: "high-level",
   },
   {
     name: "Push-Ups",
     description:
-      "blah blah...",
-    imgUrl: "no-image.jpeg",
+      "To perform a push-up, start in a plank position with your hands slightly wider than shoulder-width apart, your body in a straight line from head to heels, and your feet together or slightly apart for stability. Lower your body towards the ground by bending your elbows until your chest nearly touches the floor, then push back up to the starting position, keeping your core engaged and your back flat throughout the movement.",
+    imgUrl: "PushUp.jpeg",
     difficulty: "beginner",
   },
   {
     name: "Step Ups",
     description:
-      "blah blah...",
-    imgUrl: "no-image.jpeg",
+      "To perform a step-up exercise, start by standing in front of a bench or sturdy platform, placing one foot on the surface while keeping your back straight and your core engaged. Push through the heel of the elevated foot to lift your body up onto the platform, bringing the other foot to meet it, then step back down with the same foot, alternating legs with each repetition.",
+    imgUrl: "StepUp.jpeg",
     difficulty: "intermediate",
   },
   {
     name: "Skater",
     description:
-      "blah blah...",
-    imgUrl: "no-image.jpeg",
+      "To perform skaters, start by standing on your left foot with your right foot behind you, slightly touching the floor for balance. Push off your left foot to jump laterally to the right, landing on your right foot while swinging your left leg behind your right and your left arm in front of you, then immediately jump to the left in a similar fashion, continuing to alternate sides in a fluid, skating motion.",
+    imgUrl: "Skaters.jpeg",
     difficulty: "intermediate",
   },
   {
     name: "Two Arm Row",
     description:
-      "blah blah...",
-    imgUrl: "no-image.jpeg",
+      "To perform a two-arm row exercise, start by standing with your feet hip-width apart, holding a dumbbell in each hand with your palms facing your body, and hinge forward at the hips until your torso is nearly parallel to the floor, keeping a slight bend in your knees. Pull the dumbbells towards your waist, squeezing your shoulder blades together and keeping your elbows close to your body, then lower the weights back down with control, repeating for the desired number of repetitions.",
+    imgUrl: "TwoArmRow.jpeg",
     difficulty: "intermediate",
   },
   {
     name: "Cable Pull Down",
     description:
-      "blah blah...",
-    imgUrl: "no-image.jpeg",
+      "To perform a cable pull-down exercise, start by sitting at a cable pull-down machine, grabbing the bar with a wide grip, and your hands facing forward. Lean back slightly, engaging your core, and pull the bar down towards your chest by drawing your elbows down and back, squeezing your shoulder blades together, then slowly return the bar to the starting position, maintaining control throughout the movement.",
+    imgUrl: "CablePullDown.jpeg",
     difficulty: "intermediate",
   },
   {
     name: "Bicep Curl",
     description:
-      "blah blah...",
-    imgUrl: "no-image.jpeg",
+      "To perform a bicep curl, start by standing with your feet shoulder-width apart, holding a dumbbell in each hand with your arms fully extended and palms facing forward. Curl the weights towards your shoulders by bending your elbows while keeping your upper arms stationary, then slowly lower the dumbbells back to the starting position, controlling the movement throughout.",
+    imgUrl: "BicepCurl.jpeg",
     difficulty: "intermediate",
   },
   {
     name: "Glute Bridges",
     description:
-      "blah blah...",
-    imgUrl: "no-image.jpeg",
+      "To perform a glute bridge, lie on your back with your knees bent, feet flat on the floor hip-width apart, and arms at your sides. Press through your heels to lift your hips towards the ceiling, squeezing your glutes at the top of the movement, then slowly lower your hips back to the starting position, maintaining control throughout the exercise.",
+    imgUrl: "GluteBridges.jpeg",
     difficulty: "beginner",
   },
   {
     name: "Bulgarian Split Squat",
     description:
-      "blah blah...",
-    imgUrl: "no-image.jpeg",
+      "To perform a Bulgarian split squat, stand a couple of feet in front of a bench or sturdy chair, and place one foot behind you on the bench. Lower your hips towards the floor by bending your front knee, keeping your torso upright and your front knee in line with your foot, then push through your front heel to return to the starting position, completing the desired number of repetitions before switching legs.",
+    imgUrl: "BulgarianSplitSquat.jpeg",
     difficulty: "intermediate",
   },
   {
     name: "Back Fly",
     description:
-      "blah blah...",
-    imgUrl: "no-image.jpeg",
+      "To perform a back fly, start by standing with your feet shoulder-width apart, holding a dumbbell in each hand, and hinge forward at the hips until your torso is nearly parallel to the floor, maintaining a slight bend in your knees and keeping your back flat. With palms facing each other and a slight bend in the elbows, lift the dumbbells out to the sides until they are in line with your shoulders, squeezing your shoulder blades together at the top of the movement, then lower them back down with control.",
+    imgUrl: "BackFly.jpeg",
     difficulty: "intermediate",
   },
   {
     name: "Dips",
     description:
-      "blah blah...",
-    imgUrl: "no-image.jpeg",
+      "To perform dips, start by gripping the parallel bars of a dip station and hoisting yourself up to a starting position with your arms straight and your shoulders above your hands. Lower your body by bending your elbows until your upper arms are parallel to the floor, then push back up to the starting position, focusing on using your triceps to drive the movement.",
+    imgUrl: "Dips.jpeg",
     difficulty: "intermediate",
   },
   {
     name: "Bench Press",
     description:
-      "blah blah...",
-    imgUrl: "no-image.jpeg",
+      "To perform a bench press, lie back on a bench with your feet flat on the ground, grip the barbell with hands just wider than shoulder-width apart, and lift it off the rack to hold it straight above your chest with arms fully extended. Lower the bar slowly towards your chest by bending at your elbows to around 90-degrees, also keeping them at a 45-degree angle to your torso, then press the bar back up to the starting position, extending your arms fully.",
+    imgUrl: "BenchPress.jpeg",
     difficulty: "intermediate",
   },
   {
     name: "Shoulder External Rotation",
     description:
-      "blah blah...",
-    imgUrl: "no-image.jpeg",
+      "To perform a shoulder external rotation exercise, start by standing or sitting with your elbow bent at a 90-degree angle, close to your side, holding a light dumbbell or resistance band. Keeping your elbow pinned to your side, rotate your forearm outward, away from your body, until it is parallel with the floor, then slowly return to the starting position, ensuring the movement comes from your shoulder and not your wrist or elbow.",
+    imgUrl: "ExternalRotation.jpeg",
     difficulty: "intermediate",
   },
   {
     name: "Shoulder Internal Rotation",
     description:
-      "blah blah...",
-    imgUrl: "no-image.jpeg",
+      "To perform a shoulder internal rotation exercise, start by standing or sitting with your elbow bent at a 90-degree angle, close to your side, holding a light dumbbell or resistance band. Rotate your forearm towards your body until your hand is in front of your belly, keeping your elbow pinned to your side, then slowly return to the starting position, ensuring the movement is controlled and originates from your shoulder.",
+    imgUrl: "InternalRotation.jpeg",
     difficulty: "intermediate",
   },
   {
     name: "Lateral Raise",
     description:
-      "blah blah...",
-    imgUrl: "no-image.jpeg",
+      "To perform a lateral raise, start by standing with your feet hip-width apart, holding a dumbbell in each hand at your sides with your palms facing in towards your body. Lift the dumbbells out to the sides with a slight bend in your elbows, raising them until they are parallel to the floor, then lower them back down with control, keeping your torso stationary throughout the movement.",
+    imgUrl: "LateralRaise.jpeg",
     difficulty: "intermediate",
   },
   {
     name: "Curtsy Lunge",
     description:
-      "blah blah...",
-    imgUrl: "no-image.jpeg",
+      "To perform a curtsy lunge, start by standing with your feet hip-width apart, then step your left leg diagonally behind your right leg, bending both knees as if performing a curtsy. Lower your body until your right thigh is nearly parallel to the floor, keeping your chest up and your hips square, then push through your right heel to return to the starting position, and repeat on the other side.",
+    imgUrl: "CurtsyLunge.jpeg",
     difficulty: "intermediate",
   },
   {
     name: "Goblet Squat",
     description:
-      "blah blah...",
-    imgUrl: "no-image.jpeg",
+      "To perform a goblet squat, start by standing with your feet shoulder-width apart and holding a dumbbell or kettlebell close to your chest with both hands, elbows pointing down. Lower your body into a squat by bending your knees and pushing your hips back, keeping your chest up and your weight on your heels, then drive through your heels to return to the starting position, keeping the weight stable and close to your chest throughout the movement.",
+    imgUrl: "GobletSquat.jpeg",
     difficulty: "intermediate",
   },
   {
     name: "Leg Extension",
     description:
-      "blah blah...",
-    imgUrl: "no-image.jpeg",
+      "To perform a leg extension, sit on a leg extension machine with your back against the pad, placing your shins behind the padded bar, which should be adjusted to sit just above your feet. Securely grip the hand bars, then extend your legs at the knees to lift the weight, pausing briefly at the top of the movement before slowly lowering the weight back to the starting position, ensuring a controlled motion throughout.",
+    imgUrl: "LegExtension.jpeg",
     difficulty: "intermediate",
   },
 ];
@@ -412,6 +412,41 @@ const recipes = [
     recipe_yield: 4,
     imgUrl: "https://feelgoodfoodie.net/wp-content/uploads/2017/03/Spinach-_-Feta-Stuffed-Chicken-11.jpg",
     description: "Preheat oven to 400 F. Pat chicken dry with a paper towel and make a horizontal slit in the thickest part of the breast to create a pocket. Do not cut all the way through. In a bowl, combine 2 teaspoons paprika, 1 teaspoon oregano, 1 teaspoon garlic powder, 1/2 teaspoon of onion powder, 1/2 teaspoon salt, and 1/4 teaspoon pepper. Use the mixture to season both sides of the chicken. In another bowl. combine 5 oz chopped spinach, 1/2 crumbled feta, 1/4 cup ricotta, 2 tablespoons chopped scallions, 2 cloves minced garlic, and 1/2 teaspoon dried dill. Stuff mixture evenly into the chicken breast pocket and use toothpicks to close each pocket. In a large oven-safe skillet, sear chicken in olive oil until lightly golden brown (about 3-4 minutes per side), then transfer skillet into the oven to bake for 15-18 minutes. (Recipe from feelgoodfoodie.net)",
+  },
+  {
+    name: "Chickpea and Vegetable Curry",
+    difficulty: "Hard",
+    recipe_yield: 6,
+    imgUrl: "https://www.cookwithmanali.com/wp-content/uploads/2021/09/Vegetable-Chickpea-Coconut-Curry-500x500.jpg",
+    description: "In a pot, heat oil on medium heat, add 1.5 inches chopped ginger, 1/2 a jalapeño chopped, and 1 medium red onion, chopped. Cook until onion softens, then stir in 14.5oz can of diced tomatoes.  Cover the pot with a. lid and let cook for 4-5 minutes on medium heat. Next, add 1 teaspoon of coriander powder, 1/2 teaspoon cumin powder, 1/2 teaspoon smoked paprika, 1/2 teaspoon turmeric and a dash of salt.Stir and cook one more minute.Add 2 cups cauliflower florets, 1 and 1/4 cup diced sweet potatoes, and a 15.5 oz can of chickpeas (drained). Stir until everything is well coated with spices. Add a cup of water and a 13.5 oz can of coconut milk. Stir, cover, and let cook for 10 minutes, stirring occasionally. Remove lid and add 1 red pepper, sliced. Cover again and let simmer for 5 minutes. Add 1 tablespoon of chopped cilantro and squeeze in fresh lime juice from 1/2 a lime.Turn off heat and sprinkle in 1/4 teaspoon of garam masala. Serve with rice of your choice. (Recipe from cookwithmanali.com)",
+  },
+  {
+    name: "Shrimp and Broccoli Stir-Fry",
+    difficulty: 'Medium',
+    recipe_yield: 4,
+    imgUrl: "https://feelgoodfoodie.net/wp-content/uploads/2021/09/Shrimp-_-Broccoli-Stir-Fry-11.jpg",
+    description: "In a small bowl, whisk together 3 tablespoons soy sauce, 1 tablespoon rice wine vinegar, 1 tablespoon dark brown sugar, 1 tablespoon toasted sesame oil, 2 teaspoons Sriracha, 2 teaspoons cornstarch, 4 large cloves of garlic(grated), 1 knob of ginger(grated), and the juice of 1 lime.Set aside.Pat shrimp dry with a paper towel and season with salt and pepper.In a large skillet, heat 1 tablespoon of olive oil on high heat.Add broccoli florets from 1 head of broccoli and most of the chopped scallions from one bunch of scallions(save some for serving).When lightly charred, lower heat to medium high and add 1 tablespoon of oil.Add shrimp and cook until they are pink and cooked through, about 3 - 4 minutes.Add in the soy sauce mixture, toss with shrimp, broccoli, and scallions, and cook until sauce has thickened.Remove from heat, garnish with remaining scallions, and serve over brown rice. (Recipe from feelgoodfoodie.net)",
+  },
+  {
+    name: "Mushroom and Spinach Quiche",
+    difficulty: 'Medium',
+    recipe_yield: 6,
+    imgUrl: "https://www.eatingwell.com/thmb/uGsXYzeLLpq9eYyFK_aWGkqNTas=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/SpinachMushroomQuiche_103-1-21192c2554ac4c4697280ce26874b835.jpg",
+    description: "Preheat oven to 375 F and coat a 9 - inch pie pan with cooking spray.In a large nonstick skillet over medium high heat, add 2 tablespoons extra virgin olive oil.Cook 8 ounces of fresh sliced mushrooms until browned and tender.Add 1.5 cups sliced sweet onion and 1 tablespoon thinly sliced garlic then stir.Cook until softened and tender then add 5 ounces of coarsely chopped fresh baby spinach and cook until wilted.Remove from heat.Whisk 6 large eggs, 1 / 4 cups whole milk, 1 / 4 cup half and half, 1 tablespoon dijon mustard, 1 tablespoon fresh thyme, and 1 / 4 teaspoon of salt and pepper in a large bowl.Fold in 1.5 cups shredded gruyere cheese and the mushroom mixture.Spoon all ingredients into the prepared pie pan and bake about 30 minutes until golden brown.Let stand for 10 minutes before slicing, garnishing with thyme and serving. (Recipe from eatingwell.com)",
+  },
+  {
+    name: 'Green Soup',
+    difficulty: "Medium",
+    recipe_yield: 6,
+    imgUrl: "https://www.gimmesomeoven.com/wp-content/uploads/2018/02/Green-Goddess-Soup-with-Broccoli-Cauliflower-and-Spinach-3.jpg",
+    description: "Chop 1 onion and 2 cloves garlic.In a large saucepan, soften the onion and garlic in 2 tablespoons olive oil.Add 4 cups low sodium chicken broth, 2 cups of broccoli cut into florets, and 2 cups fresh asparagus, chopped.Bring to a boil and simmer uncovered for 15 minutes.Add 4 cups of fresh spinach and simmer for one minute.In a blender, puree the soup until it is smooth then strain it.Add Better than Bouillon to taste and a 1 / 2 cup of half and half.Heat through and enjoy."
+  },
+{
+    name: 'Tomato Watermelon Gazpacho',
+    difficulty: 'Medium',
+    recipe_yield: 12,
+    imgUrl: "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2012/7/25/1/FNM_090112-Tomato-and-Watermelon-Gazpacho-Recipe_s4x3.jpg.rend.hgtvcom.616.462.suffix/1371606900127.jpeg",
+    description: "Chop 4 medium tomatoes, 1 peeled cucumber, and 1 shallot.Dice 4 cups of seedless watermelon.In a blender, add the tomatoes, watermelon, cucumber, shallot, 1 / 3 cup basil and mint along with 1.5 teaspoons of salt and pepper.Add 1 / 3 cup extra virgin olive oil and 2 tablespoons champagne vinegar.Puree in a blender then strain through a fine mesh sieve into a bowl, pressing to extract any liquid; discard the solids and season with salt and pepper.Cover and refrigerate until chilled, about 1 hour.To serve, top the soup with a drizzle of olive oil and small mint and basil leaves."
   }
 ];
 
