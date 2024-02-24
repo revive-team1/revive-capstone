@@ -49,26 +49,32 @@ const Login = ({ setUser }) => {
     <>
       <h1>Login</h1>
       {errorMessage && <p>{errorMessage}</p>}
-            <form onSubmit={handleLogin} >
-                <div >    
+            <form onSubmit={handleLogin} className='register-container'>
+                <div className='form-floating mb-3'>    
                     <input
+                        className='form-control'
+                        id='floatingUsername'
+                        placeholder='username'
                         type='text'
                         onChange={(event) => {
                             setUsername(event.target.value)
                         }}
                       required
                     />
-                    <label>Username: {''}</label>
+                    <label htmlFor='floatingUsername'>Username: {''}</label>
                 </div>
-                <div>
+                <div className='form-floating'>
                     <input
+                        className='form-control'
+                        id='floatingPassword'
+                        placeholder='password'
                         type='password'
                         onChange={(event) => {
                             setPassword(event.target.value)
                         }}
                       required
                     />
-                    <label >Password: {''}</label>
+                    <label htmlFor='floatingPassword'>Password: {''}</label>
                     {successMessage && <p>{successMessage}</p>}
                 </div>
                 <button type='submit'>Login</button>
