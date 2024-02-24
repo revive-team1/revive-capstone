@@ -4,7 +4,8 @@ export default function RemoveFavoriteRecipeButton({ favoriteRecipe,favoriteReci
 
   async function handleClick() {
     try {
-      const response = await fetch(`https://revive-capstone.onrender.com/api/favoriteRecipes/${favoriteRecipe.favorite_id}`, {
+      const response = await fetch(`http://localhost:8080/api/favoriteRecipes/${favoriteRecipe.favorite_id}`, {
+      // const response = await fetch(`https://revive-capstone.onrender.com/api/favoriteRecipes/${favoriteRecipe.favorite_id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

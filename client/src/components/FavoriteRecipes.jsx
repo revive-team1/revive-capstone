@@ -8,7 +8,8 @@ export default function FavoriteExercises({ user }) {
   useEffect(() => {
     async function fetchFavoriteRecipes() {
       try {
-        const response = await fetch(`https://revive-capstone.onrender.com/api/favoriteRecipes/user/${user.user_id}`, {
+        const response = await fetch(`http://localhost:8080/api/favoriteRecipes/user/${user.user_id}`, {
+        // const response = await fetch(`https://revive-capstone.onrender.com/api/favoriteRecipes/user/${user.user_id}`, {
           headers: {
             "Content-Type": "application/json",
           },

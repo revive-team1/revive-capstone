@@ -59,7 +59,8 @@ function SingleDay({ user_id, date, setAppointments, appointments }) {
 
     const fetchSingleCalendarDay = async () => {
       try {
-        const response = await fetch(`https://revive-capstone.onrender.com/api/calendars/${user_id}/${date}`);
+        const response = await fetch(`http://localhost:8080/api/calendars/${user_id}/${date}`);
+        // const response = await fetch(`https://revive-capstone.onrender.com/api/calendars/${user_id}/${date}`);
         const result = await response.json();
         setAppointments(result)
       } catch (error) {

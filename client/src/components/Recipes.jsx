@@ -13,7 +13,8 @@ function Recipes() {
 
     const fetchAllRecipes = async () => {
       try {
-        const response = await fetch("https://revive-capstone.onrender.com/api/recipes");
+        const response = await fetch("http://localhost:8080/api/recipes");
+        // const response = await fetch("https://revive-capstone.onrender.com/api/recipes");
         const result = await response.json();
         console.log(result)
         setRecipeList(result);
