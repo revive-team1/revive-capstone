@@ -19,6 +19,7 @@ const Login = ({ setUser }) => {
       console.log(result)
       dispatch(updateToken(result.data.token))
       console.log(result)
+      dispatch(updateUserId(result.data.user.user_id))
       setUser(result.data.user)
       navigate('/account')
     } catch (error) {

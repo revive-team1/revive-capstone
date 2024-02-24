@@ -25,6 +25,7 @@ const Register = ( {setUser}) => {
       const result = await register({ firstname, lastname, email, password, username }).unwrap();
       console.log(result)
       dispatch(updateToken(result.token))
+      dispatch(updateUserId(result.user.user_id))
       setUser(result.user)
       navigate('/account')
     } catch (error) {
