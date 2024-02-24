@@ -6,40 +6,59 @@ import { updateToken, updateUserId } from '../actions/actionsSlice'
 import { useNavigate, useParams } from 'react-router-dom'
 
 const Login = ({ setUser }) => {
-  const [ email, setEmail ] = useState('')
+  const [ username, setUsername ] = useState('')
   const [ password, setPassword ] = useState('')
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [ login, { error, successMessage } ] = useLoginMutation()
+  const [errorMessage, setErrorMessage] = useState('')
   
   const handleLogin = async (e) => {
     e.preventDefault()
+    setErrorMessage('')
+
+    if (!username) {
+      setErrorMessage('Username is required')
+      return;
+    }
+
+    if (!password) {
+      setErrorMessage('Password is required')
+      return;
+    }
+
     try {
-      const result = await login({ email, password });
+      const result = await login({ username, password });
       console.log(result)
       dispatch(updateToken(result.data.token))
       console.log(result)
-      dispatch(updateUserId(result.data.user.user_id))
+      //dispatch(updateUserId(result.data.user.user_id))
       setUser(result.data.user)
       navigate('/account')
     } catch (error) {
-      console.error(error)
+      console.error(error);
+      // Inspect the error object
+      console.log(error);
+      // Adjust error handling based on the actual error structure
+      const message = 'Username or password is not correct. If issue persists, please re-register.';
+      setErrorMessage(message);
     }
   }
 
   return (
     <>
       <h1>Login</h1>
-      {error && <p>{error}</p>}
+      {errorMessage && <p>{errorMessage}</p>}
             <form onSubmit={handleLogin} >
                 <div >    
                     <input
-                        type='email'
+                        type='text'
                         onChange={(event) => {
-                            setEmail(event.target.value)
+                            setUsername(event.target.value)
                         }}
+                      required
                     />
-                    <label>Email: {''}</label>
+                    <label>Username: {''}</label>
                 </div>
                 <div>
                     <input
@@ -47,6 +66,7 @@ const Login = ({ setUser }) => {
                         onChange={(event) => {
                             setPassword(event.target.value)
                         }}
+                      required
                     />
                     <label >Password: {''}</label>
                     {successMessage && <p>{successMessage}</p>}

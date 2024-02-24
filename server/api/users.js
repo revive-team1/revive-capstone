@@ -10,7 +10,8 @@ const {
     createUser, 
     getUserById,
     getAllUsers,
-    getUserByEmail
+    getUserByEmail,
+    getUserByUsername
 } = require('../db/sqlHelperFunctions/users.js');
 
 // GET - /api/users - get all users
@@ -38,6 +39,11 @@ router.get('/:user_id', async(req, res, next) => {
 router.post('/register', async (req, res, next) => {
     try {
         const { firstname, lastname, username, password, email } = req.body;
+
+        if (!password || !email || !username) {
+            return res.status(400).json({ message: 'Missing required fields' });
+        }
+
         const checkUserExistsQuery = `
         SELECT * FROM users 
         WHERE username = $1 
@@ -71,16 +77,25 @@ router.post('/register', async (req, res, next) => {
 
 router.post('/login', async (req, res, next) => {
     try {
-        const { email, password } = req.body;
-        const users = await getUserByEmail(email);
+        const { username, password } = req.body;
+
+        
+        const users = await getUserByUsername(username);
+
+        if (!password || !username) {
+            return res.status(400).json({ message: 'Missing required fields' });
+        }
 
         if (users.length === 1) {
             const user = users[0];
             const validPassword = await bcrypt.compare(password, user.password);
+            const token = jwt.sign(user, JWT_SECRET);
+            
+            if(!validPassword) {
+                return res.status(401).send({ message: 'Invalid password' });
+            }
 
             if (validPassword) {
-                const token = jwt.sign(user, JWT_SECRET);
-
                 res.cookie('token', token, {
                     sameSite: 'strict',
                     httpOnly: true,
@@ -91,10 +106,10 @@ router.post('/login', async (req, res, next) => {
 
                 res.send({ token, user });
             } else {
-                res.status(401).send({ error: 'Invalid password' });
+                return res.status(401).send({ message: 'Invalid password' });
             }
         } else {
-            res.status(401).send({ error: 'User not found' });
+            return res.status(401).send({ message: 'User not found' });
         }
     } catch (error) {
         console.log('error from post api router with login', error);
