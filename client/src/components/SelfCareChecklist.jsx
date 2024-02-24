@@ -8,7 +8,8 @@ export default function SelfCareChecklist({ user }) {
   useEffect(() => {
     async function fetchFavoriteSelfCare() {
       try {
-        const response = await fetch(`https://revive-capstone.onrender.com/api/favoriteSelfCare/user/${user.user_id}`, {
+        const response = await fetch(`http://localhost:8080/api/favoriteSelfCare/user/${user.user_id}`, {
+        // const response = await fetch(`https://revive-capstone.onrender.com/api/favoriteSelfCare/user/${user.user_id}`, {
           headers: {
             "Content-Type": "application/json",
           },

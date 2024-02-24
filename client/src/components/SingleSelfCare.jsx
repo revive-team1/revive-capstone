@@ -14,7 +14,8 @@ export default function SingleSelfCare({ user_id }) {
     useEffect(() => {
         async function fetchSingleSelfCareIdea() {
             try {
-                const response = await fetch(`https://revive-capstone.onrender.com/api/selfCare/${selfCare_id}`);
+                const response = await fetch(`http://localhost:8080/api/selfCare/${selfCare_id}`);
+                // const response = await fetch(`https://revive-capstone.onrender.com/api/selfCare/${selfCare_id}`);
                 const selfCare = await response.json();
                 setSelfCare(selfCare)
             } catch (error) {
