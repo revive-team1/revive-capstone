@@ -6,7 +6,15 @@ import { Link } from 'react-router-dom'
 const SingleExercise = () => {
   const {exercise_id} = useParams();
 
-  const { data = {} } = useGetSingleExerciseQuery(exercise_id);
+  const { data = {}, error, isLoading } = useGetSingleExerciseQuery(exercise_id);
+  
+  if(isLoading) {
+    return <div>loading...</div>
+  }
+
+  if(error) {
+    return <div>Error: {error.message}</div>
+  }
   
   return (
     <div className='row row-cols-sm-1 row-cols-md-4 g-4'> 
