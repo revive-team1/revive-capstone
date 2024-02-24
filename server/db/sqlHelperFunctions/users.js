@@ -40,6 +40,19 @@ async function getUserByEmail(email) {
     }
 };
 
+async function getUserByUsername(username) {
+    try {
+        const { rows: user } = await client.query(`
+        SELECT * FROM users
+        WHERE users.username = '${username}'
+        `);
+        return user;
+    } catch (error) {
+        console.error('Error logging in user:', error);
+        throw new Error(`Failed to login user: ${error.message}`);
+    }
+};
+
 async function deleteUser(id) {
     try {
         const { rows: [users] } = await client.query(`
@@ -56,5 +69,6 @@ module.exports = {
     createUser,
     getAllUsers,
     getUserByEmail,
+    getUserByUsername,
     deleteUser
 }

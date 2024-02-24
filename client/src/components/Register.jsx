@@ -21,6 +21,21 @@ const Register = ( {setUser}) => {
     e.preventDefault()
     setErrorMessage('')
 
+    if (!password) {
+      setErrorMessage('Password is required')
+      return;
+    }
+
+    if (!email) {
+      setErrorMessage('Email is required')
+      return;
+    }
+
+    if (!username) {
+      setErrorMessage('Username is required')
+      return;
+    }
+
     try {
       const result = await register({ firstname, lastname, email, password, username }).unwrap();
       console.log(result)
@@ -72,6 +87,7 @@ const Register = ( {setUser}) => {
               onChange={(event) => {
                 setUsername(event.target.value)
               }}
+            required
             />
             <label>Username: {''}</label>
           </div>
@@ -83,6 +99,7 @@ const Register = ( {setUser}) => {
               onChange={(event) => {
                 setEmail(event.target.value)
               }}
+            required
             />
             <label>Email: {''}</label>
           </div>
@@ -95,6 +112,7 @@ const Register = ( {setUser}) => {
               onChange={(event) => {
                 setPassword(event.target.value)
               }}
+            required
             />
             <label htmlFor='floatingPassword'>Password: {''}</label>
           </div>
