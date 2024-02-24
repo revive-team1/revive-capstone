@@ -8,6 +8,7 @@ const client = require('../db/client')
 
 const { 
     createUser, 
+    getUserById,
     getAllUsers,
     getUserByEmail
 } = require('../db/sqlHelperFunctions/users.js');
@@ -21,6 +22,16 @@ router.get('/', async(req, res, next) => {
         console.log('error from api router', error);
         next(error);
     }
+});
+
+router.get('/:user_id', async(req, res, next) => {
+  try {
+      const user = await getUserById(req.params.user_id);
+      res.send(user);
+  } catch (error) {
+      console.log('error from api router', error);
+      next(error);
+  }
 });
 
 // POST - /api/users/register - create a new user
