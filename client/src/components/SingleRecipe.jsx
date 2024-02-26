@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import FavoriteRecipesButton from './FavoriteRecipesButton'
+import { useSelector } from 'react-redux'
 
 function SingleRecipe({ user_id }) {
+  const token = useSelector((it) => it.actionsSlice.token)
   const [recipe, setRecipe] = useState([])
   const { recipe_id } = useParams()
 
@@ -40,8 +42,21 @@ function SingleRecipe({ user_id }) {
               Back
             </Link>
           </div>
-          <FavoriteRecipesButton className='backButton m-2 p-1' user_id={user_id} recipe_id={recipe.recipe_id} />
 
+          <div>
+
+            {(!token) ? (
+              <>
+                <button className='btn btn-outline-dark' type='button' role='button'><Link to='/login'>Login to Like Recipe</Link></button>
+              </>
+            ) : (
+              <>
+                <FavoriteRecipesButton className='btn btn-outline-dark' type='button' role='button' user_id={user_id} recipe_id={recipe.recipe_id}/>
+              </>
+            )}
+
+
+          </div>
         </div>
 
       </div>
