@@ -65,6 +65,7 @@ const Workouts = ({ user_id }) => {
                             
                                 <div className='col-md-6 '>
                                     <div className='card m-3' key={workout.workout_id}>
+                                        <img className='card-img-top' src={new URL(`../assets/images/${workout.workout_image}`, import.meta.url).href} alt={workout.name}></img>
                                         <div className='card-body'>
                                             <h3 className='card-title'>{workout.workout_name}</h3>
                                             <p className='card-text'><strong>Description:</strong> {workout.workout_description}</p>
