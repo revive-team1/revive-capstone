@@ -38,7 +38,8 @@ function App() {
         }
       }
       if (localStorage.getItem('token') && localStorage.getItem('userId')) {
-        fetchUserInfo(JSON.parse(localStorage.getItem('userId')))};
+        fetchUserInfo(JSON.parse(localStorage.getItem('userId')));
+      }
      
   }, []);
 
@@ -76,7 +77,7 @@ function App() {
         <Route path="/recipes/:recipe_id" element={<SingleRecipe user_id={user.user_id} />} />
         <Route path="/selfcare/:selfCare_id" element={<SingleSelfCare user_id={user.user_id}/>} />
         <Route path="/exercises/:exercise_id" element={<SingleExercise />} />
-        <Route path="/calendar" element={<Calendars user_id={user.user_id} date={date} setDate={setDate}/>} />
+        <Route path="/calendar" element={<Calendars setAppointments={setAppointments} appointments={appointments} user_id={user.user_id} date={date} setDate={setDate}/>} />
         <Route path="/calendar/:user_id/:date" element={<SingleDay setAppointments={setAppointments} appointments={appointments} user_id={user.user_id} date={date} setDate={setDate}/>} />
         <Route path='/workouts/:workout_id' element={<SingleWorkoutExercise />} />
       </Routes>

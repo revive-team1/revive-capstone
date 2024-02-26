@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom"
 
 
-export default function AddCalendarAppointment({ date, setAppointments, user_id, toggleAppointmentModal }) {
+export default function AddCalendarAppointment({ setUserAppointmentsByDay, userAppointmentsByDay, date, setAppointments, user_id, toggleAppointmentModal }) {
 
 
   const [activity_date, setActivityDate] = useState("");
@@ -13,8 +13,8 @@ export default function AddCalendarAppointment({ date, setAppointments, user_id,
   const [activity_link, setActivityLink] = useState("");
   const navigate = useNavigate();
   
-  async function handleSubmit(event) {
-    event.preventDefault();
+  async function handleSubmit() {
+    // event.preventDefault();
     try {
       const response = await fetch('http://localhost:8080/api/calendars/', {
       // const response = await fetch('https://revive-capstone.onrender.com/api/calendars/', {
@@ -27,7 +27,9 @@ export default function AddCalendarAppointment({ date, setAppointments, user_id,
       const result = await response.json();
       console.log(result)
       setAppointments(result)
+      setUserAppointmentsByDay([...userAppointmentsByDay, result]);
       toggleAppointmentModal()
+      alert("Your appointment has been added.")
     } catch (error) {
     }
   }

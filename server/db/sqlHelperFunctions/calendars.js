@@ -30,16 +30,14 @@ async function getCalendarAppointmentById(id) {
 
 async function getCalendarAppointmentsByUserId(id) {
   try {
-    const {
-      rows: [appointment],
-    } = await client.query(
+    const { rows } = await client.query(
       `
           SELECT * FROM calendars
           WHERE calendars.user_id = $1;
       `,
       [id]
     );
-    return appointment;
+    return rows;
   } catch (error) {
     throw error;
   }
