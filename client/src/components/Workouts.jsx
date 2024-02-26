@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useGetWorkoutsQuery } from '../api/fetching'
 import { useSelector } from 'react-redux'
 import { useState } from 'react'
@@ -14,6 +14,7 @@ const Workouts = ({ user_id }) => {
     //const [searched, setSearched] = useState(0)
     //const [searchInput, setSearchInput] = useState('')
     const [search, setSearch] = useState('')
+    const navigate = useNavigate()
 
     if (isLoading) {
         return <div>loading...</div>
@@ -68,24 +69,13 @@ const Workouts = ({ user_id }) => {
                                         <img className='card-img-top' src={new URL(`../assets/images/${workout.workout_image}`, import.meta.url).href} alt={workout.name}></img>
                                         <div className='card-body'>
                                             <h3 className='card-title'>{workout.workout_name}</h3>
-                                            <p className='card-text'><strong>Description:</strong> {workout.workout_description}</p>
                                         </div>
-                                        <div>
-                                            {workout.exercises.map((exercise) => (
-                                                <div key={exercise.exercise_id}>
-                                                    <ul className='list-group'>
-                                                        <li className='list-group-item'>
-                                                            <strong>{exercise.name}</strong>
-                                                            <button className='btn btn-sm btn-outline-dark m-1' type='button' role='button'><Link className='nav-link' to={`/exercises/${exercise.exercise_id}`}>See More</Link></button>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            ))}
-                                        </div>
+                                        
                                         {(!token) ? (
                                             <>
                                                 <div className='card-body'>
-                                                    <button className='btn btn-outline-dark'>Login to Like Workout</button>
+                                                    <button className='btn btn-outline-dark m-2'>Login to Like Workout</button>
+                                                    <button className='btn btn-outline-dark m-2' onClick = {() => {navigate(`/workouts/${workout.workout_id}`)}}>See Details</button>
                                                 </div>
                                             </>
                                         ) : (

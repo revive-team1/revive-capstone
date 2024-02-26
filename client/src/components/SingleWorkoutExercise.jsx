@@ -2,23 +2,24 @@ import React from 'react'
 import { useGetSingleWorkoutQuery } from '../api/fetching'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const SingleWorkoutExercise = () => {
   const { workout_id } = useParams();
-
-  const { data = {}, error, isLoading} = useGetSingleWorkoutQuery(workout_id);
+  const token = useSelector((it) => it.actionsSlice.token)
+  const { data = {}, error, isLoading } = useGetSingleWorkoutQuery(workout_id);
   console.log(data)
 
-  if(isLoading) {
+  if (isLoading) {
     return <div>loading...</div>
   }
 
-  if(error) {
+  if (error) {
     return <div>Error: {error.message}</div>
   }
 
   return (
-    <div className='row row-cols-sm-1 row-cols-md-4 g-4'>
+    <div className='row row-cols-sm-1 justify-content-center row-cols-md-4 g-4'>
       <div key={data.workout_id} className='col-6 col-lg-6 p-2'>
         <div className='card border-2 h-100'>
           <h2 className='card-title text-center'>{data.workout_name}</h2>
@@ -35,8 +36,19 @@ const SingleWorkoutExercise = () => {
               </div>
             ))}
           </>
-          <button className='btn btn-outline-dark' type='button' role='button'><Link className='nav-link' to='/workouts'>Return to All Workouts</Link></button>
-          <button className='btn btn-outline-dark' type='button' role='button'><Link className='nav-link' to='/account'>Return to Account</Link></button>
+
+          {(!token) ? (
+            <div>
+              <button className='btn btn-outline-dark m-2' type='button' role='button'><Link className='nav-link' to='/workouts'>Return to All Workouts</Link></button>
+            </div>
+          ) : (
+            <div>
+              <button className='btn btn-outline-dark m-2' type='button' role='button'><Link className='nav-link' to='/account'>Return to Account</Link></button>
+            </div>
+
+          )}
+
+
         </div>
       </div>
     </div>
