@@ -230,3 +230,26 @@ button:focus-visible {
   border-color: #bcdef7;
   border-width: thick;
 }
+
+.greenCalendarSquare{
+  background-color:#e1f5df;
+  height: 75px;
+  text-align: right;
+  border: none;
+}
+.greenCalendarSquare:hover{
+  border:solid;
+  border-color: #bcdef7;
+  border-width: thick;
+}
+
+@media (prefers-color-scheme: dark) {
+  .calendar-day {
+    border: solid;
+    border-color: black;
+    color: black;
+  }
+  :root {
+    background-color: #ffffff;
+  }
+}

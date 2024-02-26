@@ -1,46 +1,15 @@
 import React from 'react'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AddCalendarAppointment from './AddCalendarAppointment';
 import { useNavigate }  from 'react-router-dom';
-
-
-const CalendarDay = ({ user_id, day, calendarYear, calendarMonth, setDate }) => {
-  const navigate = useNavigate()
-  let formattedDay = `${day}`;
-  let formattedMonth = `${calendarMonth+1}`;
-
-  function formatDate() {
-    if (formattedDay.length < 2) {
-      formattedDay = "0" + formattedDay
-    }
-
-    if (formattedMonth.length < 2) {
-      formattedMonth = "0" + (calendarMonth + 1)
-    }
-
-    let formattedDate = `${calendarYear}-${formattedMonth}-${formattedDay}`
-  
-    return formattedDate
-  }
-  function handleClick() {
-    const newDate = formatDate();
-    setDate(newDate);
-    navigate(`/calendar/${user_id}/${newDate}`)
-  }
-  return day ? (
-    <button className="calendar-day" id={`day-${day}`}onClick={handleClick}
-    > {day}</button>
-    
-  ) : (
-    <div className="calendar-day"></div>
-   
-)};
+import CalendarDay from './CalendarDay';
 
 const Calendars = ({user_id, date, setDate, appointments, setAppointments}) => {
 
   const currentDate = new Date();
   const [calendarMonth, setCalendarMonth] = useState(currentDate.getMonth())
   const [calendarYear, setCalendarYear] = useState(currentDate.getFullYear());
+  const [userAppointmentsByDay, setUserAppointmentsByDay] = useState([])
   const monthNames=["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
   const firstDayOfMonth = new Date(calendarYear, calendarMonth, 1);
   const lastDayOfMonth = new Date(calendarYear, calendarMonth + 1, 0);
@@ -88,6 +57,25 @@ const Calendars = ({user_id, date, setDate, appointments, setAppointments}) => {
   function toggleAppointmentModal() {
     setModal(!modal)
   }
+
+  useEffect(() => {
+
+    const fetchSingleCalendarDay = async () => {
+      try {
+        if (user_id) {
+          const response = await fetch(`http://localhost:8080/api/calendars/${user_id}`);
+          // const response = await fetch(`https://revive-capstone.onrender.com/api/calendars/${user_id}`);
+          const result = await response.json();
+          setUserAppointmentsByDay(result);
+          console.log(result)
+        }
+      
+      } catch (error) {
+        console.error(error)
+      }
+    }
+    fetchSingleCalendarDay()
+  }, [user_id]);
   
   
   return (
@@ -109,7 +97,7 @@ const Calendars = ({user_id, date, setDate, appointments, setAppointments}) => {
       </div>
 
       <div id="calendar" className="calendar-grid">
-        {calendarDays.map((day) => <CalendarDay user_id={user_id} day={day} calendarYear={calendarYear} calendarMonth={calendarMonth} setDate={setDate} date={date}/>)}
+        {calendarDays.map((day) => <CalendarDay userAppointmentsByDay={userAppointmentsByDay} user_id={user_id} day={day} calendarYear={calendarYear} calendarMonth={calendarMonth} setDate={setDate} date={date}/>)}
       </div>
   
       
@@ -122,7 +110,14 @@ const Calendars = ({user_id, date, setDate, appointments, setAppointments}) => {
     <button className="addAppointmentButton" onClick={toggleAppointmentModal}>Add Event</button>
   
     {modal ? ( 
-      <AddCalendarAppointment setAppointments={setAppointments} appointments={appointments}user_id={user_id} toggleAppointmentModal={toggleAppointmentModal}/>
+      <AddCalendarAppointment
+        setUserAppointmentsByDay={setUserAppointmentsByDay}
+        userAppointmentsByDay={userAppointmentsByDay}
+        setAppointments={setAppointments}
+        appointments={appointments}
+        user_id={user_id}
+        toggleAppointmentModal={toggleAppointmentModal}
+      />
     ) : null}
 
     </div>

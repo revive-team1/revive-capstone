@@ -23,16 +23,6 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/:calendar_id", async (req, res, next) => {
-  try {
-    const appointment = await getCalendarAppointmentById(
-      req.params.calendar_id
-    );
-    res.send(appointment);
-  } catch (error) {
-    next(error);
-  }
-});
 
 router.get("/date/:date", async (req, res, next) => {
   try {
