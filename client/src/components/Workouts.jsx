@@ -9,17 +9,10 @@ const Workouts = ({ user_id }) => {
     const token = useSelector((it) => it.actionsSlice.token)
     console.log(user_id)
     const { data, error, isLoading } = useGetWorkoutsQuery()
-    const [filtered, setFiltered] = useState([])
-    const [searched, setSearched] = useState(0)
-    const [searchInput, setSearchInput] = useState('')
-
-    function searchExercises(e) {
-        e.preventDefault()
-        setSearched(searched + 1)
-        const filter = data.filter((exercise) =>
-            exercise.name.toLowerCase().includes(searchInput.toLowerCase()))
-        setFiltered(filter)
-    }
+    //const [filtered, setFiltered] = useState([])
+    //const [searched, setSearched] = useState(0)
+    //const [searchInput, setSearchInput] = useState('')
+    const [search, setSearch] = useState('')
 
     if (isLoading) {
         return <div>loading...</div>
@@ -37,27 +30,25 @@ const Workouts = ({ user_id }) => {
                 <a href='https://www.tiktok.com/@nataleebfitness/video/7321693098667511072?_r=1&_t=8kDAMIdFsT8' className='border border-3 border-black p-2 m-3' target='blank'>tiktok</a>
                 <a href='https://www.tiktok.com/@tamaraaanthonyy/video/7335225800150584619?_r=1&_t=8kD94NW1ZSp' className='border border-3 border-black p-2 m-3' target='blank'>tiktok</a>
             </div>
-            <form onSubmit={searchExercises}>
-                <label>
-                    Search Exercise by Name:
-                </label>
-                <input
-                    placeholder='Type to search...'
-                    type='search'
-                    value={searchInput}
-                    onChange={(event) => setSearchInput(event.target.value)}
-                />
-                <button type='submit'>Search Exercise</button>
-            </form>
+            <div>
+                <form className='d-flex justify-content-center'>
+                    <input
+                        className='form-control w-25 text-center' placeholder="Search workouts here..."
+                        onChange={(e) => setSearch(e.target.value)}
+                    />
+                </form>
+            </div>
             <div>
                 <>
                     <div>
                         <h1>Workout Library</h1>
                     </div>
                     <div>
-                        {data.map((workout) => (
+                        {data.filter((workout) => {
+                            return search.toLowerCase() === '' ? workout : workout.workout_name.toLowerCase().includes(search)
+                        }).map((workout) => (
                             <div key={workout.workout_id}>
-                                <h3>Name: {workout.workout_name}</h3>
+                                <h3>{workout.workout_name}</h3>
                                 <p><strong>Description:</strong> {workout.workout_description}</p>
                                 <div>
                                     {workout.exercises.map((exercise) => (
