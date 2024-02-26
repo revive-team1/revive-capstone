@@ -6,7 +6,7 @@ async function getAllWorkouts() {
     try {
         console.log(3)
         const { rows } = await client.query(`
-        SELECT workouts.workout_id, workouts.workout_name, workouts.workout_description, exercises.exercise_id, exercises.name, exercises.description, exercises.imgUrl, exercises.difficulty, workoutExercises.sequence_number
+        SELECT workouts.workout_id, workouts.workout_name, workouts.workout_description, workouts.workout_image, exercises.exercise_id, exercises.name, exercises.description, exercises.imgUrl, exercises.difficulty, workoutExercises.sequence_number
         FROM workouts
         JOIN workoutExercises ON workouts.workout_id = workoutExercises.workout_id
         JOIN exercises ON workoutExercises.exercise_id = exercises.exercise_id
@@ -20,6 +20,7 @@ async function getAllWorkouts() {
                     workout_id: row.workout_id,
                     workout_name: row.workout_name,
                     workout_description: row.workout_description,
+                    workout_image: row.workout_image,
                     exercises: []
                 };
             }
