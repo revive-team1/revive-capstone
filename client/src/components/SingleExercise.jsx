@@ -17,12 +17,12 @@ const SingleExercise = () => {
   }
   
   return (
-    <div className='row row-cols-sm-1 row-cols-md-4 g-4'> 
+    <div className='row justify-content-center row-cols-sm-1 row-cols-md-4 g-4'> 
       <div key={data.exercise_id} className='col-6 col-lg-6 p-2'>
         <div className='card border-2 h-100'>
           <img className='card-img-top' src={new URL(`../assets/images/${data.imgurl}`, import.meta.url).href} alt={data.name}></img>
           <h2 className='card-title text-center'>{data.name}</h2>
-          <p className='card-body text-center py-6'>Description: <span className='lead card-subtitle'>{data.description}</span></p>
+          <p className='card-body text-center py-6'><span className='lead card-subtitle'>{data.description}</span></p>
           <button className='btn btn-outline-dark' type='button' role='button'><Link className='nav-link' to='/workouts'>Return to Workout</Link></button>
         </div>
       </div>

@@ -4,6 +4,7 @@ import { useGetWorkoutsQuery } from '../api/fetching'
 import { useSelector } from 'react-redux'
 import { useState } from 'react'
 import FavoriteWorkoutExercisesButton from './FavoriteWorkoutExercisesButton'
+import gymBackground from '../assets/gymBackground.png'
 
 const Workouts = ({ user_id }) => {
     const token = useSelector((it) => it.actionsSlice.token)
@@ -24,13 +25,29 @@ const Workouts = ({ user_id }) => {
 
     return (
         <>
-            <div id='spotlight' className='border border-5 border-black p-5 m-5'>
-                <h1 className='m-4'>Trainer Spotlight</h1>
-                <a href='https://www.tiktok.com/@mdjfitness/video/7335900513386482950?_r=1&_t=8kDAWO4zGdL' className='border border-3 border-black p-2 m-3' target='blank'>tiktok</a>
-                <a href='https://www.tiktok.com/@nataleebfitness/video/7321693098667511072?_r=1&_t=8kDAMIdFsT8' className='border border-3 border-black p-2 m-3' target='blank'>tiktok</a>
-                <a href='https://www.tiktok.com/@tamaraaanthonyy/video/7335225800150584619?_r=1&_t=8kD94NW1ZSp' className='border border-3 border-black p-2 m-3' target='blank'>tiktok</a>
+            <div className='row justify-content-center'>
+                <div className='col-sm-8 mb-3 mb-sm-0'>
+                    <div id='spotlight' className='card bg-none text-white border border-3 border-black p-0 m-5'>
+                        <img className='card-img' src={gymBackground} alt='interior of a gym'></img>
+                        <div className='card-img-overlay'>
+                            <h1 className='card-title m-4'>Trainer Spotlight</h1>
+                            <button className='btn btn-light m-1'>
+                                <a href='https://www.tiktok.com/@mdjfitness/video/7335900513386482950?_r=1&_t=8kDAWO4zGdL' target='blank' className='nav-link'>tiktok</a>
+                            </button>
+                            <button className='btn btn-light'>
+                                <a href='https://www.tiktok.com/@nataleebfitness/video/7321693098667511072?_r=1&_t=8kDAMIdFsT8' className='nav-link' target='blank'>tiktok</a>
+                            </button>
+                            <button className='btn btn-light m-1'>
+                                <a href='https://www.tiktok.com/@tamaraaanthonyy/video/7335225800150584619?_r=1&_t=8kD94NW1ZSp' className='nav-link' target='blank'>tiktok</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div>
+                <div>
+                    <h1>Workout Library</h1>
+                </div>
                 <form className='d-flex justify-content-center'>
                     <input
                         className='form-control w-25 text-center' placeholder="Search workouts here..."
@@ -38,41 +55,49 @@ const Workouts = ({ user_id }) => {
                     />
                 </form>
             </div>
+            <br></br>
             <div>
                 <>
-                    <div>
-                        <h1>Workout Library</h1>
-                    </div>
-                    <div>
+                    <div className='row'>
                         {data.filter((workout) => {
                             return search.toLowerCase() === '' ? workout : workout.workout_name.toLowerCase().includes(search)
                         }).map((workout) => (
-                            <div key={workout.workout_id}>
-                                <h3>{workout.workout_name}</h3>
-                                <p><strong>Description:</strong> {workout.workout_description}</p>
-                                <div>
-                                    {workout.exercises.map((exercise) => (
-                                        <div key={exercise.exercise_id}>
-                                            <ul className='list-group'>
-                                                <li className='list-group-item'>
-                                                    <strong>{exercise.name}</strong>
-                                                    <button className='btn btn-outline-dark m-2' type='button' role='button'><Link to={`/exercises/${exercise.exercise_id}`}>See More</Link></button>
-                                                </li>
-                                            </ul>
+                            
+                                <div className='col-md-6 '>
+                                    <div className='card m-3' key={workout.workout_id}>
+                                        <div className='card-body'>
+                                            <h3 className='card-title'>{workout.workout_name}</h3>
+                                            <p className='card-text'><strong>Description:</strong> {workout.workout_description}</p>
                                         </div>
-                                    ))}
+                                        <div>
+                                            {workout.exercises.map((exercise) => (
+                                                <div key={exercise.exercise_id}>
+                                                    <ul className='list-group'>
+                                                        <li className='list-group-item'>
+                                                            <strong>{exercise.name}</strong>
+                                                            <button className='btn btn-sm btn-outline-dark m-1' type='button' role='button'><Link className='nav-link' to={`/exercises/${exercise.exercise_id}`}>See More</Link></button>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            ))}
+                                        </div>
+                                        {(!token) ? (
+                                            <>
+                                                <div className='card-body'>
+                                                    <button className='btn btn-outline-dark'>Login to Like Workout</button>
+                                                </div>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <div className='card-body'>
+                                                    <FavoriteWorkoutExercisesButton user_id={user_id} workout_id={workout.workout_id} />
+                                                    {console.log(user_id, workout.workout_id)}
+                                                </div>
+                                            </>
+                                        )}
+                                    </div>
                                 </div>
-                                {(!token) ? (
-                                    <>
-                                        <button>Login to Like Workout</button>
-                                    </>
-                                ) : (
-                                    <>
-                                        <FavoriteWorkoutExercisesButton user_id={user_id} workout_id={workout.workout_id} />
-                                        {console.log(user_id, workout.workout_id)}
-                                    </>
-                                )}
-                            </div>
+                            
 
                         ))}
                     </div>
