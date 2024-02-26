@@ -57,31 +57,40 @@ const Register = ( {setUser}) => {
       <h1>Register</h1>
       {errorMessage && <p>{errorMessage}</p>}
       <div>
-        <form onSubmit={handleRegister}>
-          <div>
+        <form onSubmit={handleRegister} className='register-container-sm'>
+          <div className='form-floating mb-3'>
             <input
+              className='form-control'
+              id='floatingFirstName'
+              placeholder='First Name'
               type='text'
               value={firstname}
               onChange={(event) => {
                 setFirstName(event.target.value)
               }}
             />
-            <label>First Name: {''}</label>
+            <label htmlFor='floatingFirstName'>First Name: {''}</label>
           </div>
             
-          <div>
+          <div className='form-floating mb-3'>
             <input
+              className='form-control'
+              id='floatingLastName'
+              placeholder='Last Name'
               type='text'
               value={lastname}
               onChange={(event) => {
                 setLastName(event.target.value)
               }}
             />
-            <label>Last Name: {''}</label>
+            <label htmlFor='floatingLastName'>Last Name: {''}</label>
           </div>
 
-          <div>
+          <div className='form-floating mb-3'>
             <input
+              className='form-control'
+              id='floatingUsername'
+              placeholder='Username'
               type='text'
               value={username}
               onChange={(event) => {
@@ -89,11 +98,14 @@ const Register = ( {setUser}) => {
               }}
             required
             />
-            <label>Username: {''}</label>
+            <label htmlFor='floatingUsername'>Username: {''}</label>
           </div>
 
-          <div>
+          <div className='form-floating mb-3'>
             <input
+              className='form-control'
+              id='floatingEmail'
+              placeholder='email@email.com'
               type='email'
               value={email}
               onChange={(event) => {
@@ -101,12 +113,14 @@ const Register = ( {setUser}) => {
               }}
             required
             />
-            <label>Email: {''}</label>
+            <label htmlFor='floatingEmail'>Email: {''}</label>
           </div>
 
-          <div>
+          <div className='form-floating'>
             <input
+              className='form-control'
               id='floatingPassword'
+              placeholder='Password'
               type='password'
               value={password}
               onChange={(event) => {

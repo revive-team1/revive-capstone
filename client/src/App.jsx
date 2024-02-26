@@ -15,6 +15,7 @@ import SingleSelfCare from './components/SingleSelfCare'
 import SingleDay from './components/SingleDay'
 import SingleWorkoutExercise from './components/SingleWorkoutExercise'
 import './App.css'
+import reviveCoverImage from './assets/reviveCoverImage.png'
 
 function App() {
   const [token, setToken] = useState(null)
@@ -56,12 +57,14 @@ function App() {
               <div className='container-lg'>
                 <div className='row justify-content-center align-items-center'>
                   <div className='col-md-5 text-center text-md-start'>
-                  <h1 className='display-6'>Welcome to revive</h1>
+                  <h1 className='display-6'>Welcome to <strong>revive</strong></h1>
                     <p className='lead my-4 text-muted'>Your one stop shop to all that is wellness!</p>
-                    <p>revive is designed to be your comprehensive wellness platform, offering a range of features to promote physical fitness, healthy nutrition, self-care, and more. Whether you’re a fitness enthusiast, a food lover, or someone seeking overall well-being, revive has you covered.</p>
+                    <p>Welcome to <strong>revive</strong>, your ultimate wellness sanctuary where your journey to a healthier, happier You begins. At <strong>revive</strong>, we believe that wellness transcends physical health, embracing healthy nutrition, mental well-being, and overall happiness. Our platform is meticulously crafted to cater to every aspect of your wellness journey, offering an array of features designed to support your fitness goals, nutritional needs, self-care practices, and much more. Whether you're diving into the world of fitness, exploring the realms of nutritious eating, or seeking to enhance your mental well-being, <strong>revive</strong> stands by your side. Our user-friendly platform allows you to register for a personalized experience, log in securely to access your preferences, discover and save diverse workout routines, explore and bookmark healthy recipes, integrate wellness activities into your calendar, and even find culinary inspiration from acclaimed chefs on YouTube and TikTok. With <strong>revive</strong>, planning and organizing your wellness journey has never been easier. Welcome aboard, and let's embark on this journey to <strong>revive</strong> your health, mind, and spirit.</p>
+                    <p><strong>revive</strong> is designed to be your comprehensive wellness platform, offering a range of features to promote physical fitness, healthy nutrition, self-care, and more. Whether you’re a fitness enthusiast, a food lover, or someone seeking overall well-being, <strong>revive</strong> has you covered.</p>
                   </div>
                   <div className='col-md-6 text-center'>
                     <p>hey, let's get healthy</p>
+                    <img className='img-thumbnail' src={reviveCoverImage}></img>
                   </div>
                 </div>
               </div>
