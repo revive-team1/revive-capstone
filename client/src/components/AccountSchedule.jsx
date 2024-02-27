@@ -97,8 +97,8 @@ function AccountSchedule({ user_id, setTodaysAppointments, todaysAppointments })
       ) : (
       sortAppointments(todaysAppointments).map((appointment) => (
         <>
-          <h3>{appointment.activity_name}</h3>
           <h3>{getFormattedTime(timeToDigits(appointment.activity_time))}</h3>
+          <h3>{appointment.activity_name}</h3>
           <p>{appointment.activity_description}</p>
           <br/>
           <div className="breakLine"></div>
@@ -107,8 +107,11 @@ function AccountSchedule({ user_id, setTodaysAppointments, todaysAppointments })
       )))}
 
       <div>
-        <button onClick={() => navigate(`/calendar`)}>Go to Calendar</button> 
+        <button className='btn btn-outline-dark' onClick={() => navigate(`/calendar`)}>Go to Calendar</button> 
       </div>
+      <br/> <br/>
+      <div className="longBreakLine"></div>
+      <br/>
     </>
   )
 }

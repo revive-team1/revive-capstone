@@ -50,13 +50,14 @@ export default function FavoriteExercises({ user }) {
           <div key={favoriteRecipe.recipe_id} className="favorite-card">
             <div className="recipe-image-container">
               <img className="recipeImage" src={favoriteRecipe.imgurl} />
-            </div>
+            </div> <br/>
             <div className="favorite-details">
-              <span className="favoriteRecipeName">  {favoriteRecipe.name} </span> <br />
+              <span className="favoriteRecipeName">  {favoriteRecipe.name} </span> <br /> <br/>
+              <div className="shortBreakLine"></div> <br/>
 
-              <button onClick={() => {
+              <button className="btn btn-outline-dark" onClick={() => {
                 navigate(`/recipes/${favoriteRecipe.recipe_id}`);
-                }}>See Recipe</button> <br/>
+                }}>See Recipe</button>
 
               <RemoveFavoriteRecipeButton
                 favoriteRecipes={favoriteRecipes}

@@ -20,7 +20,8 @@ export default function RemoveFavoriteRecipeButton({ favoriteRecipe,favoriteReci
   }
   return (
     <div className="removeButton">
-      <button onClick={() => {
+      <br/>
+      <button className="btn btn-outline-dark" onClick={() => {
         handleClick();
       }}>Remove from Favorites</button>
     </div>

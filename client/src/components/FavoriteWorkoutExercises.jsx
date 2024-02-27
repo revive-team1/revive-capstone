@@ -31,8 +31,7 @@ export default function FavoriteWorkoutExercises({ user }) {
       <div className="favoritesContainer">
       <p className ="noFavoritesMessage">You do not currently have any favorite exercises saved.</p>
       <div className="favoritesPageButton">
-        <br/>
-        <button onClick={() => {
+        <button className='btn btn-outline-dark' onClick={() => {
           navigate(`/workouts`);
         }}>Explore Workouts</button> 
       </div>
@@ -50,8 +49,9 @@ export default function FavoriteWorkoutExercises({ user }) {
           <>
           <div key={favoriteWorkoutExercise.workout_id} className="favorite-card">
             <div className="exercise-details">
-              <span className="favoriteExerciseName">  {favoriteWorkoutExercise.workout_name} </span> <br />
-
+              <span className="favoriteExerciseName">  {favoriteWorkoutExercise.workout_name} </span> <br /> <br/>
+              <div className="shortBreakLine"></div> <br/>
+  
               <button className="btn btn-outline-dark" onClick = {() => {
                 navigate(`/workouts/${favoriteWorkoutExercise.workout_id}`)
               }}>See Workout</button> 
@@ -63,7 +63,6 @@ export default function FavoriteWorkoutExercises({ user }) {
               <br />
             </div>
           </div>
-          <div className="longBreakLine"></div>
         
           <br/>
           </>
