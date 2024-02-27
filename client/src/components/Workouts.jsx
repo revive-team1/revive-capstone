@@ -10,9 +10,6 @@ const Workouts = ({ user_id }) => {
     const token = useSelector((it) => it.actionsSlice.token)
     console.log(user_id)
     const { data, error, isLoading } = useGetWorkoutsQuery()
-    //const [filtered, setFiltered] = useState([])
-    //const [searched, setSearched] = useState(0)
-    //const [searchInput, setSearchInput] = useState('')
     const [search, setSearch] = useState('')
     const navigate = useNavigate()
 
@@ -26,11 +23,11 @@ const Workouts = ({ user_id }) => {
 
     return (
         <>
-            <div className='row justify-content-center'>
-                <div className='col-sm-8 mb-3 mb-sm-0'>
-                    <div id='spotlight' className='card bg-none text-white border border-3 border-black p-0 m-5'>
-                        <img className='card-img' src={newGymBackground} alt='interior of a gym'></img>
-                        <div className='card-img-overlay'>
+            <div className='card bg-none text-white p-0 m-1'>
+                <img src={newGymBackground} alt='interior of a gym' className='card-img img-responsive' width={'400px'} height={'375px'}></img>
+                <div className='card-img-overlay d-flex justify-content-center'>
+                    <div className='row '>
+                        <div >
                             <h1 className='card-title m-4'>Trainer Spotlight</h1>
                             <button className='btn btn-light m-1'>
                                 <a href='https://www.tiktok.com/@mdjfitness/video/7335900513386482950?_r=1&_t=8kDAWO4zGdL' target='blank' className='nav-link'>tiktok</a>
@@ -45,6 +42,7 @@ const Workouts = ({ user_id }) => {
                     </div>
                 </div>
             </div>
+
             <div>
                 <div>
                     <h1>Workout Library</h1>
@@ -63,33 +61,33 @@ const Workouts = ({ user_id }) => {
                         {data.filter((workout) => {
                             return search.toLowerCase() === '' ? workout : workout.workout_name.toLowerCase().includes(search)
                         }).map((workout) => (
-                            
-                                <div className='col-md-6 '>
-                                    <div className='card m-3' key={workout.workout_id}>
-                                        <img className='card-img-top' src={new URL(`../assets/images/${workout.workout_image}`, import.meta.url).href} alt={workout.name}></img>
-                                        <div className='card-body'>
-                                            <h3 className='card-title'>{workout.workout_name}</h3>
-                                        </div>
-                                        
-                                        {(!token) ? (
-                                            <>
-                                                <div className='card-body'>
-                                                    <button className='btn btn-outline-dark m-2'>Login to Like Workout</button>
-                                                    <button className='btn btn-outline-dark m-2' onClick = {() => {navigate(`/workouts/${workout.workout_id}`)}}>See Details</button>
-                                                </div>
-                                            </>
-                                        ) : (
-                                            <>
-                                                <div className='card-body'>
-                                                    <FavoriteWorkoutExercisesButton user_id={user_id} workout_id={workout.workout_id} />
-                                                    {console.log(user_id, workout.workout_id)}
-                                                    <button className='btn btn-outline-dark m-2' onClick = {() => {navigate(`/workouts/${workout.workout_id}`)}}>See Details</button>
-                                                </div>
-                                            </>
-                                        )}
+
+                            <div className='col-md-6 '>
+                                <div className='card m-3' key={workout.workout_id}>
+                                    <img className='card-img-top' src={new URL(`../assets/images/${workout.workout_image}`, import.meta.url).href} alt={workout.name}></img>
+                                    <div className='card-body'>
+                                        <h3 className='card-title'>{workout.workout_name}</h3>
                                     </div>
+
+                                    {(!token) ? (
+                                        <>
+                                            <div className='card-body'>
+                                                <button className='btn btn-outline-dark m-2'>Login to Like Workout</button>
+                                                <button className='btn btn-outline-dark m-2' onClick={() => { navigate(`/workouts/${workout.workout_id}`) }}>See Details</button>
+                                            </div>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <div className='card-body'>
+                                                <FavoriteWorkoutExercisesButton user_id={user_id} workout_id={workout.workout_id} />
+                                                {console.log(user_id, workout.workout_id)}
+                                                <button className='btn btn-outline-dark m-2' onClick={() => { navigate(`/workouts/${workout.workout_id}`) }}>See Details</button>
+                                            </div>
+                                        </>
+                                    )}
                                 </div>
-                            
+                            </div>
+
 
                         ))}
                     </div>
