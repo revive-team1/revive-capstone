@@ -1,12 +1,13 @@
 import React from 'react'
 import { useGetSingleWorkoutQuery } from '../api/fetching'
 import { useParams } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import FavoriteWorkoutExercisesButton from './FavoriteWorkoutExercisesButton'
 
 const SingleWorkoutExercise = ({ user_id }) => {
   const { workout_id } = useParams();
+  const navigate = useNavigate()
   const token = useSelector((it) => it.actionsSlice.token)
   const { data = {}, error, isLoading } = useGetSingleWorkoutQuery(workout_id);
   console.log(data)
@@ -31,7 +32,7 @@ const SingleWorkoutExercise = ({ user_id }) => {
                 <ul className='list-group'>
                   <li className='list-group-item'>
                     <p>{exercises.name}</p>
-                    <button className='btn btn-outline-dark m-2'><Link className='nav-link' to={`exercises/${exercises.exercise_id}`}>See More</Link></button>
+                    <button className='btn btn-outline-dark m-2' onClick={() => {navigate(`/exercises/${exercises.exercise_id}`)}}>See More</button>
                   </li>
                 </ul>
               </div>
