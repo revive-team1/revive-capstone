@@ -93,7 +93,7 @@ function App() {
         <Route path="/exercises/:exercise_id" element={<SingleExercise />} />
         <Route path="/calendar" element={<Calendars setAppointments={setAppointments} appointments={appointments} user_id={user.user_id} date={date} setDate={setDate} />} />
         <Route path="/calendar/:user_id/:date" element={<SingleDay setAppointments={setAppointments} appointments={appointments} user_id={user.user_id} date={date} setDate={setDate} />} />
-        <Route path='/workouts/:workout_id' element={<SingleWorkoutExercise />} />
+        <Route path='/workouts/:workout_id' element={<SingleWorkoutExercise user_id={user.user_id}/>} />
       </Routes>
     </>
   )

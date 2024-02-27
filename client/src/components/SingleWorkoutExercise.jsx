@@ -3,8 +3,9 @@ import { useGetSingleWorkoutQuery } from '../api/fetching'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import FavoriteWorkoutExercisesButton from './FavoriteWorkoutExercisesButton'
 
-const SingleWorkoutExercise = () => {
+const SingleWorkoutExercise = ({ user_id }) => {
   const { workout_id } = useParams();
   const token = useSelector((it) => it.actionsSlice.token)
   const { data = {}, error, isLoading } = useGetSingleWorkoutQuery(workout_id);
@@ -44,6 +45,9 @@ const SingleWorkoutExercise = () => {
           ) : (
             <div>
               <button className='btn btn-outline-dark m-2' type='button' role='button'><Link className='nav-link' to='/account'>Return to Account</Link></button>
+              <FavoriteWorkoutExercisesButton user_id={user_id} workout_id={data.workout_id} />
+              {console.log(user_id, data.workout_id)}
+              <button className='btn btn-outline-dark m-2' type='button' role='button'><Link className='nav-link' to='/workouts'>Return to All Workouts</Link></button>
             </div>
 
           )}

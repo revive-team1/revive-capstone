@@ -83,6 +83,7 @@ const Workouts = ({ user_id }) => {
                                                 <div className='card-body'>
                                                     <FavoriteWorkoutExercisesButton user_id={user_id} workout_id={workout.workout_id} />
                                                     {console.log(user_id, workout.workout_id)}
+                                                    <button className='btn btn-outline-dark m-2' onClick = {() => {navigate(`/workouts/${workout.workout_id}`)}}>See Details</button>
                                                 </div>
                                             </>
                                         )}
