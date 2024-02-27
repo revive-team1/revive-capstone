@@ -1,9 +1,8 @@
 
 import { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import RemoveFavoriteSelfCareButton from "./RemoveFavoriteSelfCareButton";
 
 export default function SelfCareChecklist({ user }) {
-  const navigate = useNavigate()
   const [favoriteSelfCare, setFavoriteSelfCare] = useState([])
   useEffect(() => {
     async function fetchFavoriteSelfCare() {
@@ -85,9 +84,10 @@ export default function SelfCareChecklist({ user }) {
         placeholder="Description"
       /> */}
       {/* <button onClick={handleAddItem}>Add</button> */}
-      <table className="checklistTable">
+      <table className="table table-striped">
         <thead>
           <tr>
+            <th></th>
             <th>Activity Name</th>
             <th>Description</th>
             <th>Completed</th>
@@ -96,6 +96,11 @@ export default function SelfCareChecklist({ user }) {
         <tbody className="checklistBody">
           {favoriteSelfCare.map((activity, index) => (
             <tr key={index}>
+              < RemoveFavoriteSelfCareButton
+              favoriteSelfCare ={favoriteSelfCare}
+              setFavoriteSelfCare={setFavoriteSelfCare}/>
+
+              
               <td>{activity.name}</td>
               <td>{activity.description}</td>
               <td>
