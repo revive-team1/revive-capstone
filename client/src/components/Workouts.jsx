@@ -4,7 +4,7 @@ import { useGetWorkoutsQuery } from '../api/fetching'
 import { useSelector } from 'react-redux'
 import { useState } from 'react'
 import FavoriteWorkoutExercisesButton from './FavoriteWorkoutExercisesButton'
-import gymBackground from '../assets/gymBackground.png'
+import newGymBackground from '../assets/newGymBackground.jpg'
 
 const Workouts = ({ user_id }) => {
     const token = useSelector((it) => it.actionsSlice.token)
@@ -29,7 +29,7 @@ const Workouts = ({ user_id }) => {
             <div className='row justify-content-center'>
                 <div className='col-sm-8 mb-3 mb-sm-0'>
                     <div id='spotlight' className='card bg-none text-white border border-3 border-black p-0 m-5'>
-                        <img className='card-img' src={gymBackground} alt='interior of a gym'></img>
+                        <img className='card-img' src={newGymBackground} alt='interior of a gym'></img>
                         <div className='card-img-overlay'>
                             <h1 className='card-title m-4'>Trainer Spotlight</h1>
                             <button className='btn btn-light m-1'>

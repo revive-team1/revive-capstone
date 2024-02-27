@@ -488,17 +488,17 @@ const workouts = [
   {
     workout_name: "Full Body Endurance", 
     workout_description: 'Perform 2-3 rounds of each superset. Fully complete the 2-3 rounds of a superset before moving on to the next superset. Each exercise within a superset will be anywhere from 8-12 reps. If something is for time, it will be noted in the exercise. There are 3 Supersets within this workout, which means you will be hitting 9 rounds total. After each exercise rest for 30-60 seconds.',
-    workout_image: 'FullBodyWorkout.png'
+    workout_image: 'FullBodyWorkout.jpg'
   },
   {
     workout_name: "Pull Workout",
     workout_description: 'Perform 2-3 rounds of each superset. Fully complete the 2-3 rounds of a superset before moving on to the next superset. Each exercise within a superset will be anywhere from 8-12 reps. If something is for time, it will be noted in the exercise. There are 3 Supersets within this workout, which means you will be hitting 9 rounds total. After each exercise rest for 30-60 seconds.',
-    workout_image: 'PullWorkout.png'
+    workout_image: 'PullWorkout.jpg'
   },
   {
     workout_name: "Push Workout",
     workout_description: 'Perform 2-3 rounds of each superset. Fully complete the 2-3 rounds of a superset before moving on to the next superset. Each exercise within a superset will be anywhere from 8-12 reps. If something is for time, it will be noted in the exercise. There are 3 Supersets within this workout, which means you will be hitting 9 rounds total. After each exercise rest for 30-60 seconds.',
-    workout_image: 'PushWorkout.png'
+    workout_image: 'PushWorkout.jpg'
   },
 ];
 
