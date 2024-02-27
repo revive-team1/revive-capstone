@@ -23,9 +23,8 @@ export default function Account({ todaysAppointments, setTodaysAppointments, use
       <div className="accountDetails">
         <br/>
         <span>Name: {user.firstname} {user.lastname}</span><br />
-        <span>Username: {user.username}</span><br/> <br/>
+        <span>Username: {user.username}</span><br/> 
       </div>
-      <br/>
       <div ><AccountSchedule todaysAppointments={todaysAppointments} setTodaysAppointments={setTodaysAppointments} user={user} user_id={user.user_id}/> </div>
       <div className="favoritesCard"><FavoriteWorkoutExercises favoriteWorkoutExercises= {favoriteWorkoutExercises} setFavoriteWorkoutExercises={setFavoriteWorkoutExercises} user ={user} setUser = {setUser}/> </div>
       <div className="favoritesCard"><FavoriteRecipes user={user} setUser = {setUser} favoriteRecipes = {favoriteRecipes} setFavoriteRecipes={setFavoriteRecipes}/> </div>

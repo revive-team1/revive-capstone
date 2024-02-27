@@ -84,21 +84,26 @@ function SingleDay({ user_id, date, setAppointments, appointments }) {
       ) : (
       sortAppointments(appointments).map((appointment) => (
         <>
-          <h3>{appointment.activity_name}</h3>
-          <h3>{getFormattedTime(timeToDigits(appointment.activity_time))}</h3>
+        <div className="scheduleBlock">
+          <h3>{getFormattedTime(timeToDigits(appointment.activity_time))}: {appointment.activity_name}</h3>
+          {/* <h3>{appointment.activity_name}</h3> */}
           <p>{appointment.activity_description}</p>
           <RemoveCalendarAppointmentButton calendar_id={appointment.calendar_id} appointments={appointments} appointment={appointment} setAppointments={setAppointments}/>
           <br/>
           <div className="breakLine"></div>
           <br/>
+        </div>
         </>
       )))}
-
+      {/* <br/> */}
+      {/* <div className="breakLine"></div> */}
+    
+      <br/>
       <div>
-        <button onClick={toggleAppointmentModal}>Add Event</button> 
+        <button className='btn btn-outline-dark' onClick={toggleAppointmentModal}>Add Event</button> 
       </div> <br/>
       <div>
-        <button onClick={() => navigate(`/calendar`)}>Back to Calendar</button> 
+        <button className='btn btn-outline-dark' onClick={() => navigate(`/calendar`)}>Back to Calendar</button> 
       </div>
 
       {modal ? ( 

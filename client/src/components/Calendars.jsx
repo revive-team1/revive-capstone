@@ -82,7 +82,8 @@ const Calendars = ({user_id, date, setDate, appointments, setAppointments}) => {
     <>
     <div className="calendar-card">
       <h1>Calendar</h1>
-      <p> Click on a date to see your schedule and add events. </p>
+      <div className="longBreakLine"></div> <br/>
+      <p className="calendarHeading"> Click on a date to see your schedule and add events. </p>
       <h3>{monthNames[calendarMonth]} {calendarYear}</h3>
       <div className="breakLine"></div>
       <br/>
@@ -101,13 +102,13 @@ const Calendars = ({user_id, date, setDate, appointments, setAppointments}) => {
       </div>
   
       
-    <button className="addAppointmentButton" onClick={showPreviousMonth}>Previous Month</button>
-    <button className="addAppointmentButton" onClick={showNextMonth}>Next Month</button>
+    <button className="addAppointmentButton btn btn-outline-dark" onClick={showPreviousMonth}>Previous Month</button>
+    <button className="addAppointmentButton btn btn-outline-dark" onClick={showNextMonth}>Next Month</button>
     
    
     <br/> <br/>
 
-    <button className="addAppointmentButton" onClick={toggleAppointmentModal}>Add Event</button>
+    <button className="addAppointmentButton btn btn-outline-dark" onClick={toggleAppointmentModal}>Add Event</button>
   
     {modal ? ( 
       <AddCalendarAppointment

@@ -20,6 +20,7 @@ export default function RemoveFavoriteWorkoutExerciseButton({ favoriteWorkoutExe
   }
   return (
     <div className="removeButton">
+      <br/>
       <button className='btn btn-outline-dark' type='button' role='button' onClick={() => {
         handleClick();
       }}>Remove from Favorites</button>

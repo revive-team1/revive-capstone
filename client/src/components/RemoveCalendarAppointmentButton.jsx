@@ -20,7 +20,7 @@ export default function RemoveCalendarAppointmentButton({ calendar_id, appointme
   }
   return (
     <div className="removeButton">
-      <button onClick={() => {
+      <button className='btn btn-outline-dark' onClick={() => {
         handleClick();
       }}>Remove Event</button>
     </div>

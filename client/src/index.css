@@ -1,3 +1,4 @@
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -132,6 +133,11 @@ button:focus-visible {
   border-bottom: solid;
   margin: 0 auto;
 }
+.shortBreakLine {
+  width: 100px;
+  border-bottom: solid;
+  margin: 0 auto;
+}
 
 .accountDetails{
   font-size: 22px;
@@ -176,7 +182,8 @@ button:focus-visible {
 .addAppointmentButton {
   width: 150px;
   margin: 0 auto;
-
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .modalButton {
@@ -252,4 +259,45 @@ button:focus-visible {
   :root {
     background-color: #ffffff;
   }
+}
+
+/* .scheduleBlock{
+  border: solid;
+  width: 400px;
+  margin: 0 auto; 
+  margin-bottom: 10px;
+  padding-top: 10px;
+ 
+} */
+
+.removeAppointmentButton {
+  border: solid;
+  border-color: pink;
+  width: 150px;
+  
+}
+
+.calendarHeading {
+  font-size: 18px;
+}
+
+.favoriteRecipeName {
+  /* font-weight: bold; */
+  font-size: 18px;
+
+}
+
+.mainPhoto{
+  width: 900px;
+}
+
+.mainHeader {
+text-align: left;
+}
+.mainHeader2 {
+  width: 900px;
+  text-align: center;
+  margin: 0 auto;
+ 
+
 }
