@@ -287,8 +287,10 @@ button:focus-visible {
 
 }
 
-.mainPhoto{
-  width: 900px;
+.accountPhoto{
+  width: 40vw;
+  margin: 0 auto;
+
 }
 
 .mainHeader {

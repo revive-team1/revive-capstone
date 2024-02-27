@@ -30,7 +30,6 @@ export default function FavoriteExercises({ user }) {
     <div className="favoritesContainer">
       <p className ="noFavoritesMessage">You do not currently have any favorite recipes saved.</p>
       <div className="favoritesPageButton">
-        <br/>
         <button className='btn btn-outline-dark' onClick={() => {
           navigate(`/recipes`);
         }}>Explore Recipes</button> 
