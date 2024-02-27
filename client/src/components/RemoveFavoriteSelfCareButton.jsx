@@ -18,10 +18,10 @@ export default function RemoveFavoriteSelfCareButton({ favoriteSelfCare, setFavo
       }
     }
     return (
-      <div className="bi bi-trash">
-        <button onClick={() => {
+      <div >
+        <button className="bi bi-trash" onClick={() => {
           handleClick();
-        }}>Delete</button>
+        }}></button>
       </div>
     );
   };
