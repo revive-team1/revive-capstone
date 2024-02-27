@@ -5,7 +5,7 @@ import FavoriteWorkoutExercises from './FavoriteWorkoutExercises'
 import FavoriteRecipes from './FavoriteRecipes'
 import SelfCareChecklist from './SelfCareChecklist'
 import AccountSchedule from './AccountSchedule'
-import photo2 from '../assets/photo2.png'
+// import photo2 from '../assets/photo2.png'
 
 export default function Account({ todaysAppointments, setTodaysAppointments, user, favoriteRecipes, setFavoriteRecipes, favoriteWorkoutExercises, setFavoriteWorkoutExercises, setUser, favoriteSelfCare, setFavoriteSelfCare }) {
 
@@ -25,7 +25,7 @@ export default function Account({ todaysAppointments, setTodaysAppointments, use
           <span>Username: {user.username}</span><br/> <br/>
           </div>
           <div className="breakLine"></div> <br/>
-        <img className="accountPhoto" src={photo2}></img> <br/> <br/>
+        {/* <img className="accountPhoto" src={photo2}></img> <br/> <br/> */}
       </div>
      
       
