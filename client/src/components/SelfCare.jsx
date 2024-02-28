@@ -21,9 +21,13 @@ export default function SelfCare() {
 
   return (
     <>
-      <div id='spotlight' className='border border-2 border-black p-5 m-5'>
+      <div id='spotlight' className='border-none p-5 m-5'>
+        <div className='d-flex justify-content-center'>
         <h1 className='m-4'>Self Care Spotlight</h1>
-        <div className='d-flex flex-wrap'>
+        </div>
+        <div className="longBreakLine"></div>
+        <br></br>
+        <div className='d-flex flex-wrap justify-content-center'>
         <button className='btn btn-light m-1'>
             <a href='https://www.youtube.com/watch?v=nun1hwBNdm0' className='nav-link' target="blank">Self Care Do's & Don'ts</a>
           </button>
