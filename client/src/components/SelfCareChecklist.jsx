@@ -47,7 +47,7 @@ export default function SelfCareChecklist({ user }) {
             <th>Completed</th>
           </tr>
         </thead>
-        <tbody className="checklistBody">
+        <tbody className="checklistBody card">
           {favoriteSelfCareList.map((activity, index) => (
             <tr key={index}>
               <td>< RemoveFavoriteSelfCareButton
