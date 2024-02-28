@@ -37,17 +37,18 @@ export default function SelfCare() {
           <button className='btn btn-light m-1'>
             <a href='https://www.youtube.com/watch?v=q5viyKoCikI' className='nav-link' target="blank">What is self-care and why is it important?</a>
           </button>
+          <br></br>
         </div>
-      </div>
-      <br />
-      <img className="accountPhoto" src={photo13}></img> <br/> <br/>
-      <div>
+        <br></br>
+        <img className="accountPhoto" src={photo13}></img> <br/>
+        <br></br>
+        <h2 className='fw-light'>Self Care Library</h2>
+        <br></br>
         <form className='d-flex justify-content-center'>
           <input className='form-control w-25 text-center' placeholder="Search activities here..."
             onChange={(e) => setSearch(e.target.value)} />
         </form>
-      </div>
-
+      </div>    
       <div className='row row-cols-1 row-cols-md-2 row-cols-lg-4 justify-content-center'>
         {data.filter((selfCareIdea) => {
           return search.toLowerCase() === '' ? selfCareIdea : selfCareIdea.name.toLowerCase().includes(search)

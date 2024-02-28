@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import photo3 from '../assets/photo3.png'
-import RecipesBackgroundTemp from '../assets/RecipesBackgroundTemp.jpg'
-
+import photo5 from '../assets/photo5.png'
 
 function Recipes() {
   const [recipeList, setRecipeList] = useState([])
@@ -49,13 +47,15 @@ function Recipes() {
           <br />
         </div>
         <br></br>
-        <img className="accountPhoto" src={photo3}></img> <br />
-      </div>
-      <div>
+        <img className="accountPhoto" src={photo5}></img> <br />
+        <br></br>
         <h2 className='fw-light'>Recipe Library</h2>
         <div className='d-flex justify-content-center'>
           <input className='form-control w-25 text-center' id="searchbar" placeholder="Search Recipes..." type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
         </div>
+      </div>
+      <div>
+        
         <div className='row'>
           {searchResults.map((recipe) => {
             return (
