@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import FavoriteWorkoutExercises from './FavoriteWorkoutExercises'
 import FavoriteRecipes from './FavoriteRecipes'
 import SelfCareChecklist from './SelfCareChecklist'
@@ -9,17 +8,15 @@ import photo8 from '../assets/photo8.png'
 
 export default function Account({ todaysAppointments, setTodaysAppointments, user, favoriteRecipes, setFavoriteRecipes, favoriteWorkoutExercises, setFavoriteWorkoutExercises, setUser, favoriteSelfCare, setFavoriteSelfCare }) {
 
-  const navigate = useNavigate();
-  console.log(user)
-
   return (
     <>
+    <div className="accountPage">
     <div className="userInfo">
-      <br/>
+      <br/> <br/> <br/> <br/>
+    <h1 className='m-4'>Account</h1>
+    <div className="longBreakLine"></div>
+      <br/> <br/>
       <h1 className="welcomeMessage">Welcome, {`${user.firstname}`}!</h1>
-     <br/>
-      <h2 className="accountHeading">Account Information</h2>
-      <div className="breakLine"></div>
       <div className="accountDetails">
         <br/>
         <span>Name: {user.firstname} {user.lastname}</span><br />
@@ -35,6 +32,9 @@ export default function Account({ todaysAppointments, setTodaysAppointments, use
       <div className="favoritesCard"><FavoriteRecipes user={user} setUser = {setUser} favoriteRecipes = {favoriteRecipes} setFavoriteRecipes={setFavoriteRecipes}/> </div>
     </div>
     <div className="selfCareChecklist">{<SelfCareChecklist user={user} setUser = {setUser} favoriteSelfCare={favoriteSelfCare} setFavoriteSelfCare={setFavoriteSelfCare}/>}</div>
+    </div>
+
+    <br/> <br/> <br/> <br/> <br/>
     </>
   );
 };

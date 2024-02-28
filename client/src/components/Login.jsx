@@ -32,14 +32,11 @@ const Login = ({ setUser }) => {
       console.log(result)
       dispatch(updateToken(result.data.token))
       console.log(result)
-      //dispatch(updateUserId(result.data.user.user_id))
       setUser(result.data.user)
       navigate('/account')
     } catch (error) {
       console.error(error);
-      // Inspect the error object
       console.log(error);
-      // Adjust error handling based on the actual error structure
       const message = 'Username or password is not correct. If issue persists, please re-register.';
       setErrorMessage(message);
     }
@@ -47,9 +44,11 @@ const Login = ({ setUser }) => {
 
   return (
     <>
-      <h1>Login</h1>
+    <br/> <br/> <br/> <br/>
+      <h1 className='m-4'>Login</h1>
+      <div className="longBreakLine"></div> <br/>
       {errorMessage && <p>{errorMessage}</p>}
-            <form onSubmit={handleLogin} className='register-container'>
+            <form onSubmit={handleLogin} className='login-register-container'>
                 <div className='form-floating mb-3'>    
                     <input
                         className='form-control'
@@ -77,7 +76,8 @@ const Login = ({ setUser }) => {
                     <label htmlFor='floatingPassword'>Password: {''}</label>
                     {successMessage && <p>{successMessage}</p>}
                 </div>
-                <button type='submit'>Login</button>
+                <br/>
+                <button className='btn btn-outline-dark' type='submit'>Login</button>
             </form>
     </>
   )
