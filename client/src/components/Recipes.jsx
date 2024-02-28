@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import photo3 from '../assets/photo3.png'
 
 function Recipes() {
   const [recipeList, setRecipeList] = useState([])
@@ -35,6 +36,7 @@ function Recipes() {
         <a href='www.tiktok.com' className='border border-2 border-black p-2 m-3'>tiktok</a>
         <a href='www.tiktok.com' className='border border-2 border-black p-2 m-3'>tiktok</a>
       </div>
+      <img className="accountPhoto" src={photo3}></img> <br/> <br/>
       <div>
         <div className='d-flex justify-content-center' id="searchbarContainer">
           <input className='form-control w-25 text-center' id="searchbar" placeholder="Search Recipes" type="text" value={search} onChange={(e) => setSearch(e.target.value)} />

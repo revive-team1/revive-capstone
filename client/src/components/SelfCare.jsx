@@ -3,6 +3,7 @@ import React from "react";
 import { useGetSelfCareQuery } from "../api/fetching";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react"
+import photo13 from '../assets/photo13.png'
 
 export default function SelfCare() {
   const [search, setSearch] = useState('')
@@ -29,6 +30,7 @@ export default function SelfCare() {
         </div>
       </div>
       <br />
+      <img className="accountPhoto" src={photo13}></img> <br/> <br/>
       <div>
         <form className='d-flex justify-content-center'>
           <input className='form-control w-25 text-center' placeholder="Search activities here..."

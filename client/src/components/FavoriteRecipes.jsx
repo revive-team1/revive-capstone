@@ -52,7 +52,7 @@ export default function FavoriteExercises({ user }) {
               <img className="recipeImage" src={favoriteRecipe.imgurl} />
             </div> <br/>
             <div className="favorite-details">
-              <span className="favoriteRecipeName">  {favoriteRecipe.name} </span> <br /> <br/>
+              <span className="favoriteName">  {favoriteRecipe.name} </span> <br /> <br/>
               <div className="shortBreakLine"></div> <br/>
 
               <button className="btn btn-outline-dark" onClick={() => {

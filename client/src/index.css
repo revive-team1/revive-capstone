@@ -281,7 +281,7 @@ button:focus-visible {
   font-size: 18px;
 }
 
-.favoriteRecipeName {
+.favoriteName {
   /* font-weight: bold; */
   font-size: 18px;
 
@@ -291,13 +291,21 @@ button:focus-visible {
   width: 900px;
 }
 
+.accountPhoto{
+  width: 600px;
+}
 .mainHeader {
 text-align: left;
 }
 .mainHeader2 {
   width: 900px;
   text-align: center;
-  margin: 0 auto;
- 
+  margin: 0 auto; 
 
+}
+
+.singleDayContainer {
+  border: solid;
+  width: 700px;
+  margin: 0 auto;
 }
