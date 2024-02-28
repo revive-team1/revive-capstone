@@ -34,7 +34,7 @@ export default function SelfCareChecklist({ user }) {
   };
 
   return (
-    <div className="checklistCard">
+    <div>
       <h3 className="favoritesHeading">{`${user.firstname}`}'s Self Care Checklist</h3>
       <div className="breakLine"></div>
       <br />

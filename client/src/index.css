@@ -70,13 +70,14 @@ button:focus-visible {
   }
 }
 
-.selfCareimg{
-  width: 215px;
-  height: 175px;
-}
-
 .singlePageImg {
   width: 400px;
+}
+
+@media screen and (max-width: 400px) {
+  .singlePageImg {
+    width: 100%;
+  }
 }
 
 /* .singleBackground {
@@ -97,7 +98,6 @@ button:focus-visible {
   padding: 20px;
   margin-left: 10px;
   margin-right: 10px;
-  
 }
 
 .favorite-card {
@@ -109,13 +109,34 @@ button:focus-visible {
   margin-top: 10px;
   width: 30vw;
   margin-top: 20px;
-  
 }
 
 .selfCareChecklist {
   border: solid;
   margin-top: 20px;
+  margin-right: 20px;
   padding: 20px;
+  min-width: 400px;
+}
+
+.checklistBody {
+  border:solid;
+  margin: 0 auto;
+  font-size: 20px;
+  padding: 5px;
+}
+
+.checklistTable{
+  border:solid;
+  margin: 0 auto;
+  width: 500px;
+  font-size: 20px;
+}
+
+.checklistInput {
+  margin-bottom: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .recipeImage{
@@ -132,7 +153,15 @@ button:focus-visible {
   width: 500px;
   border-bottom: solid;
   margin: 0 auto;
+  justify-content: center;
 }
+
+@media screen and (max-width: 500px) {
+  .longBreakLine {
+    width: 100%;
+  }
+}
+
 .shortBreakLine {
   width: 100px;
   border-bottom: solid;
@@ -141,29 +170,6 @@ button:focus-visible {
 
 .accountDetails{
   font-size: 22px;
-}
-
-.checklistBody {
-  border:solid;
-  margin: 0 auto;
-  font-size: 20px;
-  padding: 20px;
-
-}
-
-.checklistTable{
-  border:solid;
-  margin: 0 auto;
-  width: 500px;
-  font-size: 20px;
-
-}
-
-.checklistInput {
-  margin-bottom: 15px;
-  margin-left: 5px;
-  margin-right: 5px;
-
 }
 
 .calendar-grid {
@@ -191,7 +197,6 @@ button:focus-visible {
   margin: 0 auto;
   margin-top: 10px;
   margin-bottom: 5px;
-
 }
 
 .modal {
@@ -202,6 +207,7 @@ button:focus-visible {
   height: 300px;
   position: fixed;
 }
+
 .appointmentInput {
   width: 250px;
   margin: 0 auto;
@@ -224,8 +230,8 @@ button:focus-visible {
   grid-template-columns: repeat(7, 1fr);
   width: 750px;
   text-align: center;
-
 }
+
 .calendar-day {
   border: solid;
   height: 75px;
@@ -244,6 +250,7 @@ button:focus-visible {
   text-align: right;
   border: none;
 }
+
 .greenCalendarSquare:hover{
   border:solid;
   border-color: #bcdef7;
@@ -274,7 +281,6 @@ button:focus-visible {
   border: solid;
   border-color: pink;
   width: 150px;
-  
 }
 
 .calendarHeading {
@@ -284,7 +290,6 @@ button:focus-visible {
 .favoriteName {
   /* font-weight: bold; */
   font-size: 18px;
-
 }
 
 .mainPhoto{
@@ -294,14 +299,15 @@ button:focus-visible {
 .accountPhoto{
   width: 600px;
 }
+
 .mainHeader {
 text-align: left;
 }
+
 .mainHeader2 {
   width: 900px;
   text-align: center;
   margin: 0 auto; 
-
 }
 
 .singleDayContainer {

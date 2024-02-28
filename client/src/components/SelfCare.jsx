@@ -40,12 +40,12 @@ export default function SelfCare() {
           <br></br>
         </div>
         <br></br>
-        <img className="accountPhoto" src={photo13}></img> <br/>
+        <img className='card-img img-responsive' src={photo13} alt='bowls with brush'></img> <br/>
         <br></br>
-        <h2 className='fw-light'>Self Care Library</h2>
+        <h2 className='d-flex justify-content-center fw-light'>Self Care Library</h2>
         <br></br>
         <form className='d-flex justify-content-center'>
-          <input className='form-control w-25 text-center' placeholder="Search activities here..."
+          <input className='form-control text-center' placeholder="Search activities here..."
             onChange={(e) => setSearch(e.target.value)} />
         </form>
       </div>    
@@ -53,9 +53,9 @@ export default function SelfCare() {
         {data.filter((selfCareIdea) => {
           return search.toLowerCase() === '' ? selfCareIdea : selfCareIdea.name.toLowerCase().includes(search)
         }).map((selfCareIdea) => (
-          <div key={selfCareIdea.selfcare_id} className='border border-2 border-black p-3 m-5' id="selfCareCard">
+          <div key={selfCareIdea.selfcare_id} className='card p-3 m-5' id="selfCareCard">
             <h3>{selfCareIdea.name}</h3>
-            <img className='selfCareimg' src={new URL(`${selfCareIdea.imgurl}`, import.meta.url).href} alt={selfCareIdea.name}></img>
+            <img className='justify-content-center align-items-center' src={new URL(`${selfCareIdea.imgurl}`, import.meta.url).href} alt={selfCareIdea.name}></img>
             <br />
             <br />
             <button className='btn btn-outline-dark' onClick={() => {

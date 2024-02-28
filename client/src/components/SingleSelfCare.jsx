@@ -27,12 +27,12 @@ export default function SingleSelfCare({ user_id }) {
 
     return (
 
-        <div className="singleBackground">
+        <div className="p-5">
             <h2>{selfCare.name}</h2>
             <p>{selfCare.description}</p>
             <img className='singlePageImg' src={new URL(`${selfCare.imgurl}`, import.meta.url).href} alt={selfCare.name}></img>
             <br />
-            <Link to={selfCare.article_url} target="blank" className="textOnImg">Click here for an article to learn more </Link>
+            <Link to={selfCare.article_url} target="blank">Click here for an article to learn more </Link>
             <br />
             <br />
             {(!token) ? (
