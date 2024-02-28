@@ -50,7 +50,7 @@ const Workouts = ({ user_id }) => {
                 <br />
                 <form className='d-flex justify-content-center'>
                     <input
-                        className='form-control w-25 text-center' placeholder="Search workouts..."
+                        className='form-control w-75 text-center' placeholder="Search workouts..."
                         onChange={(e) => setSearch(e.target.value)}
                     />
                 </form>

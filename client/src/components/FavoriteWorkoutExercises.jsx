@@ -50,7 +50,7 @@ export default function FavoriteWorkoutExercises({ user }) {
       <>
         {favoriteWorkoutExercises.map((favoriteWorkoutExercise) => (
           <>
-          <div key={favoriteWorkoutExercise.workout_id} className="favorite-card">
+          <div key={favoriteWorkoutExercise.workout_id} className="favorite-card card">
             <div className="exercise-details">
               <span className="favoriteName">  {favoriteWorkoutExercise.workout_name} </span> <br /> <br/>
               <div className="shortBreakLine"></div> <br/>

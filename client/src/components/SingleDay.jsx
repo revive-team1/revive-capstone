@@ -73,9 +73,12 @@ function SingleDay({ user_id, date, setAppointments, appointments }) {
 
   return (
     <>
+
     <br/>
+    <div className="singleDayHeader">
     <h1>Calendar</h1>
     <div className="longBreakLine"></div> <br/>
+    </div>
     <br/>
     <div className="singleDayContainer">
     <br/>

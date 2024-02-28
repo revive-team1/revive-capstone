@@ -51,10 +51,9 @@ export default function FavoriteExercises({ user }) {
       <>
         {favoriteRecipes.map((favoriteRecipe) => (
           <>
-          <div key={favoriteRecipe.recipe_id} className="favorite-card">
+          <div key={favoriteRecipe.recipe_id} className="favorite-card card">
             <div className="recipe-image-container">
-              <img className="recipeImage" src={favoriteRecipe.imgurl} />
-            </div> <br/>
+            </div>
             <div className="favorite-details">
               <span className="favoriteName">  {favoriteRecipe.name} </span> <br /> <br/>
               <div className="shortBreakLine"></div> <br/>

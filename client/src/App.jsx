@@ -63,7 +63,7 @@ function App() {
                 
               <img className="mainPhoto" src={photo2}></img>
               <br/> <br/>
-              <h1 className='display-6 mainHeader2'>Move. <strong> Nourish. </strong>Plan. <strong>Thrive.</strong></h1>
+              <h3 className='mainHeader2'>Move. <strong> Nourish. </strong>Plan. <strong>Thrive.</strong></h3>
               <br/>
                 <div className='row justify-content-center align-items-center'>
                   <div className='col-md-5 text-center text-md-start'>

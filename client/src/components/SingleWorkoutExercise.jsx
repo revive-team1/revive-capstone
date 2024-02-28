@@ -21,9 +21,10 @@ const SingleWorkoutExercise = ({ user_id }) => {
   }
 
   return (
+    <div className='workoutExercisesCard'>
     <div className='row row-cols-sm-1 justify-content-center row-cols-md-4 g-4'>
-      <div key={data.workout_id} className='col-6 col-lg-6 p-2'>
-        <div className='card border-2 h-100'>
+      <div key={data.workout_id} className='col-6 col-lg-6 p-2 col-md-8'>
+        <div className='workoutExercisesCard'>
           <h2 className='card-title text-center'>{data.workout_name}</h2>
           <p className='card-body text-center py-6'>Description: <span className='lead card-subtitle'>{data.workout_description}</span></p>
           <>
@@ -53,6 +54,8 @@ const SingleWorkoutExercise = ({ user_id }) => {
           )}
         </div>
       </div>
+    </div>
+
     </div>
   )
 }

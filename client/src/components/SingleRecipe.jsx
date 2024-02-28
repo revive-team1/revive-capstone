@@ -30,7 +30,7 @@ function SingleRecipe({ user_id }) {
       <div className='row row-cols-sm-1 justify-content-center row-cols-md-4 g-4'>
 
         <div className='col-6 col-lg-6 p-2'>
-          <div className='card border-2 h-100'>
+          <div className='recipe'>
             <h2 className='card-title text-center'>{recipe.name}</h2>
             <img src={recipe.imgurl} className='card-img-top m-1'/>
             <h5 className='card-subtitle mb-2 text-body-secondary m-1'>Difficulty Level: {recipe.difficulty}</h5>

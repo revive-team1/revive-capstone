@@ -36,13 +36,13 @@ function Recipes() {
         <br></br>
         <div className='d-flex flex-wrap justify-content-center'>
           <button className='btn btn-light m-1'>
-            <a href='www.tiktok.com' target='blank' className='nav-link'>tiktok</a>
+            <a href='https://www.tiktok.com/@theiranianvegan/video/7319620575515872544?_r=1&_t=8kD7VuPsssJ' target='blank' className='nav-link'>tiktok</a>
           </button>
           <button className='btn btn-light m-1'>
-            <a href='www.tiktok.com' target='blank' className='nav-link'>tiktok</a>
+            <a href='https://www.tiktok.com/@jenneatsgoood/video/7195764885920288046?lang=en' target='blank' className='nav-link'>tiktok</a>
           </button>
           <button className='btn btn-light m-1'>
-            <a href='www.tiktok.com' target='blank' className='nav-link'>tiktok</a>
+            <a href='https://www.tiktok.com/@thekoreanvegan/video/7294337410471628075?_r=1&_t=8kD7Wp7howI' target='blank' className='nav-link'>tiktok</a>
           </button>
           <br />
         </div>
@@ -51,17 +51,17 @@ function Recipes() {
         <br></br>
         <h2 className='fw-light'>Recipe Library</h2>
         <div className='d-flex justify-content-center'>
-          <input className='form-control w-25 text-center' id="searchbar" placeholder="Search Recipes..." type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
+          <input className='form-control w-75 text-center' id="searchbar" placeholder="Search Recipes..." type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
         </div>
       </div>
       <div>
         
-        <div className='row'>
+        <div className='row row-cols-1 row-cols-md-2 row-cols-lg-4 justify-content-center'>
           {searchResults.map((recipe) => {
             return (
               <>
-                <div className='col-md-4'>
-                  <div className='card m-3'>
+                <div className='card p-3 m-5'>
+                  <div>
                     <img src={recipe.imgurl} alt={recipe.name} className='card-img-top' height={'400px'} />
                     <div className='card-body'>
                       <h4 className='card-title'>{recipe.name}</h4>
@@ -70,10 +70,11 @@ function Recipes() {
                       {/* <p>{recipe.description}</p> */}
 
                       <div className='p-3 m-3'>
-
+                      <div className='foodButton'>
                         <Link to={`/recipes/${recipe.recipe_id}`} className='btn btn-outline-dark'>
                           See Details
                         </Link>
+                      </div>
                       </div>
                     </div>
                   </div>

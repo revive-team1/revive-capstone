@@ -296,28 +296,122 @@ button:focus-visible {
   width: 900px;
 }
 
-.accountPhoto{
-  width: 600px;
-}
 
+.accountPhoto{
+  width: fit-content;
+  margin: 0 auto;
+  justify-content: center;
+  max-width: 600px;
+}
+@media screen and (max-width: 500px) {
+  .accountPhoto {
+    width: 100%;
+  }
+  .mainPhoto{
+    width: 100%;
+  }
+  .mainHeader2{
+    width: 100%;
+  }
+  .calendar-card{
+   width : 100%;
+  }
+  .calendar-grid{
+    width : 100%;
+    justify-content:center;
+   }
+   .dayNames{
+    width : 100%;
+   }
+   .calendar-day{
+    height: 35px;
+
+   }
+   .greenCalendarSquare{
+    height: 35px;
+
+   }
+   .modal{
+    width: 90%;
+    justify-content: center;
+    height: 325px;
+
+   }
+   .singleDayContainer{
+    width: 250px;
+    justify-content: center;
+    border: white;
+   }
+   
+   .singleDayHeader{
+    width: 100%;
+    justify-content: center;
+    margin: 0 auto;
+   }
+
+   .login-register-container {
+    width: auto;
+
+   }
+    .workoutExercisesCard {
+    width: 350px;
+    margin-left: -50px;
+    margin-top: 30px;
+
+   }
+   .recipe{
+    width: 350px;
+    margin-left: -65px;
+    margin-top: 30px;
+
+   }
+
+   
+
+
+}
 .mainHeader {
 text-align: left;
 }
 
 .mainHeader2 {
-  width: 900px;
   text-align: center;
+  justify-content: center;
   margin: 0 auto; 
+  
 }
 
 .singleDayContainer {
   border: solid;
-  width: 700px;
+  /* width: 600px; */
   margin: 0 auto;
 }
 
 .login-register-container{
   margin-top: 50px;
-  width: 400px;
+  width: 300px;
   margin: 0 auto;
 }
+
+.selfCareButton {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 10px;
+}
+
+.foodButton {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 10px;
+}
+
+
+#selfCareCard {
+  height: 400px;
+}
+
+

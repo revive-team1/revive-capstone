@@ -40,12 +40,12 @@ export default function SelfCare() {
           <br></br>
         </div>
         <br></br>
-        <img className='card-img img-responsive' src={photo13} alt='bowls with brush'></img> <br/>
+        <img className="accountPhoto" src={photo13} alt='bowls with brush'></img> <br/>
         <br></br>
         <h2 className='d-flex justify-content-center fw-light'>Self Care Library</h2>
         <br></br>
         <form className='d-flex justify-content-center'>
-          <input className='form-control text-center' placeholder="Search activities here..."
+          <input className='form-control w-75 text-center' placeholder="Search activities..."
             onChange={(e) => setSearch(e.target.value)} />
         </form>
       </div>    
@@ -58,9 +58,11 @@ export default function SelfCare() {
             <img className='justify-content-center align-items-center' src={new URL(`${selfCareIdea.imgurl}`, import.meta.url).href} alt={selfCareIdea.name}></img>
             <br />
             <br />
+            <div className='selfCareButton'>
             <button className='btn btn-outline-dark' onClick={() => {
               navigate(`/selfCare/${selfCareIdea.selfcare_id}`)
             }}>See Details</button>
+            </div>
           </div>
         ))}
       </div>
