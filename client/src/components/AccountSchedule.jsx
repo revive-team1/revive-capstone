@@ -31,7 +31,7 @@ function AccountSchedule({ user_id, setTodaysAppointments, todaysAppointments })
   
     return formattedDate
   }
-  console.log(formatDate(today))
+
   function timeToDigits(time) {
     return time.charAt(0)+ time.charAt(1) + time.charAt(3) + time.charAt(4)
   }
@@ -62,10 +62,6 @@ function AccountSchedule({ user_id, setTodaysAppointments, todaysAppointments })
   
 
   const [modal, setModal] = useState(false)
-  
-  function toggleAppointmentModal() {
-    setModal(!modal)
-  }
 
 
   useEffect(() => {

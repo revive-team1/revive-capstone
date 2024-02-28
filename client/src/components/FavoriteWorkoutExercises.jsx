@@ -27,8 +27,12 @@ export default function FavoriteWorkoutExercises({ user }) {
   if(!favoriteWorkoutExercises.length) {
     return (
     <>
+    <br/>
       <div className="favoritesContainer">
-      <p className ="noFavoritesMessage">You do not currently have any favorite exercises saved.</p>
+      <h3 className="favoritesHeading">{`${user.firstname}`}'s Favorite Workouts</h3>
+      <div className="breakLine"></div>
+      <br/>
+      <p className ="noFavoritesMessage">You do not currently have any favorite workouts saved.</p> <br/>
       <div className="favoritesPageButton">
         <button className='btn btn-outline-dark' onClick={() => {
           navigate(`/workouts`);

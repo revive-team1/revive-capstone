@@ -54,10 +54,12 @@ const Register = ( {setUser}) => {
 
   return (
     <>
-      <h1>Register</h1>
+    <br/> <br/> <br/> <br/>
+      <h1 className="m-4">Register</h1>
+      <div className="longBreakLine"></div> <br/>
       {errorMessage && <p>{errorMessage}</p>}
       <div>
-        <form onSubmit={handleRegister} className='register-container-sm'>
+        <form onSubmit={handleRegister} className='login-register-container'>
           <div className='form-floating mb-3'>
             <input
               className='form-control'
@@ -131,7 +133,8 @@ const Register = ( {setUser}) => {
             <label htmlFor='floatingPassword'>Password: {''}</label>
           </div>
           {successMessage && <p>{successMessage}</p>}
-          <button type='submit'>Register</button>
+          <br/>
+          <button className='btn btn-outline-dark' type='submit'>Register</button>
         </form>
       </div>
     </>

@@ -309,3 +309,9 @@ text-align: left;
   width: 700px;
   margin: 0 auto;
 }
+
+.login-register-container{
+  margin-top: 50px;
+  width: 400px;
+  margin: 0 auto;
+}

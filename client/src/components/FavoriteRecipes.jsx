@@ -27,7 +27,11 @@ export default function FavoriteExercises({ user }) {
   if(!favoriteRecipes.length) {
     return (
     <>
+    <br/>
     <div className="favoritesContainer">
+    <h3 className="favoritesHeading">{`${user.firstname}`}'s Favorite Recipes</h3>
+    <div className="breakLine"></div>
+    <br/>
       <p className ="noFavoritesMessage">You do not currently have any favorite recipes saved.</p>
       <div className="favoritesPageButton">
         <br/>
