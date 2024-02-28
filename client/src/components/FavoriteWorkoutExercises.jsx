@@ -16,7 +16,6 @@ export default function FavoriteWorkoutExercises({ user }) {
           },
         });
         const result = await response.json();
-        console.log(result)
         setFavoriteWorkoutExercises(result);
       } catch (error) {
         console.error(error);
@@ -49,7 +48,7 @@ export default function FavoriteWorkoutExercises({ user }) {
           <>
           <div key={favoriteWorkoutExercise.workout_id} className="favorite-card">
             <div className="exercise-details">
-              <span className="favoriteExerciseName">  {favoriteWorkoutExercise.workout_name} </span> <br /> <br/>
+              <span className="favoriteName">  {favoriteWorkoutExercise.workout_name} </span> <br /> <br/>
               <div className="shortBreakLine"></div> <br/>
   
               <button className="btn btn-outline-dark" onClick = {() => {

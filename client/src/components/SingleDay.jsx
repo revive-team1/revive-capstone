@@ -74,6 +74,11 @@ function SingleDay({ user_id, date, setAppointments, appointments }) {
   return (
     <>
     <br/>
+    <h1>Calendar</h1>
+    <div className="longBreakLine"></div> <br/>
+    <br/>
+    <div className="singleDayContainer">
+    <br/>
       <h2> Events for {clickedDate}</h2>
       <div className="longBreakLine"></div>
       <br/>
@@ -85,8 +90,8 @@ function SingleDay({ user_id, date, setAppointments, appointments }) {
       sortAppointments(appointments).map((appointment) => (
         <>
         <div className="scheduleBlock">
-          <h3>{getFormattedTime(timeToDigits(appointment.activity_time))}: {appointment.activity_name}</h3>
-          {/* <h3>{appointment.activity_name}</h3> */}
+          <h3>{getFormattedTime(timeToDigits(appointment.activity_time))}</h3>
+          <h3>{appointment.activity_name}</h3>
           <p>{appointment.activity_description}</p>
           <RemoveCalendarAppointmentButton calendar_id={appointment.calendar_id} appointments={appointments} appointment={appointment} setAppointments={setAppointments}/>
           <br/>
@@ -95,15 +100,15 @@ function SingleDay({ user_id, date, setAppointments, appointments }) {
         </div>
         </>
       )))}
-      {/* <br/> */}
-      {/* <div className="breakLine"></div> */}
     
-      <br/>
       <div>
         <button className='btn btn-outline-dark' onClick={toggleAppointmentModal}>Add Event</button> 
       </div> <br/>
       <div>
         <button className='btn btn-outline-dark' onClick={() => navigate(`/calendar`)}>Back to Calendar</button> 
+        <br/> <br/>
+      </div>
+
       </div>
 
       {modal ? ( 

@@ -20,7 +20,7 @@ export default function FavoriteRecipesButton({ user_id, recipe_id, setFavoriteR
 
 return (
   <div className="favoriteButton">
-    <button onClick={() => {
+    <button className='btn btn-outline-dark' onClick={() => {
     handleClick();
     alert("This recipe has been added to your favorites.")
     }}>Add to Favorites</button>

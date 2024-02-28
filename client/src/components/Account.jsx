@@ -5,6 +5,7 @@ import FavoriteWorkoutExercises from './FavoriteWorkoutExercises'
 import FavoriteRecipes from './FavoriteRecipes'
 import SelfCareChecklist from './SelfCareChecklist'
 import AccountSchedule from './AccountSchedule'
+import photo8 from '../assets/photo8.png'
 
 export default function Account({ todaysAppointments, setTodaysAppointments, user, favoriteRecipes, setFavoriteRecipes, favoriteWorkoutExercises, setFavoriteWorkoutExercises, setUser, favoriteSelfCare, setFavoriteSelfCare }) {
 
@@ -19,12 +20,16 @@ export default function Account({ todaysAppointments, setTodaysAppointments, use
      <br/>
       <h2 className="accountHeading">Account Information</h2>
       <div className="breakLine"></div>
-      
       <div className="accountDetails">
         <br/>
         <span>Name: {user.firstname} {user.lastname}</span><br />
         <span>Username: {user.username}</span><br/> 
+      
       </div>
+      
+      <br/> <br/>
+      <img className="accountPhoto" src={photo8}></img> <br/> <br/>
+
       <div ><AccountSchedule todaysAppointments={todaysAppointments} setTodaysAppointments={setTodaysAppointments} user={user} user_id={user.user_id}/> </div>
       <div className="favoritesCard"><FavoriteWorkoutExercises favoriteWorkoutExercises= {favoriteWorkoutExercises} setFavoriteWorkoutExercises={setFavoriteWorkoutExercises} user ={user} setUser = {setUser}/> </div>
       <div className="favoritesCard"><FavoriteRecipes user={user} setUser = {setUser} favoriteRecipes = {favoriteRecipes} setFavoriteRecipes={setFavoriteRecipes}/> </div>

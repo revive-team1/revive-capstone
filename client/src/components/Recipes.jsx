@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import photo3 from '../assets/photo3.png'
 import RecipesBackgroundTemp from '../assets/RecipesBackgroundTemp.jpg'
+
 
 function Recipes() {
   const [recipeList, setRecipeList] = useState([])
@@ -47,6 +49,7 @@ function Recipes() {
           </div>
         </div>
       </div>
+      <img className="accountPhoto" src={photo3}></img> <br/> <br/>
       <div>
         <div>
           <h2 className='fw-light'>Recipe Library</h2>
