@@ -16,8 +16,8 @@ export default function AddCalendarAppointment({ setUserAppointmentsByDay, userA
   async function handleSubmit() {
     // event.preventDefault();
     try {
-      const response = await fetch('http://localhost:8080/api/calendars/', {
-      // const response = await fetch('https://revive-capstone.onrender.com/api/calendars/', {
+      // const response = await fetch('http://localhost:8080/api/calendars/', {
+      const response = await fetch('https://revive-capstone.onrender.com/api/calendars/', {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',

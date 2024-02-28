@@ -63,8 +63,8 @@ const Calendar = ({user_id, date, setDate, appointments, setAppointments}) => {
     const fetchSingleCalendarDay = async () => {
       try {
         if (user_id) {
-          const response = await fetch(`http://localhost:8080/api/calendars/${user_id}`);
-          // const response = await fetch(`https://revive-capstone.onrender.com/api/calendars/${user_id}`);
+          // const response = await fetch(`http://localhost:8080/api/calendars/${user_id}`);
+          const response = await fetch(`https://revive-capstone.onrender.com/api/calendars/${user_id}`);
           const result = await response.json();
           setUserAppointmentsByDay(result);
         }

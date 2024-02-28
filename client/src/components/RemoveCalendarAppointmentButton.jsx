@@ -4,8 +4,8 @@ export default function RemoveCalendarAppointmentButton({ calendar_id, appointme
 
   async function handleClick() {
     try {
-      const response = await fetch(`http://localhost:8080/api/calendars/${calendar_id}`, {
-      // const response = await fetch(`https://revive-capstone.onrender.com/api/calendars/${calendar_id}`, {
+      // const response = await fetch(`http://localhost:8080/api/calendars/${calendar_id}`, {
+      const response = await fetch(`https://revive-capstone.onrender.com/api/calendars/${calendar_id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

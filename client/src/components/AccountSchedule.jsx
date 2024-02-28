@@ -68,8 +68,8 @@ function AccountSchedule({ user_id, setTodaysAppointments, todaysAppointments })
 
     const fetchTodaysSchedule = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/api/calendars/${user_id}/${formatDate(today)}`);
-        // const response = await fetch(`https://revive-capstone.onrender.com/api/calendars/${user_id}/${formatDate(today)}`);
+        // const response = await fetch(`http://localhost:8080/api/calendars/${user_id}/${formatDate(today)}`);
+        const response = await fetch(`https://revive-capstone.onrender.com/api/calendars/${user_id}/${formatDate(today)}`);
         const result = await response.json();
         setTodaysAppointments(result)
       } catch (error) {

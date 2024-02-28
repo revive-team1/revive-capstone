@@ -1,39 +1,11 @@
-//import CalendarDay to calendars
-//comment out getCalendarApptsById
-//remove "appointment" from getApptsbyUserID and replace with rows (use get all calendar appts as reference). In SQL helper functions
-//comment out "calendarDays" in calendar
-//Create blueSquare class in CSS
-
 import React from 'react'
 import { useState, useEffect } from "react";
 import { useNavigate }  from 'react-router-dom';
-
 
 const CalendarDay = ({ userAppointmentsByDay, user_id, day, calendarYear, calendarMonth, setDate }) => {
   const navigate = useNavigate()
   let formattedDay = `${day}`;
   let formattedMonth = `${calendarMonth+1}`;
-  
-  // useEffect(() => {
-
-  //   const fetchSingleCalendarDay = async () => {
-  //     try {
-  //       const response = await fetch(`http://localhost:8080/api/calendars/${user_id}`);
-  //       const result = await response.json();
-  //       // const appts = result;
-  //       // console.log (appts.filter((appt)=> {
-  //       //   return new Date(appt.activity_date).getDate() === day
-  //       // }))
-  //       setUserAppointmentsByDay(result)
-  //       console.log(result)
-      
-  //     } catch (error) {
-  //       console.error(error)
-  //     }
-  //   }
-  //   fetchSingleCalendarDay()
-  // }, []);
-
 
 
   function formatDate() {

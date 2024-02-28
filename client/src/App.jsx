@@ -32,8 +32,8 @@ function App() {
     const fetchUserInfo = async (user_id) => {
 
       try {
-        const response = await fetch(`http://localhost:8080/api/users/${user_id}`);
-        // const response = await fetch(`https://revive-capstone.onrender.com/api/users/${user_id}`);
+        // const response = await fetch(`http://localhost:8080/api/users/${user_id}`);
+        const response = await fetch(`https://revive-capstone.onrender.com/api/users/${user_id}`);
         const result = await response.json();
         setUser(result)
       } catch (error) {

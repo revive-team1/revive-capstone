@@ -3,8 +3,8 @@ export default function RemoveFavoriteSelfCareButton({ activity, favoriteSelfCar
 
     async function handleClick() {
       try {
-        const response = await fetch(`http://localhost:8080/api/favoriteSelfCare/${activity.favorite_id}`, {
-        // const response = await fetch(`https://revive-capstone.onrender.com/api/favoriteSelfCare/${favoriteSelfCare.selfcare_id}`, {
+        // const response = await fetch(`http://localhost:8080/api/favoriteSelfCare/${activity.favorite_id}`, {
+        const response = await fetch(`https://revive-capstone.onrender.com/api/favoriteSelfCare/${favoriteSelfCare.selfcare_id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
