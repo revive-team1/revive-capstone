@@ -24,9 +24,9 @@ const Workouts = ({ user_id }) => {
     return (
         <>
             <div className='card bg-none text-white p-0 m-1'>
-                <img src={newGymBackground} alt='interior of a gym' className='card-img img-responsive' width={'400px'} height={'375px'}></img>
+                <img src={newGymBackground} alt='interior of a gym' className='card-img img-responsive' width={'auto'} height={'375px'}></img>
                 <div className='card-img-overlay d-flex justify-content-center'>
-                    <div className='row '>
+                    <div className='row'>
                         <div >
                             <h1 className='card-title m-4'>Trainer Spotlight</h1>
                             <button className='btn btn-light m-1'>

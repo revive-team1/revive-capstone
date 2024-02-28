@@ -50,10 +50,7 @@ const SingleWorkoutExercise = ({ user_id }) => {
               {console.log(user_id, data.workout_id)}
               <button className='btn btn-outline-dark m-2' type='button' role='button'><Link className='nav-link' to='/workouts'>Return to All Workouts</Link></button>
             </div>
-
           )}
-
-
         </div>
       </div>
     </div>

@@ -353,7 +353,7 @@ const recipes = [
     name: "Grilled Salmon with Asparagus",
     difficulty: "Easy",
     recipe_yield: 4,
-    imgUrl: "https://hips.hearstapps.com/del.h-cdn.co/assets/16/21/1600x900/hd-aspect-1464200367-delish-grilled-salmon-foil-pack.jpg?resize=1200:*",
+    imgUrl: "https://www.lecremedelacrumb.com/wp-content/uploads/2017/06/herb-butter-salmon-asparagus-foil-packs-104.jpg",
     description: "On foil, place asparagus and top with 2 salmon fillet, a tablespoon of butter and 2 lemon slices. Loosely wrap in the foil and heat on the grill until salmon is cooked through, about 10 minutes. Garnish with dill, and salt and pepper to taste. (Recipe by delish.com)",
   },
   {

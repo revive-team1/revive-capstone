@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import RecipesBackgroundTemp from '../assets/RecipesBackgroundTemp.jpg'
 
 function Recipes() {
   const [recipeList, setRecipeList] = useState([])
@@ -27,55 +28,63 @@ function Recipes() {
 
   return (
     <>
-<div>
-
-      <div id='spotlight' className='border border-2 border-black p-5 m-5'>
-        <h1 className='m-4'>Chef Spotlight</h1>
-        <a href='www.tiktok.com' className='border border-2 border-black p-2 m-3'>tiktok</a>
-        <a href='www.tiktok.com' className='border border-2 border-black p-2 m-3'>tiktok</a>
-        <a href='www.tiktok.com' className='border border-2 border-black p-2 m-3'>tiktok</a>
+      <div className='card bg-none text-black p-0 m-1'>
+        <img src={RecipesBackgroundTemp} alt='cutting board with food' className='card-img img-responsive' width={'400px'} height={'350px'}></img>
+        <div className='card-img-overlay d-flex justify-content-center'>
+          <div className='row'>
+            <div>
+              <h1 className='card-title m-4'>Chef Spotlight</h1>
+              <button className='btn btn-light m-1'>
+                <a href='www.tiktok.com' target='blank' className='nav-link'>tiktok</a>
+              </button>
+              <button className='btn btn-light m-1'>
+                <a href='www.tiktok.com' target='blank' className='nav-link'>tiktok</a>
+              </button>
+              <button className='btn btn-light m-1'>
+                <a href='www.tiktok.com' target='blank' className='nav-link'>tiktok</a>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
       <div>
-        <div className='d-flex justify-content-center' id="searchbarContainer">
-          <input className='form-control w-25 text-center' id="searchbar" placeholder="Search Recipes" type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
+        <div>
+          <h2 className='fw-light'>Recipe Library</h2>
+        </div>
+        <div className='d-flex justify-content-center'>
+          <input className='form-control w-25 text-center' id="searchbar" placeholder="Search Recipes..." type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
         </div>
 
-        <div className='row row-cols-1 row-cols-md-2 row-cols-lg-4 justify-content-center'>
 
 
+        <div className='row'>
           {searchResults.map((recipe) => {
             return (
               <>
+                <div className='col-md-6'>
+                  <div className='card m-3'>
+                    <img src={recipe.imgurl} alt={recipe.name} className='card-img-top' height={'500px'} />
+                    <div className='card-body'>
+                      <h3 className='card-title'>{recipe.name}</h3>
+                      {/* <p>Difficulty: {recipe.difficulty}</p> */}
+                      {/* <p>Serves {recipe.recipe_yield}</p> */}
+                      {/* <p>{recipe.description}</p> */}
 
-                <div id='recipeCard' className='border border-2 border-black p-3 m-5'>
+                      <div className='p-3 m-3'>
 
-                  <img src={recipe.imgurl} alt={recipe.name} style={{ width: '200px', height: '240px', padding: '5px' }}  />
-                  <h3>{recipe.name}</h3>
-                  {/* <p>Difficulty: {recipe.difficulty}</p> */}
-                  {/* <p>Serves {recipe.recipe_yield}</p> */}
-                  {/* <p>{recipe.description}</p> */}
-
-                  <div className='p-3 m-3'>
-
-                    <Link to={`/recipes/${recipe.recipe_id}`}  className='btn btn-outline-dark'>
-                    See Details
-                    </Link>
+                        <Link to={`/recipes/${recipe.recipe_id}`} className='btn btn-outline-dark'>
+                          See Details
+                        </Link>
+                      </div>
+                    </div>
                   </div>
-
                 </div>
-
-
-
-
 
               </>
             )
           })}
         </div>
       </div>
-
-</div>
-    
     </>
   )
 }
