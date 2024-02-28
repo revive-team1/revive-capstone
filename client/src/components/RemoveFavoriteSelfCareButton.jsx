@@ -1,9 +1,9 @@
 
-export default function RemoveFavoriteSelfCareButton({ favoriteSelfCare, setFavoriteSelfCare }) {
+export default function RemoveFavoriteSelfCareButton({ activity, favoriteSelfCareList, setFavoriteSelfCareList }) {
 
     async function handleClick() {
       try {
-        const response = await fetch(`http://localhost:8080/api/favoriteSelfCare/${favoriteSelfCare.selfCare_id}`, {
+        const response = await fetch(`http://localhost:8080/api/favoriteSelfCare/${activity.favorite_id}`, {
         // const response = await fetch(`https://revive-capstone.onrender.com/api/favoriteSelfCare/${favoriteSelfCare.selfcare_id}`, {
           method: "DELETE",
           headers: {
@@ -13,13 +13,13 @@ export default function RemoveFavoriteSelfCareButton({ favoriteSelfCare, setFavo
         const result = await response.json();
         console.log(result)
        
-        setFavoriteSelfCare(favoriteSelfCare.filter((favoriteSelfCare) => favoriteSelfCare.selfCare_id !== result.selfCare_id));
+        setFavoriteSelfCareList(favoriteSelfCareList.filter((activity) => activity.favorite_id !== result.favorite_id));
       } catch (error) {
       }
     }
     return (
-      <div >
-        <button className="bi bi-trash" onClick={() => {
+      <div className="deleteButton">
+        <button  className="btn btn bi bi-trash" onClick={() => {
           handleClick();
         }}></button>
       </div>
