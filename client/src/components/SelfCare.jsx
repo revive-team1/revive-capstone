@@ -23,9 +23,15 @@ export default function SelfCare() {
       <div id='spotlight' className='border border-2 border-black p-5 m-5'>
         <h1 className='m-4'>Self Care Spotlight</h1>
         <div className='d-flex flex-wrap'>
-          <a href='https://www.youtube.com/watch?v=nun1hwBNdm0' className='border border-2 border-black p-2 m-3' target="blank">Self Care Do's & Don'ts</a>
-          <a href='https://www.youtube.com/watch?v=Mqqxi8mt4t0' className='border border-2 border-black p-2 m-3' target="blank">Small Ways to Practice Self-Care in Difficult Times</a>
-          <a href='https://www.youtube.com/watch?v=q5viyKoCikI' className='border border-2 border-black p-2 m-3' target="blank">What is self-care and why is it important?</a>
+        <button className='btn btn-light m-1'>
+            <a href='https://www.youtube.com/watch?v=nun1hwBNdm0' className='nav-link' target="blank">Self Care Do's & Don'ts</a>
+          </button>
+          <button className='btn btn-light m-1'>
+            <a href='https://www.youtube.com/watch?v=Mqqxi8mt4t0' className='nav-link' target="blank">Small Ways to Practice Self-Care in Difficult Times</a>
+          </button>
+          <button className='btn btn-light m-1'>
+            <a href='https://www.youtube.com/watch?v=q5viyKoCikI' className='nav-link' target="blank">What is self-care and why is it important?</a>
+          </button>
         </div>
       </div>
       <br />
