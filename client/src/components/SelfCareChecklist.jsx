@@ -1,11 +1,13 @@
 
 import { useEffect, useState } from "react";
+import { useNavigate }  from 'react-router-dom';
 import RemoveFavoriteSelfCareButton from "./RemoveFavoriteSelfCareButton";
 
 export default function SelfCareChecklist({ user }) {
-  const [favoriteSelfCare, setFavoriteSelfCare] = useState([])
+  const navigate = useNavigate()
+  const [favoriteSelfCareList, setFavoriteSelfCareList] = useState([])
   useEffect(() => {
-    async function fetchFavoriteSelfCare() {
+    async function fetchFavoriteSelfCareList() {
       try {
         const response = await fetch(`http://localhost:8080/api/favoriteSelfCare/user/${user.user_id}`, {
         // const response = await fetch(`https://revive-capstone.onrender.com/api/favoriteSelfCare/user/${user.user_id}`, {
@@ -15,49 +17,16 @@ export default function SelfCareChecklist({ user }) {
         });
         const result = await response.json();
         console.log(result)
-        setFavoriteSelfCare(result);
+        setFavoriteSelfCareList(result);
       } catch (error) {
         console.error(error);
       }
     }
-    fetchFavoriteSelfCare();
+    fetchFavoriteSelfCareList();
   }, []);
 
-  // if (!favoriteSelfCare.length) {
-  //   return (
-  //     <>
-  //       <div className="favoritesContainer">
-  //         <p className="noFavoritesMessage">You do not currently have any Self Care activities saved.</p>
-  //         <div className="favoritesPageButton">
-  //           <br />
-  //           <button onClick={() => {
-  //             navigate(`/selfcare`);
-  //           }}>Explore Self Care Activities</button>
-  //         </div>
-  //       </div>
-  //     </>)
-  // }
-
   const [items, setItems] = useState([]);
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-
-  const handleNameChange = (event) => {
-    setName(event.target.value);
-  };
-
-  const handleDescriptionChange = (event) => {
-    setDescription(event.target.value);
-  };
-
-  const handleAddItem = () => {
-    if (name.trim() !== '' && description.trim() !== '') {
-      setItems([...items, { name: name, description: description, checked: false }]);
-      setName('');
-      setDescription('');
-    }
-  };
-
+  
   const toggleItem = (index) => {
     const updatedItems = [...items];
     updatedItems[index].checked = !updatedItems[index].checked;
@@ -69,21 +38,6 @@ export default function SelfCareChecklist({ user }) {
       <h3 className="favoritesHeading">{`${user.firstname}`}'s Self Care Checklist</h3>
       <div className="breakLine"></div>
       <br />
-      {/* <input
-        className="checklistInput"
-        type="text"
-        value={name}
-        onChange={handleNameChange}
-        placeholder="Self Care Activity"
-      />
-      <input
-        className="checklistInput"
-        type="text"
-        value={description}
-        onChange={handleDescriptionChange}
-        placeholder="Description"
-      /> */}
-      {/* <button onClick={handleAddItem}>Add</button> */}
       <table className="table table-striped">
         <thead>
           <tr>
@@ -94,13 +48,12 @@ export default function SelfCareChecklist({ user }) {
           </tr>
         </thead>
         <tbody className="checklistBody">
-          {favoriteSelfCare.map((activity, index) => (
+          {favoriteSelfCareList.map((activity, index) => (
             <tr key={index}>
-              < RemoveFavoriteSelfCareButton
-              favoriteSelfCare ={favoriteSelfCare}
-              setFavoriteSelfCare={setFavoriteSelfCare}/>
-
-              
+              <td>< RemoveFavoriteSelfCareButton
+                activity={activity}
+                favoriteSelfCareList ={favoriteSelfCareList}
+                setFavoriteSelfCareList={setFavoriteSelfCareList}/></td>
               <td>{activity.name}</td>
               <td>{activity.description}</td>
               <td>
@@ -113,22 +66,6 @@ export default function SelfCareChecklist({ user }) {
             </tr>
           ))}
         </tbody>
-        
-        {/* <tbody className="checklistBody">
-          {items.map((item, index) => (
-            <tr key={index}>
-              <td>{item.name}</td>
-              <td>{item.description}</td>
-              <td>
-                <input
-                  type="checkbox"
-                  checked={item.checked}
-                  onChange={() => toggleItem(index)}
-                />
-              </td>
-            </tr>
-          ))}
-        </tbody> */}
       </table>
     </div>
   );

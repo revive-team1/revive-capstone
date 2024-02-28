@@ -27,42 +27,37 @@ function SingleRecipe({ user_id }) {
 
   return (
     <>
-      <div className='d-flex justify-content-center p-5'>
+      <div className='row row-cols-sm-1 justify-content-center row-cols-md-4 g-4'>
 
-        <div className='h-50 w-50'>
+        <div className='col-6 col-lg-6 p-2'>
+          <div className='card border-2 h-100'>
+            <h2 className='card-title text-center'>{recipe.name}</h2>
+            <img src={recipe.imgurl} className='card-img-top m-1'/>
+            <h5 className='card-subtitle mb-2 text-body-secondary m-1'>Difficulty Level: {recipe.difficulty}</h5>
+            <h5 className='card-subtitle mb-2 text-body-secondary m-1'>Serves {recipe.recipe_yield}</h5>
+            <p className='lead card-subtitle'><strong>Instructions:</strong> {recipe.description}</p>
+            <div className='button'>
+              <Link
+                to="/recipes" className='btn btn-outline-dark m-2'>
+                Back
+              </Link>
+            </div>
 
-          <h2 className='p-5'>{recipe.name}</h2>
-          <img src={recipe.imgurl} className='singlePageImg p-5' />
-          <h5>Difficulty Level: {recipe.difficulty}</h5>
-          <h5>Serves {recipe.recipe_yield}</h5>
-          <p className='p-5'>Instructions: {recipe.description}</p>
-          <div className='button'>
-            <Link
-              to="/recipes" className='btn btn-outline-dark m-2'>
-              Back
-            </Link>
-          </div>
+            <div>
 
-          <div>
-
-            {(!token) ? (
-              <>
-                <button className='btn btn-outline-dark' type='button' role='button'><Link to='/login'>Login to Like Recipe</Link></button>
-              </>
-            ) : (
-              <>
-                <FavoriteRecipesButton className='btn btn-outline-dark' type='button' role='button' user_id={user_id} recipe_id={recipe.recipe_id}/>
-              </>
-            )}
-
-
+              {(!token) ? (
+                <>
+                  <button className='btn btn-outline-dark' type='button' role='button'><Link className='nav-link' to='/login'>Login to Like Recipe</Link></button>
+                </>
+              ) : (
+                <>
+                  <FavoriteRecipesButton className='btn btn-outline-dark' type='button' role='button' user_id={user_id} recipe_id={recipe.recipe_id} />
+                </>
+              )}
+            </div>
           </div>
         </div>
-
       </div>
-
-
-
     </>
   )
 }
