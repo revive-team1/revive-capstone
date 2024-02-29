@@ -35,7 +35,7 @@ export default function Account({ todaysAppointments, setTodaysAppointments, use
       <div className="favoritesCard"><FavoriteRecipes user={user} setUser = {setUser} favoriteRecipes = {favoriteRecipes} setFavoriteRecipes={setFavoriteRecipes}/> </div>
     </div>
     <div className="selfCareChecklist">{<SelfCareChecklist user={user} setUser = {setUser} favoriteSelfCare={favoriteSelfCare} setFavoriteSelfCare={setFavoriteSelfCare}/>}</div>
-    </div> <br/>
+    </div>
     <div>
         <button className='btn btn-outline-dark justify-content-center' onClick={() => navigate(`/selfcare`)}>Explore Self-Care Ideas</button> 
     </div>
