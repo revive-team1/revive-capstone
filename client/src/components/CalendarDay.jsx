@@ -28,7 +28,7 @@ const CalendarDay = ({ userAppointmentsByDay, user_id, day, calendarYear, calend
     navigate(`/calendar/${user_id}/${newDate}`)
     console.log(newDate);
   }
-  const currentDateString = new Date(calendarYear, calendarMonth, day).toDateString();
+  const currentDateString = new Date(calendarYear, calendarMonth, day-1).toDateString();
   const dayClassName = userAppointmentsByDay.some((appt) => new Date(appt.activity_date).toDateString() === currentDateString)
     ? "greenCalendarSquare"
     : "calendar-day";
