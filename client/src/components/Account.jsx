@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
+import { useNavigate} from 'react-router-dom';
 import FavoriteWorkoutExercises from './FavoriteWorkoutExercises'
 import FavoriteRecipes from './FavoriteRecipes'
 import SelfCareChecklist from './SelfCareChecklist'
@@ -7,7 +8,7 @@ import AccountSchedule from './AccountSchedule'
 import photo8 from '../assets/photo8.png'
 
 export default function Account({ todaysAppointments, setTodaysAppointments, user, favoriteRecipes, setFavoriteRecipes, favoriteWorkoutExercises, setFavoriteWorkoutExercises, setUser, favoriteSelfCare, setFavoriteSelfCare }) {
-
+  const navigate = useNavigate()
   return (
     <>
     <div className="accountPage">
@@ -34,6 +35,9 @@ export default function Account({ todaysAppointments, setTodaysAppointments, use
       <div className="favoritesCard"><FavoriteRecipes user={user} setUser = {setUser} favoriteRecipes = {favoriteRecipes} setFavoriteRecipes={setFavoriteRecipes}/> </div>
     </div>
     <div className="selfCareChecklist">{<SelfCareChecklist user={user} setUser = {setUser} favoriteSelfCare={favoriteSelfCare} setFavoriteSelfCare={setFavoriteSelfCare}/>}</div>
+    </div> <br/>
+    <div>
+        <button className='btn btn-outline-dark justify-content-center' onClick={() => navigate(`/selfcare`)}>Explore Self-Care Ideas</button> 
     </div>
 
     <br/> <br/> <br/> <br/> <br/>
