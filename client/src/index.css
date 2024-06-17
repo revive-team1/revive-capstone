@@ -326,6 +326,7 @@ button:focus-visible {
     height: 35px;
     width: 38px;
     color: black;
+    padding-right: 2px;
 
    }
    .greenCalendarSquare{
