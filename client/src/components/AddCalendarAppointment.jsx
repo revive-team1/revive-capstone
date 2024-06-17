@@ -41,7 +41,7 @@ export default function AddCalendarAppointment({ setUserAppointmentsByDay, userA
         <div className="modal-content">
           <h3>Add Calendar Event</h3>
           <label>
-          Date: <input className="appointmentInput" type="date" defaultValue= "mm/dd/yyyy"  onChange={(event) => {
+          Date: <input className="appointmentInput" type="date" value={activity_date} onChange={(event) => {
                 setActivityDate(event.target.value)
               }}></input>
           </label>
@@ -53,7 +53,7 @@ export default function AddCalendarAppointment({ setUserAppointmentsByDay, userA
           </label>
 
           <label>
-          Time: <input className="appointmentInput" type="time" defaultValue="00:00 AM/PM"  onChange={(event) => {
+          Time: <input className="appointmentInput" type="time" value={activity_time}onChange={(event) => {
                 setActivityTime(event.target.value)
               }}></input>
           </label>
