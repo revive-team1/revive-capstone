@@ -316,15 +316,17 @@ button:focus-visible {
    width : 100%;
   }
   .calendar-grid{
+    display: flex;
     width : 60%;
     justify-content:center;
+    border: solid;
    }
    .dayNames{
     width : 100%;
    }
    .calendar-day{
     height: 35px;
-    width: 35px;
+    width: 45px;
 
    }
    .greenCalendarSquare{
