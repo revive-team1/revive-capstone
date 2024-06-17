@@ -416,8 +416,4 @@ text-align: left;
   height: 400px;
 }
 
-input[type="time"]:not(.has-value):not(.focus-visible) {
-  color: #EFEFF0;
-}
-
 
