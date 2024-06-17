@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom"
 export default function AddCalendarAppointment({ setUserAppointmentsByDay, userAppointmentsByDay, date, setAppointments, user_id, toggleAppointmentModal }) {
 
 
-  const [activity_date, setActivityDate] = useState("2024-06-17");
+  const [activity_date, setActivityDate] = useState(new Date().toLocaleString("en-CA", {dateStyle:"short"}));
   const [activity_name, setActivityName] = useState("");
   const [activity_time, setActivityTime] = useState("00:00");
   const [activity_description, setActivityDescription] = useState("");
