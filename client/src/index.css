@@ -324,6 +324,7 @@ button:focus-visible {
    }
    .calendar-day{
     height: 35px;
+    width: 35px;
 
    }
    .greenCalendarSquare{
