@@ -6,18 +6,13 @@ import { useNavigate } from "react-router-dom"
 export default function AddCalendarAppointment({ setUserAppointmentsByDay, userAppointmentsByDay, date, setAppointments, user_id, toggleAppointmentModal }) {
 
 
-  const [activity_date, setActivityDate] = useState(formatDateForPicker(new Date()));
+  const [activity_date, setActivityDate] = useState("2024-06-17");
   const [activity_name, setActivityName] = useState("");
-  const [activity_time, setActivityTime] = useState("");
+  const [activity_time, setActivityTime] = useState("00:00");
   const [activity_description, setActivityDescription] = useState("");
   const [activity_link, setActivityLink] = useState("");
   const navigate = useNavigate();
-  function formatDateForPicker(date) {
-    const yyyy = date.getFullYear();
-    const mm = date.getMonth() + 1;
-    const dd = date.getDate();
-    return `${yyyy}-${mm}-${dd}`;
-  }
+ 
   
   async function handleSubmit() {
     // event.preventDefault();
