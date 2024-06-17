@@ -6,12 +6,18 @@ import { useNavigate } from "react-router-dom"
 export default function AddCalendarAppointment({ setUserAppointmentsByDay, userAppointmentsByDay, date, setAppointments, user_id, toggleAppointmentModal }) {
 
 
-  const [activity_date, setActivityDate] = useState("");
+  const [activity_date, setActivityDate] = useState(formatDateForPicker(new Date()));
   const [activity_name, setActivityName] = useState("");
   const [activity_time, setActivityTime] = useState("");
   const [activity_description, setActivityDescription] = useState("");
   const [activity_link, setActivityLink] = useState("");
   const navigate = useNavigate();
+  function formatDateForPicker(date) {
+    const yyyy = date.getFullYear();
+    const mm = date.getMonth() + 1;
+    const dd = date.getDate();
+    return `${yyyy}-${mm}-${dd}`;
+  }
   
   async function handleSubmit() {
     // event.preventDefault();
@@ -41,7 +47,7 @@ export default function AddCalendarAppointment({ setUserAppointmentsByDay, userA
         <div className="modal-content">
           <h3>Add Calendar Event</h3>
           <label>
-          Date: <input className="appointmentInput" type="date" value="mm/dd/yyyy" onChange={(event) => {
+          Date: <input className="appointmentInput" type="date" value={activity_date} onChange={(event) => {
                 setActivityDate(event.target.value)
               }}></input>
           </label>
@@ -53,7 +59,7 @@ export default function AddCalendarAppointment({ setUserAppointmentsByDay, userA
           </label>
 
           <label>
-          Time: <input className="appointmentInput" type="time" value="12:00 AM"onChange={(event) => {
+          Time: <input className="appointmentInput" type="time" value={activity_time}onChange={(event) => {
                 setActivityTime(event.target.value)
               }}></input>
           </label>
