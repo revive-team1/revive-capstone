@@ -331,6 +331,8 @@ button:focus-visible {
    }
    .greenCalendarSquare{
     height: 35px;
+    width: 38px;
+    padding-right: 2px;
 
    }
    .modal{
