@@ -316,7 +316,7 @@ button:focus-visible {
    width : 100%;
   }
   .calendar-grid{
-    width : 80vw;
+    width : 80%;
     justify-content:center;
    }
    .dayNames{
