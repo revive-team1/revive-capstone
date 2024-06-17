@@ -318,7 +318,6 @@ button:focus-visible {
   .calendar-grid{
     width : 100%;
     justify-content:center;
-    border: solid;
    }
    .dayNames{
     width : 100%;
@@ -326,6 +325,7 @@ button:focus-visible {
    .calendar-day{
     height: 35px;
     width: 40px;
+    color: black;
 
    }
    .greenCalendarSquare{
